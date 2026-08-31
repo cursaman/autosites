@@ -11,6 +11,18 @@ Codex와 채팅으로 홈페이지의 디자인과 콘텐츠를 수정하고, �
 - Website: [AutoSites 운영 홈페이지](https://autosites-jd3d.vercel.app)
 - GitHub: [cursaman/autosites 저장소](https://github.com/cursaman/autosites)
 - Production branch: `main`
+- Vercel project: `autosites-jd3d`
+
+## 배포 흐름
+
+```text
+pnpm verify → GitHub main Push → Vercel 자동 배포 → pnpm deployment:status
+```
+
+- 배포 전 검사: `pnpm verify`
+- 배포 후 커밋·상태 확인: `pnpm deployment:status`
+- 대표 배포 설정: [`deployment-target.json`](./deployment-target.json)
+- 상세 운영 및 롤백 절차: [`새기획 08일차 GitHub Vercel 자동 배포.md`](./새기획%2008일차%20GitHub%20Vercel%20자동%20배포.md)
 
 ## 기획 문서
 
