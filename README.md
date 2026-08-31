@@ -8,8 +8,8 @@ Codex와 채팅으로 홈페이지의 디자인과 콘텐츠를 수정하고, �
 
 ## 운영 주소
 
-- Website: https://autosites-jd3d.vercel.app
-- GitHub: https://github.com/cursaman/autosites
+- Website: [AutoSites 운영 홈페이지](https://autosites-jd3d.vercel.app)
+- GitHub: [cursaman/autosites 저장소](https://github.com/cursaman/autosites)
 - Production branch: `main`
 
 ## 기획 문서
