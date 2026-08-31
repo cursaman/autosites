@@ -1,10 +1,13 @@
-import { UserButton } from "@clerk/nextjs";
-import { currentUser } from "@clerk/nextjs/server";
 import Link from "next/link";
+import { redirect } from "next/navigation";
+import { signOut } from "@/app/auth/actions";
+import { createClient } from "@/lib/supabase/server";
 
 export default async function DashboardPage() {
-  const user = await currentUser();
-  const name = user?.firstName ?? user?.emailAddresses[0]?.emailAddress ?? "고객";
+  const supabase = await createClient();
+  const { data: { user } } = await supabase.auth.getUser();
+  if (!user) redirect("/sign-in");
+  const name = user.email ?? "고객";
 
   return (
     <main className="dashboard">
@@ -13,7 +16,7 @@ export default async function DashboardPage() {
           <p className="eyebrow">DASHBOARD</p>
           <h1>{name}님, 반갑습니다.</h1>
         </div>
-        <UserButton />
+        <form action={signOut}><button className="secondary-button" type="submit">로그아웃</button></form>
       </header>
       <section className="dashboard-grid" aria-label="홈페이지 관리">
         <article className="dashboard-card">
