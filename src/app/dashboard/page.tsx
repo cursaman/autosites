@@ -1,12 +1,9 @@
 import Link from "next/link";
-import { redirect } from "next/navigation";
 import { signOut } from "@/app/auth/actions";
-import { createClient } from "@/lib/supabase/server";
+import { requireUser } from "@/lib/auth/require-user";
 
 export default async function DashboardPage() {
-  const supabase = await createClient();
-  const { data: { user } } = await supabase.auth.getUser();
-  if (!user) redirect("/sign-in");
+  const { user } = await requireUser();
   const name = user.email ?? "고객";
 
   return (
@@ -29,6 +26,7 @@ export default async function DashboardPage() {
           <p className="eyebrow">MY SITES</p>
           <h2>아직 생성한 사이트가 없습니다.</h2>
           <p>사이트를 만들면 Preview와 배포 상태가 이곳에 표시됩니다.</p>
+          <Link href="/sites">내 사이트 보기</Link>
         </article>
       </section>
     </main>
