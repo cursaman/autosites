@@ -38,7 +38,7 @@ try {
   console.log("✓ 작업환경 준비와 선택 기능 안내");
 
   const courseHtml = await (await fetchRequired("/course", "text/html")).text();
-  for (const copy of ["4주 만에 내 홈페이지를 만듭니다.", "1기 교육이 진행 중입니다.", "50,000원", "커피긱스 2층 8인룸"]) {
+  for (const copy of ["4주 만에 내 홈페이지를 만듭니다.", "1기 교육이 진행 중입니다.", "50,000원", "커피긱스 2층 8인룸", "당근 모임에서 문의하기"]) {
     assert(courseHtml.includes(copy), `4주 교육과정 페이지 누락: ${copy}`);
   }
   console.log("✓ 4주 교육과정 페이지와 1기 진행 정보");

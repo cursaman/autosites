@@ -140,5 +140,10 @@ export const courseContent = {
     mapUrl: "https://map.kakao.com/link/search/부산광역시%20연제구%20교대로24번길%207",
   },
   preparation: ["개인 노트북", "노트북 충전기", "사용 가능한 이메일 계정"],
-  recruitment: { title: "최대 8명의 소규모 실습", description: "현재 당근을 통해 수강 문의를 받고 있습니다. 당근 게시글 채팅으로 참여 가능 여부를 문의해 주세요.", status: "당근에서 모집 중" },
+  recruitment: {
+    title: "최대 8명의 소규모 실습",
+    description: "현재 당근의 부산 사직동 바이브코딩 모임에서 수강 문의를 받고 있습니다. 모임 페이지에서 참여 가능 여부를 문의해 주세요.",
+    status: "당근에서 모집 중",
+    action: { label: "당근 모임에서 문의하기", href: "https://www.daangn.com/kr/group/%EB%B6%80%EC%82%B0-%EC%82%AC%EC%A7%81%EB%8F%99-%EB%B0%94%EC%9D%B4%EB%B8%8C%EC%BD%94%EB%94%A9-%EB%AA%A8%EC%9E%84-vxbz4quk5ntg/" },
+  },
 } as const;

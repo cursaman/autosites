@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { courseContent } from "@/content/site-content";
 import styles from "./course.module.css";
+import actionStyles from "./recruitment.module.css";
 
 export const metadata: Metadata = {
   title: "초보자를 위한 Codex 홈페이지 제작 4주 과정",
@@ -29,7 +30,7 @@ export default function CoursePage() {
 
         <section id="information" className={`${styles.section} ${styles.container}`} aria-labelledby="information-title"><div className={styles.sectionHeading}><div><p className={styles.eyebrow}>COURSE INFORMATION</p><h2 id="information-title">교육비와 장소 안내</h2></div></div><div className={styles.informationGrid}><article className={styles.feeCard}><p>{fee.label}</p><strong>{fee.amount}</strong><ul>{fee.included.map((item) => <li key={item}>{item}</li>)}</ul></article><article className={styles.venueCard}><p>교육 장소</p><h3>{venue.name}</h3><address>{venue.address}</address><span>{venue.description}</span><strong>{venue.time}</strong><a href={venue.mapUrl} target="_blank" rel="noreferrer">카카오맵에서 위치 보기 ↗</a></article><article className={styles.preparationCard}><p>개인 준비물</p><ul>{preparation.map((item) => <li key={item}>{item}</li>)}</ul><small>Wi-Fi 비밀번호와 설치 과정은 현장에서 안내합니다.</small></article></div></section>
 
-        <section id="recruitment" className={styles.recruitment} aria-labelledby="recruitment-title"><div className={styles.container}><p className={styles.eyebrow}>{recruitment.status}</p><h2 id="recruitment-title">{recruitment.title}</h2><p>{recruitment.description}</p><span>당근 게시글 주소가 확정되면 문의 버튼을 바로 연결합니다.</span></div></section>
+        <section id="recruitment" className={styles.recruitment} aria-labelledby="recruitment-title"><div className={styles.container}><p className={styles.eyebrow}>{recruitment.status}</p><h2 id="recruitment-title">{recruitment.title}</h2><p>{recruitment.description}</p><a className={actionStyles.action} href={recruitment.action.href} target="_blank" rel="noreferrer">{recruitment.action.label} <span aria-hidden="true">↗</span></a></div></section>
       </main>
       <footer className={styles.footer}><div className={styles.container}><strong>AutoSites Course</strong><Link href="/">메인 홈페이지로 돌아가기 →</Link></div></footer>
     </div>
