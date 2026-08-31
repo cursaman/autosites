@@ -5,7 +5,7 @@ import { saveBusinessDraft, type BusinessFormState } from "./actions";
 
 const initialState: BusinessFormState = {};
 
-export function BusinessForm() {
+export function BusinessForm({ homepageType, websiteGoal }: { homepageType: string; websiteGoal: string }) {
   const [step, setStep] = useState(1);
   const [state, formAction, pending] = useActionState(saveBusinessDraft, initialState);
   const firstStepRef = useRef<HTMLFieldSetElement>(null);
@@ -21,6 +21,8 @@ export function BusinessForm() {
   return (
     <form className="business-form" action={formAction}>
       <input type="hidden" name="siteId" value={state.siteId ?? ""} />
+      <input type="hidden" name="homepageType" value={homepageType} />
+      <input type="hidden" name="websiteGoal" value={websiteGoal} />
       <div className="step-indicator" aria-label={`전체 3단계 중 ${step}단계`}>
         {[1, 2, 3].map((number) => <span className={number <= step ? "active" : ""} key={number}>{number}</span>)}
       </div>

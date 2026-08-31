@@ -20,7 +20,7 @@ export default async function DashboardPage() {
           <p className="eyebrow">NEW SITE</p>
           <h2>새 홈페이지 만들기</h2>
           <p>업종과 사업정보를 입력하고 첫 번째 홈페이지 생성을 시작합니다.</p>
-          <Link href="/sites/new">만들기 시작</Link>
+          <Link href="/sites/new/type">만들기 시작</Link>
         </article>
         <article className="dashboard-card">
           <p className="eyebrow">MY SITES</p>

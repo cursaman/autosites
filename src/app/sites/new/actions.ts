@@ -2,6 +2,7 @@
 
 import { revalidatePath } from "next/cache";
 import { requireUser } from "@/lib/auth/require-user";
+import { isHomepageType, isWebsiteGoal } from "@/lib/sites/options";
 
 export type BusinessFormState = {
   error?: string;
@@ -28,6 +29,8 @@ export async function saveBusinessDraft(
     phone: value(formData, "phone", 30),
     address: value(formData, "address", 300),
     referenceSites: value(formData, "referenceSites", 1000),
+    homepageType: value(formData, "homepageType", 30),
+    websiteGoal: value(formData, "websiteGoal", 30),
   };
   const fieldErrors: Record<string, string> = {};
   if (fields.businessName.length < 2) fieldErrors.businessName = "사업명을 2자 이상 입력해 주세요.";
@@ -36,6 +39,8 @@ export async function saveBusinessDraft(
   if (fields.targetCustomer.length < 5) fieldErrors.targetCustomer = "주요 고객을 5자 이상 입력해 주세요.";
   if (fields.coreService.length < 5) fieldErrors.coreService = "핵심 서비스를 5자 이상 입력해 주세요.";
   if (fields.contactEmail && !/^\S+@\S+\.\S+$/.test(fields.contactEmail)) fieldErrors.contactEmail = "올바른 이메일을 입력해 주세요.";
+  if (!isHomepageType(fields.homepageType)) fieldErrors.homepageType = "홈페이지 유형을 다시 선택해 주세요.";
+  if (!isWebsiteGoal(fields.websiteGoal)) fieldErrors.websiteGoal = "홈페이지 목적을 다시 선택해 주세요.";
   if (Object.keys(fieldErrors).length) return { error: "필수 입력값을 확인해 주세요.", fieldErrors };
 
   try {
@@ -44,10 +49,10 @@ export async function saveBusinessDraft(
     let siteId = existingSiteId;
 
     if (siteId) {
-      const { data, error } = await supabase.from("sites").update({ name: fields.businessName, updated_at: new Date().toISOString() }).eq("id", siteId).select("id").maybeSingle();
+      const { data, error } = await supabase.from("sites").update({ name: fields.businessName, homepage_type: fields.homepageType, website_goal: fields.websiteGoal, updated_at: new Date().toISOString() }).eq("id", siteId).select("id").maybeSingle();
       if (error || !data) return { error: "사이트 초안을 수정할 권한이 없거나 저장에 실패했습니다." };
     } else {
-      const { data, error } = await supabase.from("sites").insert({ owner_id: user.id, name: fields.businessName }).select("id").single();
+      const { data, error } = await supabase.from("sites").insert({ owner_id: user.id, name: fields.businessName, homepage_type: fields.homepageType, website_goal: fields.websiteGoal }).select("id").single();
       if (error || !data) return { error: "사이트 초안을 만들지 못했습니다. 데이터베이스 설정을 확인해 주세요." };
       siteId = data.id;
     }
