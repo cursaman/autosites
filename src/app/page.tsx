@@ -10,7 +10,7 @@ export default function HomePage() {
         <h1 id="hero-title">사업정보만 입력하면,<br />홈페이지가 시작됩니다.</h1>
         <p className="hero-copy">AutoSites는 기획, 구성, 미리보기와 공개 과정을 하나의 흐름으로 연결하는 홈페이지 자동화 SaaS입니다.</p>
         <div className="actions" aria-label="주요 작업">
-          <Link className="primary-action" href="/sign-up">무료로 시작하기</Link>
+          <Link className="primary-action" href="/sites/new/type">무료로 시작하기</Link>
           <Link className="secondary-action" href="/sign-in">로그인</Link>
         </div>
       </section>

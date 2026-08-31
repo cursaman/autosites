@@ -1,7 +1,7 @@
 "use server";
 
 import { revalidatePath } from "next/cache";
-import { requireUser } from "@/lib/auth/require-user";
+import { createClient } from "@/lib/supabase/server";
 import { isHomepageType, isWebsiteGoal } from "@/lib/sites/options";
 
 export type BusinessFormState = {
@@ -44,7 +44,14 @@ export async function saveBusinessDraft(
   if (Object.keys(fieldErrors).length) return { error: "필수 입력값을 확인해 주세요.", fieldErrors };
 
   try {
-    const { supabase, user } = await requireUser();
+    const supabase = await createClient();
+    const { data: currentUser } = await supabase.auth.getUser();
+    let user = currentUser.user;
+    if (!user) {
+      const { data, error } = await supabase.auth.signInAnonymously({ options: { data: { source: "free-start" } } });
+      if (error || !data.user) return { error: "무료 시작 설정이 완료되지 않았습니다. Supabase에서 익명 로그인을 활성화해 주세요." };
+      user = data.user;
+    }
     const existingSiteId = value(formData, "siteId", 36);
     let siteId = existingSiteId;
 
