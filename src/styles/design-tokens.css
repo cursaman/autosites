@@ -1,0 +1,74 @@
+:root {
+  /* Color */
+  --site-canvas: #f4f1e9;
+  --site-surface: #fffdf8;
+  --site-surface-strong: #e8eee8;
+  --site-ink: #142019;
+  --site-ink-soft: #536059;
+  --site-line: #cfd5ce;
+  --site-accent: #176447;
+  --site-accent-hover: #0f4f38;
+  --site-accent-ink: #f7fff9;
+  --site-highlight: #d9f99d;
+  --site-code: #101713;
+  --site-code-ink: #e9f4ec;
+  --site-danger: #9b312c;
+
+  /* Typography */
+  --font-sans: Pretendard, "Noto Sans KR", "Apple SD Gothic Neo", system-ui, sans-serif;
+  --font-mono: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.375rem;
+  --text-2xl: clamp(1.75rem, 3vw, 2.5rem);
+  --text-3xl: clamp(2.5rem, 6vw, 5.5rem);
+  --text-display: clamp(3.25rem, 9vw, 8rem);
+  --leading-tight: 0.96;
+  --leading-heading: 1.08;
+  --leading-body: 1.72;
+  --tracking-tight: -0.055em;
+  --tracking-label: 0.16em;
+
+  /* Spacing */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+  --space-24: 6rem;
+  --section-space: clamp(5rem, 11vw, 9rem);
+
+  /* Layout */
+  --container-wide: 1180px;
+  --container-reading: 760px;
+  --page-gutter: clamp(1.25rem, 4vw, 2.5rem);
+  --nav-height: 72px;
+
+  /* Shape and depth */
+  --radius-sm: 10px;
+  --radius-md: 18px;
+  --radius-lg: 28px;
+  --radius-pill: 999px;
+  --shadow-card: 0 18px 48px rgba(20, 32, 25, 0.08);
+  --shadow-focus: 0 0 0 4px rgba(23, 100, 71, 0.18);
+
+  /* Motion */
+  --duration-fast: 160ms;
+  --duration-base: 260ms;
+  --ease-standard: cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --duration-fast: 0ms;
+    --duration-base: 0ms;
+  }
+}
