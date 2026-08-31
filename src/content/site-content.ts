@@ -3,8 +3,8 @@ export const siteContent = {
   navigation: [
     { label: "작업 방식", href: "#workflow" },
     { label: "시작 준비", href: "#setup" },
+    { label: "4주 교육과정", href: "/course" },
     { label: "제작 사례", href: "#showcase" },
-    { label: "배포 과정", href: "#deployment" },
   ],
   hero: {
     eyebrow: "CODEX WEBSITE WORKFLOW",
@@ -105,4 +105,40 @@ export const siteContent = {
     description: "Codex 채팅 기반 홈페이지 제작·수정·배포 워크플로",
     repository: "https://github.com/cursaman/autosites",
   },
+} as const;
+
+export const courseContent = {
+  hero: {
+    eyebrow: "4-WEEK PRACTICAL COURSE",
+    title: "코딩을 몰라도,\n4주 만에 내 홈페이지를 만듭니다.",
+    description: "Codex와 대화하며 홈페이지를 만들고, GitHub에 저장한 뒤 Vercel로 실제 인터넷에 공개하는 초보자 실습 과정입니다.",
+    facts: ["4주", "매주 토요일", "오후 6시–8시", "총 8시간", "최대 8명"],
+  },
+  progress: {
+    eyebrow: "COHORT 01",
+    title: "1기 교육이 진행 중입니다.",
+    description: "첫 수업에서 웹의 작동 원리와 Codex, Git, GitHub, Vercel의 역할을 배우고 작업환경을 준비했습니다.",
+    percentage: "25%",
+    sessions: [
+      { week: "1주차", date: "8월 29일", topic: "웹과 작업환경 이해", status: "완료" },
+      { week: "2주차", date: "9월 5일", topic: "랜딩페이지 제작", status: "예정" },
+      { week: "3주차", date: "9월 12일", topic: "GitHub·Vercel 배포", status: "예정" },
+      { week: "4주차", date: "9월 19일", topic: "수정과 운영", status: "예정" },
+    ],
+  },
+  audience: ["코딩을 처음 접하는 분", "직접 홈페이지를 만들고 싶은 분", "소상공인과 1인 사업자", "제작 이후 수정과 배포까지 배우고 싶은 분"],
+  curriculum: [
+    { week: "01", title: "웹과 작업환경 이해", items: ["웹사이트가 작동하는 방법", "Codex·Git·GitHub·Vercel 역할", "Git 설치와 저장소 생성"], result: "작업환경과 GitHub 저장소" },
+    { week: "02", title: "랜딩페이지 제작", items: ["홈페이지 주제와 고객 정하기", "Codex 요청문 작성", "문구·색상·모바일 화면 수정"], result: "반응형 랜딩페이지" },
+    { week: "03", title: "실제 홈페이지 배포", items: ["Git 변경사항 저장", "GitHub main Push", "Vercel 연결과 운영 URL 확인"], result: "공개된 홈페이지 주소" },
+    { week: "04", title: "수정과 운영", items: ["Codex로 내용 다시 수정", "오류 검사와 자동 재배포", "도메인·Supabase·CRUD 이해"], result: "스스로 운영하는 작업 흐름" },
+  ],
+  outcomes: ["Codex로 홈페이지 제작·수정", "Git으로 변경 이력 관리", "GitHub에 소스코드 보관", "Vercel로 화면과 API 배포", "로그인·데이터베이스가 필요한 시점 구분"],
+  fee: { amount: "50,000원", label: "4주 전체 교육비", included: ["총 8시간 실습", "2층 8인룸", "빔프로젝터", "매회 커피 제공"] },
+  venue: {
+    name: "커피긱스 2층 8인룸", address: "부산광역시 연제구 교대로24번길 7", description: "부산교육대학교 인근 · 주차 가능", time: "매주 토요일 오후 6시–8시",
+    mapUrl: "https://map.kakao.com/link/search/부산광역시%20연제구%20교대로24번길%207",
+  },
+  preparation: ["개인 노트북", "노트북 충전기", "사용 가능한 이메일 계정"],
+  recruitment: { title: "최대 8명의 소규모 실습", description: "현재 당근을 통해 수강 문의를 받고 있습니다. 당근 게시글 채팅으로 참여 가능 여부를 문의해 주세요.", status: "당근에서 모집 중" },
 } as const;

@@ -73,6 +73,7 @@ try {
   ]);
   assert((await robots.text()).includes("Disallow: /api/"), "robots.txt의 API 차단 규칙이 없습니다.");
   assert((await sitemap.text()).includes("<urlset"), "sitemap.xml 형식이 올바르지 않습니다.");
+  assert((await fetchRequired("/course", "text/html")).ok, "/course 페이지를 열 수 없습니다.");
   assert(Number(socialImage.headers.get("content-length") ?? 0) > 0, "공유 이미지가 비어 있습니다.");
 
   const runtimeOutput = output.join("");
