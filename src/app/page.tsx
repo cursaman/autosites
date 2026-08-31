@@ -6,13 +6,14 @@ import styles from "./home.module.css";
 export default function HomePage() {
   const { hero, workflow, showcase, examples, deployment, faq, finalCta, footer } = siteContent;
   return (
-    <div className={styles.page}>
+    <div id="top" className={styles.page}>
+      <a className={styles.skipLink} href="#main-content">본문으로 바로가기</a>
       <header className={styles.header}>
         <a className={styles.brand} href="#top" aria-label="AutoSites 홈"><span className={styles.brandMark} aria-hidden="true">A</span>{siteContent.brand}</a>
         <nav className={styles.navigation} aria-label="주요 메뉴">{siteContent.navigation.map((item) => <a key={item.href} href={item.href}>{item.label}</a>)}</nav>
         <a className={styles.githubLink} href={footer.repository} target="_blank" rel="noreferrer">GitHub <span aria-hidden="true">↗</span></a>
       </header>
-      <main id="top" className={styles.main}>
+      <main id="main-content" className={styles.main} tabIndex={-1}>
         <section className={`${styles.hero} ${styles.container}`} aria-labelledby="hero-title">
           <div className={styles.heroCopy}><p className={styles.eyebrow}>{hero.eyebrow}</p><h1 id="hero-title">{hero.title}</h1><p className={styles.lead}>{hero.description}</p><div className={styles.actions}><a className={styles.primaryAction} href={hero.primaryAction.href}>{hero.primaryAction.label}</a><a className={styles.secondaryAction} href={hero.secondaryAction.href}>{hero.secondaryAction.label}</a></div></div>
           <div className={styles.terminal} aria-label="Codex 자동 배포 과정 예시">
