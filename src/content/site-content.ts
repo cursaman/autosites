@@ -2,8 +2,8 @@ export const siteContent = {
   brand: "AutoSites",
   navigation: [
     { label: "작업 방식", href: "#workflow" },
+    { label: "시작 준비", href: "#setup" },
     { label: "제작 사례", href: "#showcase" },
-    { label: "요청 예시", href: "#examples" },
     { label: "배포 과정", href: "#deployment" },
   ],
   hero: {
@@ -24,6 +24,25 @@ export const siteContent = {
       { number: "04", title: "GitHub 저장", description: "검증된 변경사항을 커밋하고 main 브랜치에 Push해 모든 작업 이력을 남깁니다." },
       { number: "05", title: "Vercel 자동 배포", description: "GitHub Push를 감지한 Vercel이 새 버전을 배포하고 실제 운영 URL을 갱신합니다." },
     ],
+  },
+  setup: {
+    eyebrow: "BEFORE YOU START",
+    title: "처음 한 번만,\n작업 환경을 연결합니다.",
+    description: "ChatGPT·Codex, Git·GitHub, Vercel까지 연결하면 채팅으로 수정한 홈페이지가 자동 배포됩니다. Supabase는 로그인이나 데이터 저장이 필요할 때만 추가합니다.",
+    requiredLabel: "필수 준비",
+    optionalLabel: "선택 기능",
+    steps: [
+      { number: "01", title: "ChatGPT 가입 · Codex 준비", description: "ChatGPT 계정으로 데스크톱 앱에 로그인하고 홈페이지 폴더를 Codex에서 엽니다.", checklist: ["ChatGPT 계정 생성과 로그인", "ChatGPT 데스크톱 앱 설치", "프로젝트 폴더 열기", "Codex를 선택해 첫 요청 보내기"], action: { label: "공식 시작 안내", href: "https://learn.chatgpt.com/docs/quickstart" } },
+      { number: "02", title: "Git 설치 · 사용자 설정", description: "Windows에 Git을 설치하고 터미널을 다시 연 뒤 이름과 이메일을 등록합니다.", checklist: ["Git for Windows 설치", "git --version으로 설치 확인", "커밋 작성자 이름·이메일 설정"], commands: ["winget install --id Git.Git -e --source winget", "git --version", "git config --global user.name \"YOUR_NAME\"", "git config --global user.email \"YOUR_EMAIL\""], action: { label: "Git 설치 안내", href: "https://git-scm.com/install/windows" } },
+      { number: "03", title: "GitHub 가입 · 저장소 생성", description: "GitHub에 빈 저장소를 만들고 로컬 홈페이지의 main 브랜치를 연결해 Push합니다.", checklist: ["GitHub 계정 생성", "New repository 선택", "기존 파일이 있다면 README 없이 빈 저장소 생성", "origin 연결 후 main Push"], commands: ["git init -b main", "git add .", "git commit -m \"first commit\"", "git remote add origin https://github.com/USERNAME/REPOSITORY.git", "git push -u origin main"], action: { label: "저장소 연결 안내", href: "https://docs.github.com/en/migrations/importing-source-code/using-the-command-line-to-import-source-code/adding-locally-hosted-code-to-github" } },
+      { number: "04", title: "Vercel 가입 · 자동 배포", description: "GitHub 계정으로 Vercel에 가입하고 저장소를 Import하면 main Push마다 운영 주소가 갱신됩니다.", checklist: ["GitHub로 Vercel 가입", "Add New → Project", "GitHub 저장소 Import", "Framework Preset: Next.js 확인", "Deploy 후 READY와 운영 URL 확인"], action: { label: "Git 배포 안내", href: "https://vercel.com/docs/git" } },
+    ],
+    optional: {
+      number: "05", title: "Supabase — 로그인·DB가 필요할 때만", description: "현재 소개 홈페이지와 Codex 배포 흐름에는 필요하지 않습니다. 회원 로그인, 문의 저장, 관리자 데이터가 생길 때 연결합니다.",
+      checklist: ["Supabase 프로젝트 생성", "Connect 화면에서 URL·Publishable key 확인", ".env.local과 Vercel 환경변수에 같은 값 등록", "데이터 테이블의 RLS 정책 점검"],
+      env: ["NEXT_PUBLIC_SUPABASE_URL=...", "NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY=..."], warning: "Secret·service role 키는 NEXT_PUBLIC에 넣거나 GitHub에 올리면 안 됩니다.",
+      action: { label: "Next.js 연결 안내", href: "https://supabase.com/docs/guides/getting-started/quickstarts/nextjs" },
+    },
   },
   showcase: {
     eyebrow: "ONE WORKFLOW, MANY RESULTS",

@@ -2,9 +2,10 @@ import Image from "next/image";
 import { siteContent } from "@/content/site-content";
 import showcaseImage from "../../public/images/autosites-showcase.png";
 import styles from "./home.module.css";
+import setupStyles from "./setup.module.css";
 
 export default function HomePage() {
-  const { hero, workflow, showcase, examples, deployment, faq, finalCta, footer } = siteContent;
+  const { hero, workflow, setup, showcase, examples, deployment, faq, finalCta, footer } = siteContent;
   return (
     <div id="top" className={styles.page}>
       <a className={styles.skipLink} href="#main-content">본문으로 바로가기</a>
@@ -24,6 +25,13 @@ export default function HomePage() {
         <section id="workflow" className={`${styles.section} ${styles.container}`} aria-labelledby="workflow-title">
           <div className={styles.sectionIntro}><p className={styles.eyebrow}>{workflow.eyebrow}</p><h2 id="workflow-title">{workflow.title}</h2><p>{workflow.description}</p></div>
           <ol className={styles.steps}>{workflow.steps.map((step) => <li key={step.number}><span>{step.number}</span><h3>{step.title}</h3><p>{step.description}</p></li>)}</ol>
+        </section>
+        <section id="setup" className={`${styles.section} ${styles.container}`} aria-labelledby="setup-title">
+          <div className={setupStyles.setupIntro}><div className={styles.sectionIntro}><p className={styles.eyebrow}>{setup.eyebrow}</p><h2 id="setup-title">{setup.title}</h2><p>{setup.description}</p></div><div className={setupStyles.setupLegend} aria-label="준비 항목 구분"><span>{setup.requiredLabel}</span><span>{setup.optionalLabel}</span></div></div>
+          <div className={setupStyles.setupGrid}>
+            {setup.steps.map((step) => <article className={setupStyles.setupCard} key={step.number}><div className={setupStyles.setupCardHeader}><span>{step.number}</span><small>{setup.requiredLabel}</small></div><h3>{step.title}</h3><p>{step.description}</p><ul>{step.checklist.map((item) => <li key={item}>{item}</li>)}</ul>{"commands" in step && step.commands ? <pre><code>{step.commands.join("\n")}</code></pre> : null}<a href={step.action.href} target="_blank" rel="noreferrer">{step.action.label} <span aria-hidden="true">↗</span></a></article>)}
+            <article className={`${setupStyles.setupCard} ${setupStyles.optionalCard}`}><div><div className={setupStyles.setupCardHeader}><span>{setup.optional.number}</span><small>{setup.optionalLabel}</small></div><h3>{setup.optional.title}</h3><p>{setup.optional.description}</p><ul>{setup.optional.checklist.map((item) => <li key={item}>{item}</li>)}</ul></div><div><pre><code>{setup.optional.env.join("\n")}</code></pre><p className={setupStyles.setupWarning}>{setup.optional.warning}</p><a href={setup.optional.action.href} target="_blank" rel="noreferrer">{setup.optional.action.label} <span aria-hidden="true">↗</span></a></div></article>
+          </div>
         </section>
         <section id="showcase" className={`${styles.section} ${styles.showcase}`} aria-labelledby="showcase-title">
           <div className={styles.container}>

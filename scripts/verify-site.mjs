@@ -49,6 +49,7 @@ try {
   const requiredCopy = [
     "말로 요청하면,",
     "대화에서 배포까지,",
+    "처음 한 번만,",
     "주제가 달라지면,",
     "이렇게 요청하면 됩니다.",
     "자주 묻는 질문",
@@ -75,7 +76,7 @@ try {
 
   const runtimeOutput = output.join("");
   assert(!/(TypeError|ReferenceError|Unhandled|Internal Server Error)/i.test(runtimeOutput), "서버 실행 중 오류가 발견됐습니다.");
-  console.log("✓ 필수 문구 5개");
+  console.log(`✓ 필수 문구 ${requiredCopy.length}개`);
   console.log(`✓ 내부 링크 ${hashLinks.length}개`);
   console.log("✓ SEO 메타정보, robots.txt, sitemap.xml, 공유 이미지");
   console.log("✓ 프로덕션 서버 응답 및 런타임 오류 검사");

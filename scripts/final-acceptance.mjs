@@ -32,6 +32,11 @@ try {
   }
   console.log("✓ 요청 1 — 메인 콘텐츠와 작업 흐름");
 
+  for (const copy of ["처음 한 번만,", "ChatGPT 가입 · Codex 준비", "Supabase — 로그인·DB가 필요할 때만"]) {
+    assert(html.includes(copy), `작업환경 준비 안내 누락: ${copy}`);
+  }
+  console.log("✓ 작업환경 준비와 선택 기능 안내");
+
   // Request 2: visual showcase and responsive design source.
   assert(html.includes("주제가 달라지면,"), "제작 사례 제목이 없습니다.");
   assert(html.includes("카페, 전문 컨설팅, 크리에이티브 포트폴리오"), "제작 사례 이미지 대체 텍스트가 없습니다.");

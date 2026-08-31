@@ -1,0 +1,20 @@
+.setupIntro { display:flex; align-items:end; justify-content:space-between; gap:var(--space-8); }
+.setupLegend { display:flex; gap:var(--space-3); flex:0 0 auto; }
+.setupLegend span, .setupCardHeader small { padding:.35rem .7rem; border:1px solid var(--site-line); border-radius:var(--radius-pill); font-family:var(--font-mono); font-size:.68rem; font-weight:750; letter-spacing:.05em; }
+.setupLegend span:first-child, .setupCardHeader small { border-color:var(--site-accent); background:var(--site-accent); color:var(--site-accent-ink); }
+.setupGrid { margin-top:var(--space-12); display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:var(--space-5); }
+.setupCard { min-width:0; padding:clamp(1.4rem,3vw,2rem); border:1px solid var(--site-line); border-radius:var(--radius-lg); background:var(--site-surface); box-shadow:0 12px 35px rgba(20,32,25,.05); }
+.setupCardHeader { display:flex; align-items:center; justify-content:space-between; }
+.setupCardHeader > span { color:var(--site-accent); font-family:var(--font-mono); font-size:var(--text-sm); font-weight:750; }
+.setupCard h3 { margin:var(--space-8) 0 var(--space-3); font-size:var(--text-xl); }
+.setupCard > p, .optionalCard > div > p { margin:0; color:var(--site-ink-soft); line-height:1.7; }
+.setupCard ul { margin:var(--space-6) 0; padding:0; display:grid; gap:var(--space-2); list-style:none; }
+.setupCard li { position:relative; padding-left:1.25rem; color:var(--site-ink-soft); font-size:var(--text-sm); line-height:1.55; }
+.setupCard li::before { content:"✓"; position:absolute; left:0; color:var(--site-accent); font-weight:800; }
+.setupCard pre { overflow-x:auto; margin:var(--space-6) 0; padding:var(--space-4); border-radius:var(--radius-sm); background:var(--site-code); color:var(--site-code-ink); font-family:var(--font-mono); font-size:.72rem; line-height:1.75; }
+.setupCard a { display:inline-flex; gap:.35rem; color:var(--site-accent); font-size:var(--text-sm); font-weight:750; text-underline-offset:4px; }
+.optionalCard { grid-column:1/-1; display:grid; grid-template-columns:1fr 1fr; gap:clamp(2rem,6vw,5rem); border-style:dashed; }
+.optionalCard .setupCardHeader small { border-color:var(--site-line); background:transparent; color:var(--site-ink-soft); }
+.setupWarning { margin:calc(var(--space-4)*-1) 0 var(--space-6)!important; color:#8b3a2e!important; font-size:var(--text-sm); font-weight:700; }
+@media (max-width:900px) { .setupGrid, .optionalCard { grid-template-columns:1fr; } .setupIntro { align-items:flex-start; flex-direction:column; } .optionalCard { gap:var(--space-2); } }
+@media (max-width:600px) { .setupLegend { width:100%; } .setupLegend span { flex:1; text-align:center; } .setupCard { padding:var(--space-5); } .setupCard pre { font-size:.66rem; } }

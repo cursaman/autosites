@@ -31,6 +31,7 @@ pnpm verify → GitHub main Push → Vercel 자동 배포 → pnpm deployment:st
 
 ## Codex 작업 표준
 
+- [초기 작업환경 준비 및 연결 가이드](./초기%20작업환경%20준비%20및%20연결%20가이드.md)
 - [Codex 표준 작업 흐름](./CODEX_WORKFLOW.md)
 - [홈페이지 수정 요청 양식](./홈페이지%20수정%20요청%20양식.md)
 - 프로젝트 자동 규칙: [`AGENTS.md`](./AGENTS.md)
