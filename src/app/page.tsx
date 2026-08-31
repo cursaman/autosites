@@ -1,8 +1,10 @@
+import Image from "next/image";
 import { siteContent } from "@/content/site-content";
+import showcaseImage from "../../public/images/autosites-showcase.png";
 import styles from "./home.module.css";
 
 export default function HomePage() {
-  const { hero, workflow, examples, deployment, faq, finalCta, footer } = siteContent;
+  const { hero, workflow, showcase, examples, deployment, faq, finalCta, footer } = siteContent;
   return (
     <div className={styles.page}>
       <header className={styles.header}>
@@ -21,6 +23,13 @@ export default function HomePage() {
         <section id="workflow" className={`${styles.section} ${styles.container}`} aria-labelledby="workflow-title">
           <div className={styles.sectionIntro}><p className={styles.eyebrow}>{workflow.eyebrow}</p><h2 id="workflow-title">{workflow.title}</h2><p>{workflow.description}</p></div>
           <ol className={styles.steps}>{workflow.steps.map((step) => <li key={step.number}><span>{step.number}</span><h3>{step.title}</h3><p>{step.description}</p></li>)}</ol>
+        </section>
+        <section id="showcase" className={`${styles.section} ${styles.showcase}`} aria-labelledby="showcase-title">
+          <div className={styles.container}>
+            <div className={styles.showcaseIntro}><div className={styles.sectionIntro}><p className={styles.eyebrow}>{showcase.eyebrow}</p><h2 id="showcase-title">{showcase.title}</h2></div><p>{showcase.description}</p></div>
+            <figure className={styles.showcaseVisual}><Image src={showcaseImage} alt={showcase.imageAlt} sizes="(max-width: 900px) 100vw, 1180px" placeholder="blur" /><figcaption>하나의 작업 흐름으로 제작한 서로 다른 홈페이지 방향 예시</figcaption></figure>
+            <div className={styles.caseGrid}>{showcase.cases.map((item, index) => <article key={item.type}><div><span>0{index + 1}</span><small>{item.type}</small></div><h3>{item.title}</h3><blockquote>“{item.request}”</blockquote><p>{item.result}</p></article>)}</div>
+          </div>
         </section>
         <section id="examples" className={styles.examples} aria-labelledby="examples-title"><div className={`${styles.container} ${styles.examplesGrid}`}><div className={styles.sectionIntro}><p className={styles.eyebrow}>{examples.eyebrow}</p><h2 id="examples-title">{examples.title}</h2></div><div className={styles.prompts}>{examples.items.map((item, index) => <p key={item}><span>0{index + 1}</span>{item}</p>)}</div></div></section>
         <section id="deployment" className={`${styles.section} ${styles.container}`} aria-labelledby="deployment-title">

@@ -2,9 +2,9 @@ export const siteContent = {
   brand: "AutoSites",
   navigation: [
     { label: "작업 방식", href: "#workflow" },
+    { label: "제작 사례", href: "#showcase" },
     { label: "요청 예시", href: "#examples" },
     { label: "배포 과정", href: "#deployment" },
-    { label: "자주 묻는 질문", href: "#faq" },
   ],
   hero: {
     eyebrow: "CODEX WEBSITE WORKFLOW",
@@ -23,6 +23,17 @@ export const siteContent = {
       { number: "03", title: "자동 검사", description: "린트, 타입 검사, 프로덕션 빌드와 주요 화면을 확인해 오류를 배포 전에 차단합니다." },
       { number: "04", title: "GitHub 저장", description: "검증된 변경사항을 커밋하고 main 브랜치에 Push해 모든 작업 이력을 남깁니다." },
       { number: "05", title: "Vercel 자동 배포", description: "GitHub Push를 감지한 Vercel이 새 버전을 배포하고 실제 운영 URL을 갱신합니다." },
+    ],
+  },
+  showcase: {
+    eyebrow: "ONE WORKFLOW, MANY RESULTS",
+    title: "주제가 달라지면,\n결과도 달라집니다.",
+    description: "같은 템플릿에 문구만 바꾸는 방식이 아닙니다. 업종과 고객, 원하는 분위기에 맞춰 정보 구조부터 색상과 화면 표현까지 함께 조정합니다.",
+    imageAlt: "카페, 전문 컨설팅, 크리에이티브 포트폴리오 홈페이지가 데스크톱과 모바일 화면에 적용된 예시",
+    cases: [
+      { type: "CAFE", title: "따뜻한 로컬 카페", request: "베이지와 짙은 갈색으로 편안한 매장 분위기를 보여줘.", result: "메뉴 · 공간 소개 · 방문 CTA" },
+      { type: "STUDIO", title: "신뢰감 있는 전문 스튜디오", request: "서비스 강점이 명확하고 상담으로 자연스럽게 이어지게 해줘.", result: "서비스 · 업무 방식 · 상담 CTA" },
+      { type: "PORTFOLIO", title: "선명한 크리에이티브 포트폴리오", request: "작업물이 먼저 보이고 개성이 강한 화면으로 바꿔줘.", result: "프로젝트 · 소개 · 협업 CTA" },
     ],
   },
   examples: {
