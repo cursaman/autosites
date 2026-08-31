@@ -1,23 +1,36 @@
-import Link from "next/link";
-
-const milestones = ["사업정보 입력", "홈페이지 자동 생성", "Preview 확인", "클릭 한 번으로 공개"];
+import { siteContent } from "@/content/site-content";
+import styles from "./home.module.css";
 
 export default function HomePage() {
+  const { hero, workflow, examples, deployment, faq, finalCta, footer } = siteContent;
   return (
-    <main>
-      <section className="hero" aria-labelledby="hero-title">
-        <p className="eyebrow">HOMEPAGE AUTOMATION</p>
-        <h1 id="hero-title">사업정보만 입력하면,<br />홈페이지가 시작됩니다.</h1>
-        <p className="hero-copy">AutoSites는 기획, 구성, 미리보기와 공개 과정을 하나의 흐름으로 연결하는 홈페이지 자동화 SaaS입니다.</p>
-        <div className="actions" aria-label="주요 작업">
-          <Link className="primary-action" href="/sites/new/type">무료로 시작하기</Link>
-          <Link className="secondary-action" href="/sign-in">로그인</Link>
-        </div>
-      </section>
-      <section className="process" id="mvp" aria-labelledby="mvp-title">
-        <div><p className="eyebrow">FIRST MILESTONE</p><h2 id="mvp-title">첫 MVP의 네 단계</h2></div>
-        <ol>{milestones.map((item, index) => <li key={item}><span>{String(index + 1).padStart(2, "0")}</span>{item}</li>)}</ol>
-      </section>
-    </main>
+    <div className={styles.page}>
+      <header className={styles.header}>
+        <a className={styles.brand} href="#top" aria-label="AutoSites 홈"><span className={styles.brandMark} aria-hidden="true">A</span>{siteContent.brand}</a>
+        <nav className={styles.navigation} aria-label="주요 메뉴">{siteContent.navigation.map((item) => <a key={item.href} href={item.href}>{item.label}</a>)}</nav>
+        <a className={styles.githubLink} href={footer.repository} target="_blank" rel="noreferrer">GitHub <span aria-hidden="true">↗</span></a>
+      </header>
+      <main id="top" className={styles.main}>
+        <section className={`${styles.hero} ${styles.container}`} aria-labelledby="hero-title">
+          <div className={styles.heroCopy}><p className={styles.eyebrow}>{hero.eyebrow}</p><h1 id="hero-title">{hero.title}</h1><p className={styles.lead}>{hero.description}</p><div className={styles.actions}><a className={styles.primaryAction} href={hero.primaryAction.href}>{hero.primaryAction.label}</a><a className={styles.secondaryAction} href={hero.secondaryAction.href}>{hero.secondaryAction.label}</a></div></div>
+          <div className={styles.terminal} aria-label="Codex 자동 배포 과정 예시">
+            <div className={styles.terminalBar}><span /><span /><span /><p>autosites / main</p></div>
+            <div className={styles.terminalBody}><p><span>$</span> codex</p><p className={styles.request}>“메인 문구와 디자인을 바꿔줘.”</p><ol><li><span>01</span> 코드 수정 <b>완료</b></li><li><span>02</span> 품질 검사 <b>통과</b></li><li><span>03</span> GitHub Push <b>완료</b></li><li><span>04</span> Vercel Deploy <b>READY</b></li></ol></div>
+          </div>
+        </section>
+        <section id="workflow" className={`${styles.section} ${styles.container}`} aria-labelledby="workflow-title">
+          <div className={styles.sectionIntro}><p className={styles.eyebrow}>{workflow.eyebrow}</p><h2 id="workflow-title">{workflow.title}</h2><p>{workflow.description}</p></div>
+          <ol className={styles.steps}>{workflow.steps.map((step) => <li key={step.number}><span>{step.number}</span><h3>{step.title}</h3><p>{step.description}</p></li>)}</ol>
+        </section>
+        <section id="examples" className={styles.examples} aria-labelledby="examples-title"><div className={`${styles.container} ${styles.examplesGrid}`}><div className={styles.sectionIntro}><p className={styles.eyebrow}>{examples.eyebrow}</p><h2 id="examples-title">{examples.title}</h2></div><div className={styles.prompts}>{examples.items.map((item, index) => <p key={item}><span>0{index + 1}</span>{item}</p>)}</div></div></section>
+        <section id="deployment" className={`${styles.section} ${styles.container}`} aria-labelledby="deployment-title">
+          <div className={styles.sectionIntro}><p className={styles.eyebrow}>{deployment.eyebrow}</p><h2 id="deployment-title">{deployment.title}</h2></div>
+          <div className={styles.deployGrid}><div className={styles.deployStatus}><span className={styles.liveDot} aria-hidden="true" /><p>Production deployment</p><strong>READY</strong><small>main · autosites-jd3d.vercel.app</small></div><ul className={styles.safetyList}>{deployment.points.map((point, index) => <li key={point.title}><span>0{index + 1}</span><div><h3>{point.title}</h3><p>{point.description}</p></div></li>)}</ul></div>
+        </section>
+        <section id="faq" className={`${styles.section} ${styles.container}`} aria-labelledby="faq-title"><div className={styles.sectionIntro}><p className={styles.eyebrow}>{faq.eyebrow}</p><h2 id="faq-title">{faq.title}</h2></div><div className={styles.faqList}>{faq.items.map((item) => <details key={item.question}><summary>{item.question}<span aria-hidden="true">＋</span></summary><p>{item.answer}</p></details>)}</div></section>
+        <section className={styles.finalCta} aria-labelledby="cta-title"><div className={styles.container}><p className={styles.eyebrow}>{finalCta.eyebrow}</p><h2 id="cta-title">{finalCta.title}</h2><p>{finalCta.description}</p><a href={finalCta.action.href}>{finalCta.action.label} <span aria-hidden="true">→</span></a></div></section>
+      </main>
+      <footer className={styles.footer}><div className={styles.container}><p><strong>{siteContent.brand}</strong><span>{footer.description}</span></p><a href={footer.repository} target="_blank" rel="noreferrer">GitHub 저장소 ↗</a></div></footer>
+    </div>
   );
 }

@@ -22,10 +22,10 @@ function getMetadataBase() {
 export const metadata: Metadata = {
   metadataBase: getMetadataBase(),
   title: { default: "AutoSites", template: "%s | AutoSites" },
-  description: "사업정보 입력부터 홈페이지 생성과 배포까지 자동화하는 홈페이지 SaaS",
+  description: "Codex와 채팅으로 홈페이지를 수정하고 GitHub와 Vercel에 자동 배포하는 작업 방식을 소개합니다.",
 };
 
-export const viewport: Viewport = { width: "device-width", initialScale: 1, themeColor: "#f5f3ee" };
+export const viewport: Viewport = { width: "device-width", initialScale: 1, themeColor: "#f4f1e9" };
 
 export default function RootLayout({ children }: Readonly<{ children: ReactNode }>) {
   return <html lang="ko"><body>{children}</body></html>;
