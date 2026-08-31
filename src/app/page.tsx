@@ -3,6 +3,7 @@ import { siteContent } from "@/content/site-content";
 import showcaseImage from "../../public/images/autosites-showcase.png";
 import styles from "./home.module.css";
 import setupStyles from "./setup.module.css";
+import CourseSelector from "./course-selector";
 
 export default function HomePage() {
   const { hero, workflow, setup, showcase, examples, deployment, faq, finalCta, footer } = siteContent;
@@ -11,7 +12,7 @@ export default function HomePage() {
       <a className={styles.skipLink} href="#main-content">본문으로 바로가기</a>
       <header className={styles.header}>
         <a className={styles.brand} href="#top" aria-label="AutoSites 홈"><span className={styles.brandMark} aria-hidden="true">A</span>{siteContent.brand}</a>
-        <nav className={styles.navigation} aria-label="주요 메뉴">{siteContent.navigation.map((item) => <a key={item.href} href={item.href}>{item.label}</a>)}</nav>
+        <CourseSelector items={siteContent.navigation} />
         <a className={styles.githubLink} href={footer.repository} target="_blank" rel="noreferrer">GitHub <span aria-hidden="true">↗</span></a>
       </header>
       <main id="main-content" className={styles.main} tabIndex={-1}>
