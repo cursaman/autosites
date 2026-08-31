@@ -32,7 +32,7 @@ try {
   }
   console.log("✓ 요청 1 — 메인 콘텐츠와 작업 흐름");
 
-  for (const copy of ["처음 한 번만,", "ChatGPT 가입 · Codex 준비", "Supabase — 로그인·DB가 필요할 때만"]) {
+  for (const copy of ["처음 한 번만,", "각 서비스는 이런 역할을 합니다.", "프론트·백엔드 배포", "로그인·DB·CRUD", "Supabase — 로그인·DB가 필요할 때만"]) {
     assert(html.includes(copy), `작업환경 준비 안내 누락: ${copy}`);
   }
   console.log("✓ 작업환경 준비와 선택 기능 안내");

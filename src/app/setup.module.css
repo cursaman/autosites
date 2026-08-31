@@ -2,6 +2,20 @@
 .setupLegend { display:flex; gap:var(--space-3); flex:0 0 auto; }
 .setupLegend span, .setupCardHeader small { padding:.35rem .7rem; border:1px solid var(--site-line); border-radius:var(--radius-pill); font-family:var(--font-mono); font-size:.68rem; font-weight:750; letter-spacing:.05em; }
 .setupLegend span:first-child, .setupCardHeader small { border-color:var(--site-accent); background:var(--site-accent); color:var(--site-accent-ink); }
+.roles { margin-top:var(--space-12); padding:clamp(1.5rem,4vw,2.5rem); border-radius:var(--radius-lg); background:var(--site-code); color:var(--site-code-ink); }
+.rolesHeading { display:flex; align-items:end; justify-content:space-between; gap:var(--space-8); }
+.rolesHeading h3 { max-width:12ch; margin:0; font-size:var(--text-2xl); line-height:var(--leading-heading); }
+.rolesHeading p { max-width:570px; margin:0; color:#aebbb3; line-height:1.7; }
+.roleFlow { margin:var(--space-8) 0; padding:var(--space-4); display:flex; align-items:center; justify-content:center; gap:var(--space-3); border:1px solid #344039; border-radius:var(--radius-pill); list-style:none; }
+.roleFlow li { display:flex; align-items:center; gap:var(--space-3); color:#d8e1db; font-family:var(--font-mono); font-size:var(--text-xs); white-space:nowrap; }
+.roleFlow li:not(:last-child)::after { content:"→"; color:var(--site-highlight); }
+.roleGrid { display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); border-top:1px solid #344039; border-left:1px solid #344039; }
+.roleGrid article { min-width:0; padding:var(--space-5); border-right:1px solid #344039; border-bottom:1px solid #344039; }
+.roleGrid article > div { display:flex; align-items:center; justify-content:space-between; gap:var(--space-2); }
+.roleGrid strong { color:var(--site-highlight); font-family:var(--font-mono); font-size:var(--text-sm); }
+.roleGrid small { color:#89978e; font-size:.65rem; }
+.roleGrid h4 { margin:var(--space-8) 0 var(--space-3); font-size:var(--text-base); }
+.roleGrid p { margin:0; color:#aebbb3; font-size:.78rem; line-height:1.65; }
 .setupGrid { margin-top:var(--space-12); display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:var(--space-5); }
 .setupCard { min-width:0; padding:clamp(1.4rem,3vw,2rem); border:1px solid var(--site-line); border-radius:var(--radius-lg); background:var(--site-surface); box-shadow:0 12px 35px rgba(20,32,25,.05); }
 .setupCardHeader { display:flex; align-items:center; justify-content:space-between; }
@@ -16,5 +30,5 @@
 .optionalCard { grid-column:1/-1; display:grid; grid-template-columns:1fr 1fr; gap:clamp(2rem,6vw,5rem); border-style:dashed; }
 .optionalCard .setupCardHeader small { border-color:var(--site-line); background:transparent; color:var(--site-ink-soft); }
 .setupWarning { margin:calc(var(--space-4)*-1) 0 var(--space-6)!important; color:#8b3a2e!important; font-size:var(--text-sm); font-weight:700; }
-@media (max-width:900px) { .setupGrid, .optionalCard { grid-template-columns:1fr; } .setupIntro { align-items:flex-start; flex-direction:column; } .optionalCard { gap:var(--space-2); } }
-@media (max-width:600px) { .setupLegend { width:100%; } .setupLegend span { flex:1; text-align:center; } .setupCard { padding:var(--space-5); } .setupCard pre { font-size:.66rem; } }
+@media (max-width:900px) { .setupGrid, .optionalCard { grid-template-columns:1fr; } .setupIntro, .rolesHeading { align-items:flex-start; flex-direction:column; } .roleFlow { overflow-x:auto; justify-content:flex-start; border-radius:var(--radius-sm); } .roleGrid { grid-template-columns:repeat(2,minmax(0,1fr)); } .optionalCard { gap:var(--space-2); } }
+@media (max-width:600px) { .setupLegend { width:100%; } .setupLegend span { flex:1; text-align:center; } .roles { width:calc(100% + var(--page-gutter)*2); margin-left:calc(var(--page-gutter)*-1); border-radius:0; } .roleGrid { grid-template-columns:1fr; } .setupCard { padding:var(--space-5); } .setupCard pre { font-size:.66rem; } }

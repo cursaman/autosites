@@ -31,6 +31,16 @@ export const siteContent = {
     description: "ChatGPT·Codex, Git·GitHub, Vercel까지 연결하면 채팅으로 수정한 홈페이지가 자동 배포됩니다. Supabase는 로그인이나 데이터 저장이 필요할 때만 추가합니다.",
     requiredLabel: "필수 준비",
     optionalLabel: "선택 기능",
+    rolesTitle: "각 서비스는 이런 역할을 합니다.",
+    rolesDescription: "코드를 만드는 도구, 저장하는 공간, 실행하는 서버와 데이터를 보관하는 데이터베이스를 나눠 연결합니다.",
+    roles: [
+      { name: "Codex", role: "제작·수정", description: "채팅 요청을 이해해 React·Next.js 코드와 홈페이지 내용을 수정하고 검사합니다.", status: "작업 도구" },
+      { name: "Git", role: "변경 이력", description: "수정된 파일의 버전을 기록하고 이전 정상 상태로 되돌릴 수 있게 합니다.", status: "필수" },
+      { name: "GitHub", role: "코드 저장", description: "React·Next.js 소스코드와 Git 변경 이력을 온라인 저장소에 보관합니다.", status: "필수" },
+      { name: "Vercel", role: "프론트·백엔드 배포", description: "화면과 Next.js API를 운영 서버에 배포하고 도메인·SSL·자동 배포를 담당합니다.", status: "필수" },
+      { name: "Supabase", role: "로그인·DB·CRUD", description: "회원 인증과 데이터 생성·조회·수정·삭제, 파일 저장 기능을 제공합니다.", status: "필요할 때" },
+    ],
+    flow: ["Codex 수정", "Git 기록", "GitHub 저장", "Vercel 배포", "Supabase 데이터"],
     steps: [
       { number: "01", title: "ChatGPT 가입 · Codex 준비", description: "ChatGPT 계정으로 데스크톱 앱에 로그인하고 홈페이지 폴더를 Codex에서 엽니다.", checklist: ["ChatGPT 계정 생성과 로그인", "ChatGPT 데스크톱 앱 설치", "프로젝트 폴더 열기", "Codex를 선택해 첫 요청 보내기"], action: { label: "공식 시작 안내", href: "https://learn.chatgpt.com/docs/quickstart" } },
       { number: "02", title: "Git 설치 · 사용자 설정", description: "Windows에 Git을 설치하고 터미널을 다시 연 뒤 이름과 이메일을 등록합니다.", checklist: ["Git for Windows 설치", "git --version으로 설치 확인", "커밋 작성자 이름·이메일 설정"], commands: ["winget install --id Git.Git -e --source winget", "git --version", "git config --global user.name \"YOUR_NAME\"", "git config --global user.email \"YOUR_EMAIL\""], action: { label: "Git 설치 안내", href: "https://git-scm.com/install/windows" } },
