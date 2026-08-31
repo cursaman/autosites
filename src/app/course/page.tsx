@@ -1,8 +1,11 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { courseContent } from "@/content/site-content";
+import vibeCodingImage from "../../../image/vibe.webp";
 import styles from "./course.module.css";
 import actionStyles from "./recruitment.module.css";
+import visualStyles from "./visual.module.css";
 
 export const metadata: Metadata = {
   title: "초보자를 위한 Codex 홈페이지 제작 4주 과정",
@@ -19,6 +22,8 @@ export default function CoursePage() {
       <header className={styles.header}><Link className={styles.brand} href="/"><span aria-hidden="true">A</span>AutoSites</Link><nav aria-label="교육과정 메뉴"><a href="#curriculum">커리큘럼</a><a href="#information">교육 안내</a><a href="#recruitment">모집 안내</a></nav><Link className={styles.homeLink} href="/">메인으로</Link></header>
       <main id="course-main" className={styles.main} tabIndex={-1}>
         <section className={`${styles.hero} ${styles.container}`} aria-labelledby="course-title"><div><p className={styles.eyebrow}>{hero.eyebrow}</p><h1 id="course-title">{hero.title}</h1><p className={styles.lead}>{hero.description}</p><div className={styles.actions}><a href="#curriculum">과정 살펴보기</a><a href="#recruitment">당근 모집 안내</a></div></div><aside className={styles.heroCard} aria-label="교육과정 핵심 정보"><p>1기 · 부산</p><strong>{fee.amount}</strong><span>{fee.label}</span><ul>{hero.facts.map((fact) => <li key={fact}>{fact}</li>)}</ul></aside></section>
+
+        <section className={`${styles.section} ${styles.container}`} aria-labelledby="vibe-title"><div className={visualStyles.heading}><div><p className={styles.eyebrow}>VIBE CODING</p><h2 id="vibe-title">수업에서 배우는 제작 방식</h2></div><p>만들고 싶은 기능을 자연어로 설명하고, AI가 제안한 코드를 확인하며 수정과 배포까지 이어가는 과정을 한눈에 살펴보세요.</p></div><figure className={visualStyles.figure}><Image src={vibeCodingImage} alt="아이디어 구상, AI와 대화, 코드 적용, 수정과 개선, 완성과 배포로 이어지는 바이브코딩 흐름 안내" sizes="(max-width: 900px) calc(100vw - 40px), 1180px" placeholder="blur" /><figcaption>바이브코딩의 개념과 흐름, 실습에 활용하는 AI 도구 안내</figcaption></figure></section>
 
         <section className={styles.progressSection} aria-labelledby="progress-title"><div className={styles.container}><div className={styles.sectionHeading}><div><p className={styles.eyebrow}>{progress.eyebrow}</p><h2 id="progress-title">{progress.title}</h2></div><p>{progress.description}</p></div><div className={styles.progressMeta}><strong>{progress.percentage}</strong><div aria-label={`교육 진행률 ${progress.percentage}`}><span /></div></div><ol className={styles.sessionList}>{progress.sessions.map((session) => <li key={session.week} className={session.status === "완료" ? styles.completed : undefined}><span>{session.week}</span><time>{session.date}</time><strong>{session.topic}</strong><small>{session.status}</small></li>)}</ol></div></section>
 
