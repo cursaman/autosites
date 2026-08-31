@@ -34,6 +34,14 @@ pnpm verify → GitHub main Push → Vercel 자동 배포 → pnpm deployment:st
 - [Codex 표준 작업 흐름](./CODEX_WORKFLOW.md)
 - [홈페이지 수정 요청 양식](./홈페이지%20수정%20요청%20양식.md)
 - 프로젝트 자동 규칙: [`AGENTS.md`](./AGENTS.md)
+- [새 고객 홈페이지 복제 절차](./CUSTOMER_SITE_TEMPLATE.md)
+- [고객 설정 예시](./templates/customer-site.example.json)
+
+최종 인수 검사는 다음 명령으로 실행합니다.
+
+```bash
+npm run acceptance
+```
 
 ## 현재 목표
 

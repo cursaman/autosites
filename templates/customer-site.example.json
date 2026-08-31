@@ -1,0 +1,35 @@
+{
+  "project": {
+    "slug": "web-cafe-a",
+    "brandName": "고객 상호명",
+    "industry": "카페",
+    "primaryGoal": "방문 예약과 매장 위치 안내",
+    "targetCustomer": "지역 주민과 주말 방문객"
+  },
+  "brand": {
+    "mood": ["따뜻함", "차분함", "신뢰감"],
+    "colors": {
+      "canvas": "#f4f1e9",
+      "ink": "#142019",
+      "accent": "#176447"
+    }
+  },
+  "hero": {
+    "title": "고객 홈페이지의 핵심 제목",
+    "description": "고객이 제공하는 핵심 소개 문구",
+    "ctaLabel": "방문 예약하기",
+    "ctaUrl": "https://example.com/reservation"
+  },
+  "contact": {
+    "phone": "",
+    "email": "",
+    "address": "",
+    "hours": ""
+  },
+  "operations": {
+    "repository": "customer-owner/web-cafe-a",
+    "branch": "main",
+    "vercelProject": "web-cafe-a",
+    "productionUrl": "https://web-cafe-a.vercel.app"
+  }
+}
