@@ -7,7 +7,7 @@ import CourseSelector from "./course-selector";
 import HeroSlider from "./hero-slider";
 
 const journeyIcons = ["💬", "✨", "🧩", "🚀"];
-const audienceIcons = ["💡", "🛠️", "🌱"];
+const audienceIcons = ["💡", "🛠️", "🌱", "🤖", "💼", "🧩"];
 const workflowIcons = ["✍️", "🤖", "🎨", "🌐"];
 const technologyIcons = ["💬", "📦", "🔗", "▲", "🗄️"];
 const projectIcons = ["🏪", "☕", "🧑‍🏫"];
