@@ -47,14 +47,14 @@ try {
   const homeResponse = await waitForServer();
   const html = await homeResponse.text();
   const requiredCopy = [
-    "말로 요청하면,",
-    "대화에서 배포까지,",
+    "코딩 없이",
+    "말 한마디에서",
+    "이런 분께 추천합니다",
+    "무엇을 만들 수 있나요?",
+    "4주 동안 하나의",
+    "처음 시작하는 사람을 위한 실전 클래스",
     "처음 한 번만,",
-    "로그인·DB·CRUD",
-    "교육과정 전체 보기",
-    "1기 진행률",
     "주제가 달라지면,",
-    "이렇게 요청하면 됩니다.",
     "자주 묻는 질문",
   ];
 
@@ -77,6 +77,9 @@ try {
   const sitemapXml = await sitemap.text();
   assert(sitemapXml.includes("<urlset"), "sitemap.xml 형식이 올바르지 않습니다.");
   assert(sitemapXml.includes("/course"), "sitemap.xml에 교육과정 페이지가 없습니다.");
+  assert(sitemapXml.includes("/education/join.html"), "sitemap.xml에 클래스 신청 경로가 없습니다.");
+  const joinResponse = await fetch(`${baseUrl}/education/join.html`, { redirect: "manual" });
+  assert([307, 308].includes(joinResponse.status), "클래스 신청 경로가 교육과정으로 연결되지 않습니다.");
 
   const courseHtml = await (await fetchRequired("/course", "text/html")).text();
   for (const copy of ["4주 뒤, 직접 만든", "당근에서 자리 문의하기", "지금 할 일", "4주 과정 문의", "4주 뒤 내 손에 남는 것", "실제로 열리는 운영 URL", "2시간 수업표", "50,000원", "당근 모임에서 문의하기"]) {

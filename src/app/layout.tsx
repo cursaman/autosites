@@ -3,8 +3,8 @@ import type { ReactNode } from "react";
 import { getSiteUrl } from "@/lib/site-url";
 import "./globals.css";
 
-const siteTitle = "AutoSites | 말로 요청하는 홈페이지 제작·배포";
-const siteDescription = "Codex와 채팅으로 홈페이지를 수정하고 자동 검사한 뒤 GitHub와 Vercel 운영 주소까지 배포하는 작업 방식을 소개합니다.";
+const siteTitle = "AutoSites | AI로 만드는 실제 홈페이지";
+const siteDescription = "코딩을 몰라도 AI와 함께 홈페이지를 만들고 GitHub와 Vercel을 활용해 실제 인터넷에 배포해보세요.";
 
 export const metadata: Metadata = {
   metadataBase: getSiteUrl(),
@@ -17,14 +17,14 @@ export const metadata: Metadata = {
     locale: "ko_KR",
     url: "/",
     siteName: "AutoSites",
-    title: siteTitle,
-    description: siteDescription,
+    title: "코딩 없이 AI로 내 홈페이지 만들기",
+    description: "아이디어 → AI 제작 → 수정 → 실제 URL 배포",
     images: [{ url: "/og.png", width: 1200, height: 630, alt: "AutoSites Codex 홈페이지 자동 배포 흐름" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: siteTitle,
-    description: siteDescription,
+    title: "코딩 없이 AI로 내 홈페이지 만들기",
+    description: "아이디어 → AI 제작 → 수정 → 실제 URL 배포",
     images: [{ url: "/og.png", alt: "AutoSites Codex 홈페이지 자동 배포 흐름" }],
   },
   robots: { index: true, follow: true },
