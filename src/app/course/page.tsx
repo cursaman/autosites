@@ -6,6 +6,7 @@ import vibeCodingImage from "../../../image/vibe.webp";
 import styles from "./course.module.css";
 import actionStyles from "./recruitment.module.css";
 import visualStyles from "./visual.module.css";
+import detailStyles from "./curriculum-detail.module.css";
 
 export const metadata: Metadata = {
   title: "초보자를 위한 Codex 홈페이지 제작 4주 과정",
@@ -29,7 +30,7 @@ export default function CoursePage() {
 
         <section className={`${styles.section} ${styles.container}`} aria-labelledby="audience-title"><div className={styles.sectionHeading}><div><p className={styles.eyebrow}>WHO IT IS FOR</p><h2 id="audience-title">이런 분에게 맞습니다.</h2></div><p>코드를 암기하기보다 만들고 싶은 내용을 설명하고, 결과를 확인하고, 직접 운영하는 방법을 배웁니다.</p></div><ul className={styles.audienceGrid}>{audience.map((item, index) => <li key={item}><span>0{index + 1}</span>{item}</li>)}</ul></section>
 
-        <section id="curriculum" className={`${styles.section} ${styles.container}`} aria-labelledby="curriculum-title"><div className={styles.sectionHeading}><div><p className={styles.eyebrow}>CURRICULUM</p><h2 id="curriculum-title">매주 하나씩 완성합니다.</h2></div><p>설명만 듣는 수업이 아니라 자신의 노트북에서 직접 만들고 저장하고 배포합니다.</p></div><div className={styles.curriculumGrid}>{curriculum.map((week) => <article key={week.week}><div><span>WEEK {week.week}</span><h3>{week.title}</h3></div><ul>{week.items.map((item) => <li key={item}>{item}</li>)}</ul><p><small>이번 주 결과물</small>{week.result}</p></article>)}</div></section>
+        <section id="curriculum" className={`${styles.section} ${styles.container}`} aria-labelledby="curriculum-title"><div className={styles.sectionHeading}><div><p className={styles.eyebrow}>CURRICULUM</p><h2 id="curriculum-title">매주 하나씩 완성합니다.</h2></div><p>설명만 듣는 수업이 아니라 자신의 노트북에서 직접 만들고 저장하고 배포합니다.</p></div><div className={styles.curriculumGrid}>{curriculum.map((week) => <article key={week.week}><div className={detailStyles.cardHeading}><div><span>WEEK {week.week}</span><h3>{week.title}</h3></div><small className={week.status === "완료" ? detailStyles.done : undefined}>{week.status}</small></div><p className={detailStyles.objective}>{week.objective}</p><ul>{week.items.map((item) => <li key={item}>{item}</li>)}</ul><div className={detailStyles.lessonPlan} aria-label={`${week.week}주차 2시간 수업표`}><strong>2시간 수업표</strong><ol>{week.schedule.map((item) => <li key={item.time}><time>{item.time}</time><span>{item.lesson}</span></li>)}</ol></div><p><small>이번 주 결과물</small>{week.result}</p></article>)}</div></section>
 
         <section className={styles.outcomeSection} aria-labelledby="outcomes-title"><div className={`${styles.container} ${styles.outcomeGrid}`}><div><p className={styles.eyebrow}>AFTER 4 WEEKS</p><h2 id="outcomes-title">수료 후 직접 할 수 있는 일</h2></div><ol>{outcomes.map((item, index) => <li key={item}><span>0{index + 1}</span>{item}</li>)}</ol></div></section>
 
