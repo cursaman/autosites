@@ -24,7 +24,7 @@ const slides: readonly HeroSlide[] = [
   { image: deployImage, alt: "완성된 홈페이지가 데스크톱과 태블릿, 휴대폰에 배포된 모습", step: "03 · GO LIVE", title: "완성한 홈페이지를 실제 URL로 배포합니다." },
 ];
 
-export default function HeroSlider() {
+export default function HeroSlider({ className = "" }: { className?: string }) {
   const [reduceMotion, setReduceMotion] = useState(false);
 
   useEffect(() => {
@@ -36,7 +36,7 @@ export default function HeroSlider() {
   }, []);
 
   return (
-    <div className={styles.frame} aria-label="아이디어부터 홈페이지 배포까지">
+    <div className={`${styles.frame} ${className}`.trim()} aria-label="아이디어부터 홈페이지 배포까지">
       <Swiper
         className={styles.slider}
         modules={[A11y, Autoplay, Keyboard, Pagination]}
@@ -51,7 +51,7 @@ export default function HeroSlider() {
         {slides.map((slide) => (
           <SwiperSlide key={slide.step}>
             <figure className={styles.slide}>
-              <Image src={slide.image} alt={slide.alt} fill priority={slide.step.startsWith("01")} sizes="(max-width: 900px) calc(100vw - 40px), 46vw" />
+              <Image src={slide.image} alt={slide.alt} fill priority={slide.step.startsWith("01")} sizes="(max-width: 900px) calc(100vw - 32px), 1360px" />
               <figcaption><span>{slide.step}</span><strong>{slide.title}</strong></figcaption>
             </figure>
           </SwiperSlide>

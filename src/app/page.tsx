@@ -13,8 +13,8 @@ export default function HomePage() {
     <header className={styles.header}><a className={styles.brand} href="#top" aria-label="AutoSites 홈"><span aria-hidden="true">A</span>AutoSites</a><CourseSelector items={siteContent.navigation} /><Link className={styles.headerCta} href="/education/join.html">남은 자리 확인</Link></header>
     <main id="main-content" tabIndex={-1}>
       <section className={`${styles.hero} ${styles.container}`} aria-labelledby="hero-title">
+        <HeroSlider className={styles.heroBackdrop} />
         <div className={styles.heroCopy}><p className={styles.eyebrow}>{hero.eyebrow}</p><h1 id="hero-title">{hero.title}</h1><p className={styles.lead}>{hero.description}</p><div className={styles.actions}><Link className={styles.primaryAction} href={hero.primaryAction.href}>{hero.primaryAction.label}<span>→</span></Link><a className={styles.secondaryAction} href={hero.secondaryAction.href}>{hero.secondaryAction.label}</a></div><small className={styles.heroNote}>✓ {hero.note}</small></div>
-        <HeroSlider />
       </section>
       <section className={styles.journey} aria-label="아이디어에서 실제 URL까지"><div className={styles.container}>{journey.map((item,index)=><div key={item}><span>0{index+1}</span><strong>{item}</strong></div>)}<p>아이디어에서 실제 URL까지</p></div></section>
       <section className={`${styles.section} ${styles.container}`} aria-labelledby="audience-title"><Heading eyebrow={audience.eyebrow} title={audience.title} id="audience-title"/><div className={styles.audienceGrid}>{audience.items.map((item,index)=><article key={item.title}><span>0{index+1}</span><h3>{item.title}</h3><p>{item.description}</p></article>)}</div><Link className={styles.inlineCta} href="/education/join.html">내 홈페이지 만들어보기 <span>→</span></Link></section>
