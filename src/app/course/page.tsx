@@ -12,6 +12,7 @@ import infoStyles from "./information-detail.module.css";
 import recordStyles from "./records.module.css";
 import completionStyles from "./completion.module.css";
 import promiseStyles from "./promise.module.css";
+import guideStyles from "./action-guide.module.css";
 
 export const metadata: Metadata = {
   title: "초보자를 위한 Codex 홈페이지 제작 4주 과정",
@@ -28,7 +29,7 @@ export default function CoursePage() {
       <a className={styles.skipLink} href="#course-main">본문으로 바로가기</a>
       <header className={styles.header}><Link className={styles.brand} href="/"><span aria-hidden="true">A</span>AutoSites</Link><nav aria-label="교육과정 메뉴"><a href="#curriculum">커리큘럼</a><a href="#information">교육 안내</a><a href="#recruitment">모집 안내</a></nav><Link className={styles.homeLink} href="/">메인으로</Link></header>
       <main id="course-main" className={styles.main} tabIndex={-1}>
-        <section className={`${styles.hero} ${styles.container}`} aria-labelledby="course-title"><div><p className={styles.eyebrow}>{hero.eyebrow}</p><h1 id="course-title">{hero.title}</h1><p className={styles.lead}>{hero.description}</p><div className={styles.actions}><a href="#curriculum">내 홈페이지 만들기</a><a href="#information">5만원 포함 내용</a></div></div><aside className={styles.heroCard} aria-label="교육과정 핵심 정보"><p>1기 진행 중 · 부산 · 초보자 실습</p><strong>{fee.amount}</strong><span>{fee.label} · 장소·빔프로젝터·커피 포함</span><ul>{hero.facts.map((fact) => <li key={fact}>{fact}</li>)}</ul></aside></section>
+        <section className={`${styles.hero} ${styles.container}`} aria-labelledby="course-title"><div><p className={styles.eyebrow}>{hero.eyebrow}</p><h1 id="course-title">{hero.title}</h1><p className={styles.lead}>{hero.description}</p><div className={styles.actions}><a href={recruitment.action.href} target="_blank" rel="noreferrer">당근에서 자리 문의하기 ↗</a><a href="#curriculum">과정 먼저 살펴보기</a></div><div className={guideStyles.guide} aria-label="지금 신청하는 방법"><strong>지금 할 일</strong><ol><li><span>1</span>당근 모임 열기</li><li><span>2</span>“4주 과정 문의” 채팅 보내기</li><li><span>3</span>남은 자리 안내받기</li></ol><small>바로 신청하지 않아도 괜찮습니다. 궁금한 점부터 채팅으로 물어보세요.</small></div></div><aside className={styles.heroCard} aria-label="교육과정 핵심 정보"><p>1기 진행 중 · 부산 · 초보자 실습</p><strong>{fee.amount}</strong><span>{fee.label} · 장소·빔프로젝터·커피 포함</span><ul>{hero.facts.map((fact) => <li key={fact}>{fact}</li>)}</ul></aside></section>
 
         <section className={`${styles.section} ${styles.container}`} aria-labelledby="promise-title"><div className={styles.sectionHeading}><div><p className={styles.eyebrow}>{promise.eyebrow}</p><h2 id="promise-title">{promise.title}</h2></div><p>완성된 코드를 받아 가는 것이 아니라, 원하는 내용을 말하고 결과를 확인하고 실제 주소로 공개하는 전 과정을 직접 경험합니다.</p></div><div className={promiseStyles.concerns}>{promise.concerns.map((item) => <article key={item.question}><h3>“{item.question}”</h3><p>{item.answer}</p></article>)}</div><div className={promiseStyles.deliverables}><div><span>TAKE IT HOME</span><h3>{promise.deliverablesTitle}</h3></div><ol>{promise.deliverables.map((item) => <li key={item.number}><span>{item.number}</span><div><h4>{item.title}</h4><p>{item.description}</p></div></li>)}</ol></div><a className={promiseStyles.cta} href="#recruitment">최대 8명 소규모 수업 문의하기 <span aria-hidden="true">↓</span></a></section>
 

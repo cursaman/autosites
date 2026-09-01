@@ -79,7 +79,7 @@ try {
   assert(sitemapXml.includes("/course"), "sitemap.xml에 교육과정 페이지가 없습니다.");
 
   const courseHtml = await (await fetchRequired("/course", "text/html")).text();
-  for (const copy of ["4주 뒤, 직접 만든", "4주 뒤 내 손에 남는 것", "실제로 열리는 운영 URL", "2시간 수업표", "50,000원", "당근 모임에서 문의하기"]) {
+  for (const copy of ["4주 뒤, 직접 만든", "당근에서 자리 문의하기", "지금 할 일", "4주 과정 문의", "4주 뒤 내 손에 남는 것", "실제로 열리는 운영 URL", "2시간 수업표", "50,000원", "당근 모임에서 문의하기"]) {
     assert(courseHtml.includes(copy), `교육과정 필수 문구 누락: ${copy}`);
   }
   for (const id of ["progress", "records", "curriculum", "next-cohort", "information", "recruitment"]) {
