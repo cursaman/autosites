@@ -11,7 +11,7 @@ export const siteContent = {
     eyebrow: "AI WEBSITE BUILDER",
     title: "코딩 없이\nAI로 홈페이지 하나 만들어보세요.",
     description: "아이디어만 있으면 됩니다. ChatGPT + Codex + GitHub + Vercel을 활용해 실제로 작동하는 홈페이지를 만들고 인터넷에 배포합니다.",
-    primaryAction: { label: "직접 만들어보기", href: "/education/join.html" },
+    primaryAction: { label: "남은 자리 확인하고 시작하기", href: "/education/join.html" },
     secondaryAction: { label: "제작 과정 보기", href: "#process" },
     note: "HTML · CSS · JavaScript를 몰라도 시작할 수 있습니다.",
   },
@@ -80,13 +80,27 @@ export const siteContent = {
       { week: "4주차", title: "GitHub → Vercel → 실제 URL 배포" },
     ],
     promise: "4주 후에는 ‘배웠습니다’가 아니라 ‘제가 만든 홈페이지가 있습니다’라고 말할 수 있게 합니다.",
-    action: { label: "4주 실전 클래스 신청하기", href: "/education/join.html" },
+    action: { label: "내 홈페이지 완성하러 가기", href: "/education/join.html" },
+  },
+  whyNow: {
+    eyebrow: "WHY START NOW",
+    title: "계속 미루면 홈페이지는\n아이디어로만 남습니다.",
+    description: "혼자 시작하면 설치와 배포에서 멈추기 쉽습니다. 이번 4주에는 설명을 듣는 데서 끝내지 않고, 실제로 접속되는 내 홈페이지 주소까지 함께 완성합니다.",
+    reasons: [
+      { number: "01", title: "최대 8명 소규모 실습", description: "내 화면을 보며 막힌 지점을 질문하고 바로 해결합니다." },
+      { number: "02", title: "내 주제로 직접 제작", description: "공통 예제를 따라 하는 대신 사업·모임·포트폴리오처럼 나에게 필요한 홈페이지를 만듭니다." },
+      { number: "03", title: "실제 URL까지 완성", description: "기획만 배우는 수업이 아니라 GitHub 저장과 Vercel 배포까지 직접 끝냅니다." },
+      { number: "04", title: "다음 기수 일정은 아직 미정", description: "다음 기수를 기다리기보다 지금 문의하면 현재 참여 가능 여부를 바로 확인할 수 있습니다." },
+    ],
+    result: "4주 뒤에는 ‘배웠습니다’가 아니라 ‘제가 만든 홈페이지가 있습니다’라고 말하게 됩니다.",
+    note: "확인되지 않은 마감 안내는 하지 않습니다. 당근 채팅에서 실제 남은 자리와 참여 가능 일정을 안내합니다.",
+    action: { label: "남은 자리 확인하고 시작하기", href: "/education/join.html" },
   },
   pricing: {
     eyebrow: "STARTER CLASS",
     title: "처음 시작하는 사람을 위한 실전 클래스",
     included: ["AI 홈페이지 제작", "Codex 활용법", "GitHub 사용법", "Vercel 배포", "실제 프로젝트 제작", "모바일 최적화", "프로젝트 완성까지 실습"],
-    action: { label: "클래스 신청하기", href: "/education/join.html" },
+    action: { label: "남은 자리 확인하기", href: "/education/join.html" },
   },
   setup: {
     eyebrow: "BEFORE YOU START",
@@ -164,7 +178,7 @@ export const siteContent = {
     eyebrow: "START YOUR FIRST SITE",
     title: "아이디어만 가지고 오세요.\nAI와 함께 첫 번째 홈페이지를 완성해보세요.",
     description: "코딩을 잘하는 사람이 아니라 AI를 잘 활용하는 사람이 만드는 시대입니다.",
-    action: { label: "지금 시작하기", href: "/education/join.html" },
+    action: { label: "남은 자리 확인하고 시작하기", href: "/education/join.html" },
   },
   footer: {
     description: "Codex 채팅 기반 홈페이지 제작·수정·배포 워크플로",
@@ -176,7 +190,7 @@ export const courseContent = {
   hero: {
     eyebrow: "BEGINNER-FRIENDLY · 4-WEEK PRACTICAL COURSE",
     title: "4주 뒤, 직접 만든\n홈페이지 주소를 가져가세요.",
-    description: "코드를 외우는 수업이 아닙니다. 만들고 싶은 홈페이지를 Codex에 설명하고, 직접 수정하고, GitHub에 저장한 뒤 Vercel 운영 주소로 공개하는 과정을 함께 완성합니다.",
+    description: "계속 미뤄온 아이디어를 이번에는 실제 주소로 완성하세요. 코드를 외우는 대신 Codex에 설명하고 직접 수정한 뒤, GitHub와 Vercel로 공개하는 전 과정을 함께 끝냅니다.",
     facts: ["4주", "매주 토요일", "오후 6시–8시", "총 8시간", "최대 8명"],
   },
   promise: {
@@ -236,10 +250,10 @@ export const courseContent = {
   },
   nextCohort: {
     label: "2기 사전 관심 접수",
-    title: "다음 4주 과정은 1기 종료 후 안내합니다.",
+    title: "다음 기수 일정은 아직 정해지지 않았습니다.",
     description: "희망 요일과 만들고 싶은 홈페이지를 당근 채팅으로 남겨주시면 2기 일정이 확정될 때 모임에서 확인할 수 있습니다.",
     schedule: "일정 준비 중",
-    actionLabel: "당근 모임에서 2기 문의하기",
+    actionLabel: "현재 참여 가능 일정 문의하기",
   },
   fee: { amount: "50,000원", label: "4주 전체 교육비", description: "별도의 장소 이용료 없이 4주 수업과 실습 환경이 모두 포함됩니다.", included: ["주 1회 2시간 · 총 8시간 실습", "커피긱스 2층 8인룸", "수업용 빔프로젝터", "매회 커피 제공"] },
   venue: {
@@ -250,7 +264,7 @@ export const courseContent = {
   preparation: ["개인 노트북", "노트북 충전기", "사용 가능한 이메일 계정"],
   recruitment: {
     title: "최대 8명의 소규모 실습",
-    description: "현재 당근의 부산 사직동 바이브코딩 모임에서 수강 문의를 받고 있습니다. 모임 페이지에서 참여 가능 여부를 문의해 주세요.",
+    description: "혼자 준비하다 설치와 배포에서 멈추지 않도록 최대 8명과 함께 끝까지 실습합니다. 당근 모임에서 실제 남은 자리와 참여 가능한 일정을 먼저 확인해 주세요.",
     status: "당근에서 모집 중",
     capacity: "정원 8명 · 자리 확인 후 신청 확정",
     steps: [
@@ -261,6 +275,6 @@ export const courseContent = {
     ],
     inquiryItems: ["이름 또는 당근 닉네임", "참여 가능한 수업 날짜", "개인 노트북 보유 여부", "만들고 싶은 홈페이지 주제"],
     privacy: "이 페이지에서는 이름·전화번호·이메일을 수집하거나 공개하지 않습니다. 교육 운영에 필요한 연락은 당근 채팅으로 진행합니다.",
-    action: { label: "당근 모임에서 문의하기", href: "https://www.daangn.com/kr/group/%EB%B6%80%EC%82%B0-%EC%82%AC%EC%A7%81%EB%8F%99-%EB%B0%94%EC%9D%B4%EB%B8%8C%EC%BD%94%EB%94%A9-%EB%AA%A8%EC%9E%84-vxbz4quk5ntg/" },
+    action: { label: "남은 자리 확인하고 시작하기", href: "https://www.daangn.com/kr/group/%EB%B6%80%EC%82%B0-%EC%82%AC%EC%A7%81%EB%8F%99-%EB%B0%94%EC%9D%B4%EB%B8%8C%EC%BD%94%EB%94%A9-%EB%AA%A8%EC%9E%84-vxbz4quk5ntg/" },
   },
 } as const;

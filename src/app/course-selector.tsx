@@ -31,7 +31,7 @@ export default function CourseSelector({ items }: { items: readonly NavigationIt
       <button className={styles.menuButton} type="button" aria-expanded={isOpen} aria-controls="main-menu" aria-label={isOpen ? "메뉴 닫기" : "메뉴 열기"} onClick={() => setIsOpen((current) => !current)}><span /><span /><span /></button>
       <div id="main-menu" className={styles.links} data-open={isOpen}>
         {items.map((item) => <a key={item.href} href={item.href} onClick={() => setIsOpen(false)}>{item.label}</a>)}
-        <a className={styles.mobileCta} href="/education/join.html" onClick={() => setIsOpen(false)}>클래스 신청</a>
+        <a className={styles.mobileCta} href="/education/join.html" onClick={() => setIsOpen(false)}>남은 자리 확인</a>
       </div>
     </nav>
   );
