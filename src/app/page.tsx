@@ -4,6 +4,7 @@ import { courseContent, siteContent } from "@/content/site-content";
 import showcaseImage from "../../public/images/autosites-showcase.png";
 import styles from "./home.module.css";
 import CourseSelector from "./course-selector";
+import HeroSlider from "./hero-slider";
 
 export default function HomePage() {
   const { hero, journey, audience, workflow, technology, comparison, projects, classPreview, whyNow, pricing, setup, showcase, faq, finalCta, footer } = siteContent;
@@ -13,7 +14,7 @@ export default function HomePage() {
     <main id="main-content" tabIndex={-1}>
       <section className={`${styles.hero} ${styles.container}`} aria-labelledby="hero-title">
         <div className={styles.heroCopy}><p className={styles.eyebrow}>{hero.eyebrow}</p><h1 id="hero-title">{hero.title}</h1><p className={styles.lead}>{hero.description}</p><div className={styles.actions}><Link className={styles.primaryAction} href={hero.primaryAction.href}>{hero.primaryAction.label}<span>→</span></Link><a className={styles.secondaryAction} href={hero.secondaryAction.href}>{hero.secondaryAction.label}</a></div><small className={styles.heroNote}>✓ {hero.note}</small></div>
-        <div className={styles.builder} aria-label="AI 홈페이지 제작 과정 예시"><div className={styles.builderBar}><span /><span /><span /><p>AutoSites · New project</p></div><div className={styles.prompt}><small>YOU</small><p>“골프 모임 홈페이지 만들어줘”</p></div><div className={styles.aiWork}><small>CODEX IS BUILDING</small><ul><li>홈페이지 구조 생성 <b>완료</b></li><li>디자인 적용 <b>완료</b></li><li>모바일 대응 <b>완료</b></li><li>기능 추가 <b>완료</b></li></ul></div><div className={styles.liveCard}><span className={styles.liveDot} /><div><small>PRODUCTION READY</small><strong>my-golf-site.vercel.app</strong></div><b>↗</b></div></div>
+        <HeroSlider />
       </section>
       <section className={styles.journey} aria-label="아이디어에서 실제 URL까지"><div className={styles.container}>{journey.map((item,index)=><div key={item}><span>0{index+1}</span><strong>{item}</strong></div>)}<p>아이디어에서 실제 URL까지</p></div></section>
       <section className={`${styles.section} ${styles.container}`} aria-labelledby="audience-title"><Heading eyebrow={audience.eyebrow} title={audience.title} id="audience-title"/><div className={styles.audienceGrid}>{audience.items.map((item,index)=><article key={item.title}><span>0{index+1}</span><h3>{item.title}</h3><p>{item.description}</p></article>)}</div><Link className={styles.inlineCta} href="/education/join.html">내 홈페이지 만들어보기 <span>→</span></Link></section>

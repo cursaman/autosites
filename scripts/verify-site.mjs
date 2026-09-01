@@ -76,6 +76,12 @@ try {
     fetchRequired("/sitemap.xml", "application/xml"),
     fetchRequired("/og.png", "image/png"),
   ]);
+  for (const imagePath of ["/images/hero/ai-idea.png", "/images/hero/ai-build.png", "/images/hero/ai-deploy.png"]) {
+    await fetchRequired(imagePath, "image/png");
+  }
+  for (const alt of ["아이디어 노트에서 홈페이지 화면을 구상하는 사업자", "AI와 대화하며 데스크톱과 모바일 홈페이지를 제작하는 모습", "완성된 홈페이지가 데스크톱과 태블릿, 휴대폰에 배포된 모습"]) {
+    assert(html.includes(alt), `메인 슬라이드 이미지 설명 누락: ${alt}`);
+  }
   assert((await robots.text()).includes("Disallow: /api/"), "robots.txt의 API 차단 규칙이 없습니다.");
   const sitemapXml = await sitemap.text();
   assert(sitemapXml.includes("<urlset"), "sitemap.xml 형식이 올바르지 않습니다.");
