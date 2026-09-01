@@ -118,12 +118,19 @@ export const courseContent = {
     eyebrow: "COHORT 01",
     title: "1기 교육이 진행 중입니다.",
     description: "첫 수업에서 웹의 작동 원리와 Codex, Git, GitHub, Vercel의 역할을 배우고 작업환경을 준비했습니다.",
-    percentage: "25%",
     sessions: [
       { week: "1주차", date: "8월 29일", topic: "웹과 작업환경 이해", status: "완료" },
       { week: "2주차", date: "9월 5일", topic: "랜딩페이지 제작", status: "예정" },
       { week: "3주차", date: "9월 12일", topic: "GitHub·Vercel 배포", status: "예정" },
       { week: "4주차", date: "9월 19일", topic: "수정과 운영", status: "예정" },
+    ],
+  },
+  records: {
+    eyebrow: "CLASS RECORDS",
+    title: "수업이 끝날 때마다 기록합니다.",
+    description: "완료된 수업에서 실제로 다룬 내용과 다음 단계에 필요한 결과물을 공개합니다. 수강생 개인정보는 포함하지 않습니다.",
+    items: [
+      { week: "1주차", date: "2026. 08. 29", title: "웹과 작업환경 준비 완료", summary: "웹사이트의 기본 구조를 이해하고 Codex, Git, GitHub, Vercel이 각각 어떤 역할을 하는지 확인했습니다.", completed: ["ChatGPT·Codex 작업 방식 이해", "Git 설치와 작성자 설정", "GitHub 저장소 생성", "첫 커밋과 Push 실습"], next: "2주차에는 자신의 홈페이지 주제와 고객을 정하고 반응형 랜딩페이지를 제작합니다." },
     ],
   },
   audience: ["코딩을 처음 접하는 분", "직접 홈페이지를 만들고 싶은 분", "소상공인과 1인 사업자", "제작 이후 수정과 배포까지 배우고 싶은 분"],
