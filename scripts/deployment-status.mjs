@@ -33,7 +33,7 @@ try {
   ]);
   assert(homepage.ok, `운영 홈페이지 응답 실패: HTTP ${homepage.status}`);
   assert(health.ok, `운영 상태 확인 실패: HTTP ${health.status}`);
-  assert((await homepage.text()).includes("말로 요청하면,"), "운영 홈페이지의 필수 문구가 최신 상태가 아닙니다.");
+  assert((await homepage.text()).includes("코딩 없이"), "운영 홈페이지의 필수 문구가 최신 상태가 아닙니다.");
 
   const vercelContexts = combinedStatus.statuses.filter((status) => status.context.startsWith("Vercel"));
   console.log(`✓ GitHub ${config.branch}: ${commit.sha.slice(0, 7)}`);
