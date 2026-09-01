@@ -1,9 +1,11 @@
 import Image from "next/image";
-import { siteContent } from "@/content/site-content";
+import Link from "next/link";
+import { courseContent, siteContent } from "@/content/site-content";
 import showcaseImage from "../../public/images/autosites-showcase.png";
 import styles from "./home.module.css";
 import setupStyles from "./setup.module.css";
 import CourseSelector from "./course-selector";
+import promotionStyles from "./course-promotion.module.css";
 
 export default function HomePage() {
   const { hero, workflow, setup, showcase, examples, deployment, faq, finalCta, footer } = siteContent;
@@ -23,6 +25,7 @@ export default function HomePage() {
             <div className={styles.terminalBody}><p><span>$</span> codex</p><p className={styles.request}>“메인 문구와 디자인을 바꿔줘.”</p><ol><li><span>01</span> 코드 수정 <b>완료</b></li><li><span>02</span> 품질 검사 <b>통과</b></li><li><span>03</span> GitHub Push <b>완료</b></li><li><span>04</span> Vercel Deploy <b>READY</b></li></ol></div>
           </div>
         </section>
+        <section className={`${promotionStyles.promotion} ${styles.container}`} aria-labelledby="course-promotion-title"><div className={promotionStyles.copy}><p>NOW RECRUITING · BUSAN</p><h2 id="course-promotion-title">초보자를 위한<br />4주 홈페이지 제작 과정</h2><span>Codex로 만들고 GitHub에 저장한 뒤 Vercel로 직접 배포합니다.</span><div className={promotionStyles.actions}><Link href="/course">교육과정 전체 보기 <span aria-hidden="true">→</span></Link><a href={courseContent.recruitment.action.href} target="_blank" rel="noreferrer">당근에서 문의하기 <span aria-hidden="true">↗</span></a></div></div><div className={promotionStyles.summary}><div><small>교육비</small><strong>{courseContent.fee.amount}</strong></div><ul>{courseContent.hero.facts.map((fact) => <li key={fact}>{fact}</li>)}</ul><div className={promotionStyles.progress}><span><b />1기 진행률 {courseContent.progress.percentage}</span><p>1주차 완료 · 2주차 준비 중</p></div></div></section>
         <section id="workflow" className={`${styles.section} ${styles.container}`} aria-labelledby="workflow-title">
           <div className={styles.sectionIntro}><p className={styles.eyebrow}>{workflow.eyebrow}</p><h2 id="workflow-title">{workflow.title}</h2><p>{workflow.description}</p></div>
           <ol className={styles.steps}>{workflow.steps.map((step) => <li key={step.number}><span>{step.number}</span><h3>{step.title}</h3><p>{step.description}</p></li>)}</ol>

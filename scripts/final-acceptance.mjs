@@ -32,6 +32,11 @@ try {
   }
   console.log("✓ 요청 1 — 메인 콘텐츠와 작업 흐름");
 
+  for (const copy of ["초보자를 위한", "4주 홈페이지 제작 과정", "1기 진행률", "25%", "당근에서 문의하기"]) {
+    assert(html.includes(copy), `메인 교육과정 연결 누락: ${copy}`);
+  }
+  console.log("✓ 메인 랜딩페이지와 교육과정 연결");
+
   for (const copy of ["처음 한 번만,", "각 서비스는 이런 역할을 합니다.", "프론트·백엔드 배포", "로그인·DB·CRUD", "Supabase — 로그인·DB가 필요할 때만"]) {
     assert(html.includes(copy), `작업환경 준비 안내 누락: ${copy}`);
   }
