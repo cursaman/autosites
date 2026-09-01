@@ -47,7 +47,7 @@
   --section-space: clamp(5rem, 11vw, 9rem);
 
   /* Layout */
-  --container-wide: 1180px;
+  --container-wide: 1360px;
   --container-reading: 760px;
   --page-gutter: clamp(1.25rem, 4vw, 2.5rem);
   --nav-height: 72px;
