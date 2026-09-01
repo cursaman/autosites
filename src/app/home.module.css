@@ -11,3 +11,5 @@
 @media(max-width:900px){.whyNow{grid-template-columns:1fr;gap:2.5rem}.whyNow>.sectionHeading{position:static}.whyResult{align-items:flex-start;flex-direction:column}}
 @media(max-width:600px){.reasonGrid{grid-template-columns:1fr}.whyResult>.primaryAction{width:100%}}
 .whyNow>.sectionHeading{position:static;top:auto}
+.finalCta h2{max-width:18ch;text-wrap:balance}
+@media(max-width:600px){.finalCta h2{max-width:100%}}
