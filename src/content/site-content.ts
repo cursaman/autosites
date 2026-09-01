@@ -134,9 +134,10 @@ export const courseContent = {
     { week: "04", title: "수정과 운영", objective: "운영 홈페이지를 다시 수정하고 검사와 재배포를 스스로 반복합니다.", status: "예정", items: ["Codex로 내용 다시 수정", "오류 검사와 자동 재배포", "도메인·Supabase·CRUD 이해"], schedule: [{ time: "18:00", lesson: "실제 수정 요청 작성" }, { time: "18:30", lesson: "빌드 검사·오류 해결" }, { time: "19:00", lesson: "자동 재배포와 운영 확인" }, { time: "19:30", lesson: "도메인·로그인·CRUD 이해" }], result: "스스로 운영하는 작업 흐름" },
   ],
   outcomes: ["Codex로 홈페이지 제작·수정", "Git으로 변경 이력 관리", "GitHub에 소스코드 보관", "Vercel로 화면과 API 배포", "로그인·데이터베이스가 필요한 시점 구분"],
-  fee: { amount: "50,000원", label: "4주 전체 교육비", included: ["총 8시간 실습", "2층 8인룸", "빔프로젝터", "매회 커피 제공"] },
+  fee: { amount: "50,000원", label: "4주 전체 교육비", description: "별도의 장소 이용료 없이 4주 수업과 실습 환경이 모두 포함됩니다.", included: ["주 1회 2시간 · 총 8시간 실습", "커피긱스 2층 8인룸", "수업용 빔프로젝터", "매회 커피 제공"] },
   venue: {
     name: "커피긱스 2층 8인룸", address: "부산광역시 연제구 교대로24번길 7", description: "부산교육대학교 인근 · 주차 가능", time: "매주 토요일 오후 6시–8시",
+    details: ["오후 6시 정시 시작", "2층 8인룸으로 이동", "건물 주차 가능", "Wi-Fi는 현장에서 안내"],
     mapUrl: "https://map.kakao.com/link/search/부산광역시%20연제구%20교대로24번길%207",
   },
   preparation: ["개인 노트북", "노트북 충전기", "사용 가능한 이메일 계정"],

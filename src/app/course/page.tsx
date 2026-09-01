@@ -7,6 +7,7 @@ import styles from "./course.module.css";
 import actionStyles from "./recruitment.module.css";
 import visualStyles from "./visual.module.css";
 import detailStyles from "./curriculum-detail.module.css";
+import infoStyles from "./information-detail.module.css";
 
 export const metadata: Metadata = {
   title: "초보자를 위한 Codex 홈페이지 제작 4주 과정",
@@ -34,7 +35,7 @@ export default function CoursePage() {
 
         <section className={styles.outcomeSection} aria-labelledby="outcomes-title"><div className={`${styles.container} ${styles.outcomeGrid}`}><div><p className={styles.eyebrow}>AFTER 4 WEEKS</p><h2 id="outcomes-title">수료 후 직접 할 수 있는 일</h2></div><ol>{outcomes.map((item, index) => <li key={item}><span>0{index + 1}</span>{item}</li>)}</ol></div></section>
 
-        <section id="information" className={`${styles.section} ${styles.container}`} aria-labelledby="information-title"><div className={styles.sectionHeading}><div><p className={styles.eyebrow}>COURSE INFORMATION</p><h2 id="information-title">교육비와 장소 안내</h2></div></div><div className={styles.informationGrid}><article className={styles.feeCard}><p>{fee.label}</p><strong>{fee.amount}</strong><ul>{fee.included.map((item) => <li key={item}>{item}</li>)}</ul></article><article className={styles.venueCard}><p>교육 장소</p><h3>{venue.name}</h3><address>{venue.address}</address><span>{venue.description}</span><strong>{venue.time}</strong><a href={venue.mapUrl} target="_blank" rel="noreferrer">카카오맵에서 위치 보기 ↗</a></article><article className={styles.preparationCard}><p>개인 준비물</p><ul>{preparation.map((item) => <li key={item}>{item}</li>)}</ul><small>Wi-Fi 비밀번호와 설치 과정은 현장에서 안내합니다.</small></article></div></section>
+        <section id="information" className={`${styles.section} ${styles.container}`} aria-labelledby="information-title"><div className={styles.sectionHeading}><div><p className={styles.eyebrow}>COURSE INFORMATION</p><h2 id="information-title">교육비와 장소 안내</h2></div><p>추가 장소비 없이 노트북과 충전기만 준비하면 바로 실습에 참여할 수 있습니다.</p></div><div className={styles.informationGrid}><article className={styles.feeCard}><p>{fee.label}</p><strong>{fee.amount}</strong><p className={infoStyles.description}>{fee.description}</p><ul>{fee.included.map((item) => <li key={item}>{item}</li>)}</ul></article><article className={styles.venueCard}><p>교육 장소</p><h3>{venue.name}</h3><address>{venue.address}</address><span>{venue.description}</span><strong>{venue.time}</strong><ul className={infoStyles.venueDetails}>{venue.details.map((item) => <li key={item}>{item}</li>)}</ul><a className={infoStyles.mapAction} href={venue.mapUrl} target="_blank" rel="noreferrer">카카오맵에서 위치 보기 <span aria-hidden="true">↗</span></a></article><article className={styles.preparationCard}><p>개인 준비물</p><ul>{preparation.map((item) => <li key={item}>{item}</li>)}</ul><small>프로그램 설치 과정과 Wi-Fi 비밀번호는 수업 현장에서 안내합니다.</small></article></div></section>
 
         <section id="recruitment" className={styles.recruitment} aria-labelledby="recruitment-title"><div className={styles.container}><p className={styles.eyebrow}>{recruitment.status}</p><h2 id="recruitment-title">{recruitment.title}</h2><p>{recruitment.description}</p><a className={actionStyles.action} href={recruitment.action.href} target="_blank" rel="noreferrer">{recruitment.action.label} <span aria-hidden="true">↗</span></a></div></section>
       </main>

@@ -1,0 +1,5 @@
+.description { margin:calc(var(--space-4) * -1) 0 var(--space-6)!important; color:var(--site-ink-soft)!important; font-family:var(--font-sans)!important; font-size:var(--text-sm)!important; font-weight:400!important; letter-spacing:0!important; line-height:1.7; }
+.venueDetails { margin-top:var(--space-6)!important; padding-top:var(--space-5)!important; grid-template-columns:repeat(2,minmax(0,1fr)); border-top:1px solid var(--site-line); }
+.venueDetails li { font-size:var(--text-sm); }
+.mapAction { padding:.75rem 1rem; display:inline-flex!important; align-items:center; gap:var(--space-3); border:1px solid var(--site-accent); border-radius:var(--radius-pill); text-decoration:none; }
+@media(max-width:600px){.venueDetails{grid-template-columns:1fr}}
