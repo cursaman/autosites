@@ -82,7 +82,7 @@ try {
   for (const copy of ["4주 만에 내 홈페이지를 만듭니다.", "2시간 수업표", "50,000원", "당근 모임에서 문의하기"]) {
     assert(courseHtml.includes(copy), `교육과정 필수 문구 누락: ${copy}`);
   }
-  for (const id of ["progress", "records", "curriculum", "information", "recruitment"]) {
+  for (const id of ["progress", "records", "curriculum", "next-cohort", "information", "recruitment"]) {
     assert(courseHtml.includes(`id="${id}"`), `교육과정 섹션 ID 누락: #${id}`);
   }
   assert(courseHtml.includes("바이브코딩 흐름 안내"), "바이브코딩 이미지 대체 텍스트가 없습니다.");

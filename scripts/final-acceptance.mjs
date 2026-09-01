@@ -43,12 +43,12 @@ try {
   console.log("✓ 작업환경 준비와 선택 기능 안내");
 
   const courseHtml = await (await fetchRequired("/course", "text/html")).text();
-  for (const copy of ["4주 만에 내 홈페이지를 만듭니다.", "수업에서 배우는 제작 방식", "바이브코딩 흐름 안내", "2시간 수업표", "GitHub 저장소 생성·첫 Push", "수업이 끝날 때마다 기록합니다.", "첫 커밋과 Push 실습", "1기 교육이 진행 중입니다.", "50,000원", "별도의 장소 이용료 없이", "오후 6시 정시 시작", "건물 주차 가능", "커피긱스 2층 8인룸", "자리 확인 후 신청 확정", "이 페이지에서는 이름·전화번호·이메일을 수집하거나 공개하지 않습니다.", "당근 모임에서 문의하기"]) {
+  for (const copy of ["4주 만에 내 홈페이지를 만듭니다.", "수업에서 배우는 제작 방식", "바이브코딩 흐름 안내", "2시간 수업표", "GitHub 저장소 생성·첫 Push", "수업이 끝날 때마다 기록합니다.", "첫 커밋과 Push 실습", "1기의 과정이", "2기 사전 관심 접수", "공개 자료 준비 중", "동의하지 않아도 불이익이 없습니다.", "1기 교육이 진행 중입니다.", "50,000원", "별도의 장소 이용료 없이", "오후 6시 정시 시작", "건물 주차 가능", "커피긱스 2층 8인룸", "자리 확인 후 신청 확정", "이 페이지에서는 이름·전화번호·이메일을 수집하거나 공개하지 않습니다.", "당근 모임에서 문의하기"]) {
     assert(courseHtml.includes(copy), `4주 교육과정 페이지 누락: ${copy}`);
   }
   console.log("✓ 4주 교육과정 페이지와 1기 진행 정보");
 
-  for (const id of ["progress", "records", "curriculum", "information", "recruitment"]) {
+  for (const id of ["progress", "records", "curriculum", "next-cohort", "information", "recruitment"]) {
     assert(courseHtml.includes(`id="${id}"`), `교육과정 이동 대상 누락: #${id}`);
   }
   for (const href of ["map.kakao.com/link/search", "www.daangn.com/kr/group/"]) {

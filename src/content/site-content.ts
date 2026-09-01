@@ -141,6 +141,25 @@ export const courseContent = {
     { week: "04", title: "수정과 운영", objective: "운영 홈페이지를 다시 수정하고 검사와 재배포를 스스로 반복합니다.", status: "예정", items: ["Codex로 내용 다시 수정", "오류 검사와 자동 재배포", "도메인·Supabase·CRUD 이해"], schedule: [{ time: "18:00", lesson: "실제 수정 요청 작성" }, { time: "18:30", lesson: "빌드 검사·오류 해결" }, { time: "19:00", lesson: "자동 재배포와 운영 확인" }, { time: "19:30", lesson: "도메인·로그인·CRUD 이해" }], result: "스스로 운영하는 작업 흐름" },
   ],
   outcomes: ["Codex로 홈페이지 제작·수정", "Git으로 변경 이력 관리", "GitHub에 소스코드 보관", "Vercel로 화면과 API 배포", "로그인·데이터베이스가 필요한 시점 구분"],
+  completion: {
+    eyebrow: "RESULTS & NEXT COHORT",
+    title: "1기의 과정이\n다음 기수의 안내가 됩니다.",
+    description: "1기는 현재 진행 중입니다. 수업이 끝날 때마다 실제 결과를 기록하고, 과정 종료 후 공개 동의를 받은 결과물과 후기만 소개합니다.",
+    status: "1기 진행 중",
+    resultSlots: [
+      { title: "수강생 홈페이지", timing: "2~4주차 이후", description: "완성된 홈페이지 중 공개에 동의한 결과물과 운영 주소를 소개합니다." },
+      { title: "수강 후기", timing: "4주차 이후", description: "실명 대신 닉네임 사용이 가능하며 공개에 동의한 후기만 게시합니다." },
+      { title: "교육 현장 기록", timing: "수업 종료 후", description: "참여자의 얼굴이나 개인정보가 노출되지 않도록 확인한 사진만 사용합니다." },
+    ],
+    privacy: "결과물·후기·사진 공개 여부는 교육 참여와 별개이며, 동의하지 않아도 불이익이 없습니다.",
+  },
+  nextCohort: {
+    label: "2기 사전 관심 접수",
+    title: "다음 4주 과정은 1기 종료 후 안내합니다.",
+    description: "희망 요일과 만들고 싶은 홈페이지를 당근 채팅으로 남겨주시면 2기 일정이 확정될 때 모임에서 확인할 수 있습니다.",
+    schedule: "일정 준비 중",
+    actionLabel: "당근 모임에서 2기 문의하기",
+  },
   fee: { amount: "50,000원", label: "4주 전체 교육비", description: "별도의 장소 이용료 없이 4주 수업과 실습 환경이 모두 포함됩니다.", included: ["주 1회 2시간 · 총 8시간 실습", "커피긱스 2층 8인룸", "수업용 빔프로젝터", "매회 커피 제공"] },
   venue: {
     name: "커피긱스 2층 8인룸", address: "부산광역시 연제구 교대로24번길 7", description: "부산교육대학교 인근 · 주차 가능", time: "매주 토요일 오후 6시–8시",

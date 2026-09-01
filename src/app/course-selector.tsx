@@ -37,6 +37,7 @@ export default function CourseSelector({ items }: { items: readonly NavigationIt
           <Link href="/course#progress" onClick={() => setIsOpen(false)}><strong>1기 진행 현황</strong><small>주차별 수업 진행 상태</small></Link>
           <Link href="/course#records" onClick={() => setIsOpen(false)}><strong>실제 수업 기록</strong><small>완료한 내용과 다음 수업</small></Link>
           <Link href="/course#curriculum" onClick={() => setIsOpen(false)}><strong>4주 커리큘럼</strong><small>매주 배우고 완성하는 것</small></Link>
+          <Link href="/course#next-cohort" onClick={() => setIsOpen(false)}><strong>2기 사전 관심</strong><small>다음 과정 일정 안내받기</small></Link>
         </div>
       </div>
     </nav>

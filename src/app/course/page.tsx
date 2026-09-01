@@ -10,6 +10,7 @@ import visualStyles from "./visual.module.css";
 import detailStyles from "./curriculum-detail.module.css";
 import infoStyles from "./information-detail.module.css";
 import recordStyles from "./records.module.css";
+import completionStyles from "./completion.module.css";
 
 export const metadata: Metadata = {
   title: "초보자를 위한 Codex 홈페이지 제작 4주 과정",
@@ -18,7 +19,7 @@ export const metadata: Metadata = {
 };
 
 export default function CoursePage() {
-  const { hero, progress, records, audience, curriculum, outcomes, fee, venue, preparation, recruitment } = courseContent;
+  const { hero, progress, records, audience, curriculum, outcomes, completion, nextCohort, fee, venue, preparation, recruitment } = courseContent;
   const courseProgress = getCourseProgress(progress.sessions);
 
   return (
@@ -39,6 +40,8 @@ export default function CoursePage() {
         <section id="curriculum" className={`${styles.section} ${styles.container}`} aria-labelledby="curriculum-title"><div className={styles.sectionHeading}><div><p className={styles.eyebrow}>CURRICULUM</p><h2 id="curriculum-title">매주 하나씩 완성합니다.</h2></div><p>설명만 듣는 수업이 아니라 자신의 노트북에서 직접 만들고 저장하고 배포합니다.</p></div><div className={styles.curriculumGrid}>{curriculum.map((week) => <article key={week.week}><div className={detailStyles.cardHeading}><div><span>WEEK {week.week}</span><h3>{week.title}</h3></div><small className={week.status === "완료" ? detailStyles.done : undefined}>{week.status}</small></div><p className={detailStyles.objective}>{week.objective}</p><ul>{week.items.map((item) => <li key={item}>{item}</li>)}</ul><div className={detailStyles.lessonPlan} aria-label={`${week.week}주차 2시간 수업표`}><strong>2시간 수업표</strong><ol>{week.schedule.map((item) => <li key={item.time}><time>{item.time}</time><span>{item.lesson}</span></li>)}</ol></div><p><small>이번 주 결과물</small>{week.result}</p></article>)}</div></section>
 
         <section className={styles.outcomeSection} aria-labelledby="outcomes-title"><div className={`${styles.container} ${styles.outcomeGrid}`}><div><p className={styles.eyebrow}>AFTER 4 WEEKS</p><h2 id="outcomes-title">수료 후 직접 할 수 있는 일</h2></div><ol>{outcomes.map((item, index) => <li key={item}><span>0{index + 1}</span>{item}</li>)}</ol></div></section>
+
+        <section id="next-cohort" className={`${styles.section} ${styles.container}`} aria-labelledby="completion-title"><div className={styles.sectionHeading}><div><p className={styles.eyebrow}>{completion.eyebrow}</p><h2 id="completion-title">{completion.title}</h2></div><div className={completionStyles.intro}><strong>{completion.status} · {courseProgress.percentageLabel}</strong><p>{completion.description}</p></div></div><div className={completionStyles.slots}>{completion.resultSlots.map((slot) => <article key={slot.title}><span>{slot.timing}</span><h3>{slot.title}</h3><p>{slot.description}</p><small>공개 자료 준비 중</small></article>)}</div><p className={completionStyles.privacy}>{completion.privacy}</p><aside className={completionStyles.next}><div><span>{nextCohort.label}</span><h3>{nextCohort.title}</h3><p>{nextCohort.description}</p></div><div><strong>{nextCohort.schedule}</strong><a href={recruitment.action.href} target="_blank" rel="noreferrer">{nextCohort.actionLabel} <span aria-hidden="true">↗</span></a></div></aside></section>
 
         <section id="information" className={`${styles.section} ${styles.container}`} aria-labelledby="information-title"><div className={styles.sectionHeading}><div><p className={styles.eyebrow}>COURSE INFORMATION</p><h2 id="information-title">교육비와 장소 안내</h2></div><p>추가 장소비 없이 노트북과 충전기만 준비하면 바로 실습에 참여할 수 있습니다.</p></div><div className={styles.informationGrid}><article className={styles.feeCard}><p>{fee.label}</p><strong>{fee.amount}</strong><p className={infoStyles.description}>{fee.description}</p><ul>{fee.included.map((item) => <li key={item}>{item}</li>)}</ul></article><article className={styles.venueCard}><p>교육 장소</p><h3>{venue.name}</h3><address>{venue.address}</address><span>{venue.description}</span><strong>{venue.time}</strong><ul className={infoStyles.venueDetails}>{venue.details.map((item) => <li key={item}>{item}</li>)}</ul><a className={infoStyles.mapAction} href={venue.mapUrl} target="_blank" rel="noreferrer">카카오맵에서 위치 보기 <span aria-hidden="true">↗</span></a></article><article className={styles.preparationCard}><p>개인 준비물</p><ul>{preparation.map((item) => <li key={item}>{item}</li>)}</ul><small>프로그램 설치 과정과 Wi-Fi 비밀번호는 수업 현장에서 안내합니다.</small></article></div></section>
 
