@@ -145,6 +145,15 @@ export const courseContent = {
     title: "최대 8명의 소규모 실습",
     description: "현재 당근의 부산 사직동 바이브코딩 모임에서 수강 문의를 받고 있습니다. 모임 페이지에서 참여 가능 여부를 문의해 주세요.",
     status: "당근에서 모집 중",
+    capacity: "정원 8명 · 자리 확인 후 신청 확정",
+    steps: [
+      { number: "01", title: "당근 모임 열기", description: "부산 사직동 바이브코딩 모임 페이지로 이동합니다." },
+      { number: "02", title: "채팅으로 문의", description: "참여 가능한 날짜와 만들고 싶은 홈페이지를 알려주세요." },
+      { number: "03", title: "자리 확인", description: "남은 자리와 수업 준비사항을 채팅으로 안내받습니다." },
+      { number: "04", title: "신청 확정", description: "확정 안내를 받으면 오후 6시 수업에 참여합니다." },
+    ],
+    inquiryItems: ["이름 또는 당근 닉네임", "참여 가능한 수업 날짜", "개인 노트북 보유 여부", "만들고 싶은 홈페이지 주제"],
+    privacy: "이 페이지에서는 이름·전화번호·이메일을 수집하거나 공개하지 않습니다. 교육 운영에 필요한 연락은 당근 채팅으로 진행합니다.",
     action: { label: "당근 모임에서 문의하기", href: "https://www.daangn.com/kr/group/%EB%B6%80%EC%82%B0-%EC%82%AC%EC%A7%81%EB%8F%99-%EB%B0%94%EC%9D%B4%EB%B8%8C%EC%BD%94%EB%94%A9-%EB%AA%A8%EC%9E%84-vxbz4quk5ntg/" },
   },
 } as const;
