@@ -80,7 +80,7 @@ export const siteContent = {
       { week: "4주차", title: "GitHub → Vercel → 실제 URL 배포" },
     ],
     promise: "4주 후에는 ‘배웠습니다’가 아니라 ‘제가 만든 홈페이지가 있습니다’라고 말할 수 있게 합니다.",
-    action: { label: "내 홈페이지 완성하러 가기", href: "/education/join.html" },
+    action: { label: "내 홈페이지 완성하러 가기 · 4주 실전 클래스 신청하기", href: "/education/join.html" },
   },
   whyNow: {
     eyebrow: "WHY START NOW",
@@ -100,7 +100,7 @@ export const siteContent = {
     eyebrow: "STARTER CLASS",
     title: "처음 시작하는 사람을 위한 실전 클래스",
     included: ["AI 홈페이지 제작", "Codex 활용법", "GitHub 사용법", "Vercel 배포", "실제 프로젝트 제작", "모바일 최적화", "프로젝트 완성까지 실습"],
-    action: { label: "남은 자리 확인하기", href: "/education/join.html" },
+    action: { label: "남은 자리 확인하기 · 클래스 신청하기", href: "/education/join.html" },
   },
   setup: {
     eyebrow: "BEFORE YOU START",
