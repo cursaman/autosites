@@ -109,10 +109,26 @@ export const siteContent = {
 
 export const courseContent = {
   hero: {
-    eyebrow: "4-WEEK PRACTICAL COURSE",
-    title: "코딩을 몰라도,\n4주 만에 내 홈페이지를 만듭니다.",
-    description: "Codex와 대화하며 홈페이지를 만들고, GitHub에 저장한 뒤 Vercel로 실제 인터넷에 공개하는 초보자 실습 과정입니다.",
+    eyebrow: "BEGINNER-FRIENDLY · 4-WEEK PRACTICAL COURSE",
+    title: "4주 뒤, 직접 만든\n홈페이지 주소를 가져가세요.",
+    description: "코드를 외우는 수업이 아닙니다. 만들고 싶은 홈페이지를 Codex에 설명하고, 직접 수정하고, GitHub에 저장한 뒤 Vercel 운영 주소로 공개하는 과정을 함께 완성합니다.",
     facts: ["4주", "매주 토요일", "오후 6시–8시", "총 8시간", "최대 8명"],
+  },
+  promise: {
+    eyebrow: "WHY THIS COURSE",
+    title: "혼자서는 막히는 지점을\n수업에서 함께 넘습니다.",
+    concerns: [
+      { question: "무엇부터 시작해야 할지 모르겠어요.", answer: "설치부터 첫 요청까지 같은 화면을 보며 함께 시작합니다." },
+      { question: "AI가 만든 코드를 믿어도 될까요?", answer: "결과를 확인하고 오류를 검사하고 다시 요청하는 방법을 배웁니다." },
+      { question: "만들어도 인터넷에 올리지 못할 것 같아요.", answer: "GitHub 저장부터 Vercel 운영 주소 확인까지 직접 실습합니다." },
+    ],
+    deliverablesTitle: "4주 뒤 내 손에 남는 것",
+    deliverables: [
+      { number: "01", title: "내 주제의 반응형 홈페이지", description: "가게, 서비스, 포트폴리오 등 자신에게 필요한 내용으로 제작합니다." },
+      { number: "02", title: "GitHub 코드 저장소", description: "모든 작업 이력을 내 계정에 안전하게 보관합니다." },
+      { number: "03", title: "실제로 열리는 운영 URL", description: "휴대폰이나 다른 사람의 컴퓨터에서도 접속할 수 있게 배포합니다." },
+      { number: "04", title: "다시 수정하고 배포하는 방법", description: "수업 이후에도 Codex와 대화하며 스스로 운영할 수 있습니다." },
+    ],
   },
   progress: {
     eyebrow: "COHORT 01",

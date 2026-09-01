@@ -1,0 +1,16 @@
+.concerns { margin-top:var(--space-12); display:grid; grid-template-columns:repeat(3,1fr); border-top:1px solid var(--site-line); border-left:1px solid var(--site-line); }
+.concerns article { min-height:190px; padding:var(--space-6); border-right:1px solid var(--site-line); border-bottom:1px solid var(--site-line); background:rgba(255,253,248,.42); }
+.concerns h3 { margin:0 0 var(--space-8); font-size:var(--text-lg); line-height:1.5; }
+.concerns p { margin:0; color:var(--site-ink-soft); font-size:var(--text-sm); line-height:1.7; }
+.deliverables { margin-top:var(--space-12); padding:clamp(1.5rem,4vw,2.5rem); display:grid; grid-template-columns:.8fr 1.2fr; gap:clamp(2rem,7vw,6rem); border-radius:var(--radius-lg); background:var(--site-code); color:var(--site-code-ink); }
+.deliverables > div > span { color:var(--site-highlight); font-family:var(--font-mono); font-size:var(--text-xs); letter-spacing:.12em; }
+.deliverables > div > h3 { max-width:9ch; margin:var(--space-6) 0 0; font-size:var(--text-2xl); line-height:var(--leading-heading); }
+.deliverables ol { margin:0; padding:0; list-style:none; }
+.deliverables li { padding:var(--space-4) 0; display:grid; grid-template-columns:3rem 1fr; gap:var(--space-4); border-top:1px solid #344039; }
+.deliverables li:last-child { border-bottom:1px solid #344039; }
+.deliverables li > span { color:var(--site-highlight); font-family:var(--font-mono); font-size:var(--text-xs); }
+.deliverables h4 { margin:0 0 var(--space-2); font-size:var(--text-lg); }
+.deliverables p { margin:0; color:#aebbb3; font-size:var(--text-sm); line-height:1.65; }
+.cta { width:fit-content; min-height:50px; margin:var(--space-8) 0 0 auto; padding:.8rem 1.25rem; display:flex; align-items:center; gap:var(--space-4); border:1px solid var(--site-accent); border-radius:var(--radius-pill); color:var(--site-accent); font-weight:750; text-decoration:none; }
+@media(max-width:900px){.concerns{grid-template-columns:1fr}.concerns article{min-height:auto}.deliverables{grid-template-columns:1fr}.deliverables>div>h3{max-width:none}}
+@media(max-width:600px){.cta{width:100%;justify-content:center;text-align:center}}

@@ -11,6 +11,7 @@ import detailStyles from "./curriculum-detail.module.css";
 import infoStyles from "./information-detail.module.css";
 import recordStyles from "./records.module.css";
 import completionStyles from "./completion.module.css";
+import promiseStyles from "./promise.module.css";
 
 export const metadata: Metadata = {
   title: "초보자를 위한 Codex 홈페이지 제작 4주 과정",
@@ -19,7 +20,7 @@ export const metadata: Metadata = {
 };
 
 export default function CoursePage() {
-  const { hero, progress, records, audience, curriculum, outcomes, completion, nextCohort, fee, venue, preparation, recruitment } = courseContent;
+  const { hero, promise, progress, records, audience, curriculum, outcomes, completion, nextCohort, fee, venue, preparation, recruitment } = courseContent;
   const courseProgress = getCourseProgress(progress.sessions);
 
   return (
@@ -27,7 +28,9 @@ export default function CoursePage() {
       <a className={styles.skipLink} href="#course-main">본문으로 바로가기</a>
       <header className={styles.header}><Link className={styles.brand} href="/"><span aria-hidden="true">A</span>AutoSites</Link><nav aria-label="교육과정 메뉴"><a href="#curriculum">커리큘럼</a><a href="#information">교육 안내</a><a href="#recruitment">모집 안내</a></nav><Link className={styles.homeLink} href="/">메인으로</Link></header>
       <main id="course-main" className={styles.main} tabIndex={-1}>
-        <section className={`${styles.hero} ${styles.container}`} aria-labelledby="course-title"><div><p className={styles.eyebrow}>{hero.eyebrow}</p><h1 id="course-title">{hero.title}</h1><p className={styles.lead}>{hero.description}</p><div className={styles.actions}><a href="#curriculum">과정 살펴보기</a><a href="#recruitment">당근 모집 안내</a></div></div><aside className={styles.heroCard} aria-label="교육과정 핵심 정보"><p>1기 · 부산</p><strong>{fee.amount}</strong><span>{fee.label}</span><ul>{hero.facts.map((fact) => <li key={fact}>{fact}</li>)}</ul></aside></section>
+        <section className={`${styles.hero} ${styles.container}`} aria-labelledby="course-title"><div><p className={styles.eyebrow}>{hero.eyebrow}</p><h1 id="course-title">{hero.title}</h1><p className={styles.lead}>{hero.description}</p><div className={styles.actions}><a href="#curriculum">내 홈페이지 만들기</a><a href="#information">5만원 포함 내용</a></div></div><aside className={styles.heroCard} aria-label="교육과정 핵심 정보"><p>1기 진행 중 · 부산 · 초보자 실습</p><strong>{fee.amount}</strong><span>{fee.label} · 장소·빔프로젝터·커피 포함</span><ul>{hero.facts.map((fact) => <li key={fact}>{fact}</li>)}</ul></aside></section>
+
+        <section className={`${styles.section} ${styles.container}`} aria-labelledby="promise-title"><div className={styles.sectionHeading}><div><p className={styles.eyebrow}>{promise.eyebrow}</p><h2 id="promise-title">{promise.title}</h2></div><p>완성된 코드를 받아 가는 것이 아니라, 원하는 내용을 말하고 결과를 확인하고 실제 주소로 공개하는 전 과정을 직접 경험합니다.</p></div><div className={promiseStyles.concerns}>{promise.concerns.map((item) => <article key={item.question}><h3>“{item.question}”</h3><p>{item.answer}</p></article>)}</div><div className={promiseStyles.deliverables}><div><span>TAKE IT HOME</span><h3>{promise.deliverablesTitle}</h3></div><ol>{promise.deliverables.map((item) => <li key={item.number}><span>{item.number}</span><div><h4>{item.title}</h4><p>{item.description}</p></div></li>)}</ol></div><a className={promiseStyles.cta} href="#recruitment">최대 8명 소규모 수업 문의하기 <span aria-hidden="true">↓</span></a></section>
 
         <section className={`${styles.section} ${styles.container}`} aria-labelledby="vibe-title"><div className={visualStyles.heading}><div><p className={styles.eyebrow}>VIBE CODING</p><h2 id="vibe-title">수업에서 배우는 제작 방식</h2></div><p>만들고 싶은 기능을 자연어로 설명하고, AI가 제안한 코드를 확인하며 수정과 배포까지 이어가는 과정을 한눈에 살펴보세요.</p></div><figure className={visualStyles.figure}><Image src={vibeCodingImage} alt="아이디어 구상, AI와 대화, 코드 적용, 수정과 개선, 완성과 배포로 이어지는 바이브코딩 흐름 안내" sizes="(max-width: 900px) calc(100vw - 40px), 1180px" placeholder="blur" /><figcaption>바이브코딩의 개념과 흐름, 실습에 활용하는 AI 도구 안내</figcaption></figure></section>
 
