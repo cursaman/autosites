@@ -48,6 +48,21 @@ try {
   }
   console.log("✓ 4주 교육과정 페이지와 1기 진행 정보");
 
+  for (const id of ["progress", "curriculum", "information", "recruitment"]) {
+    assert(courseHtml.includes(`id="${id}"`), `교육과정 이동 대상 누락: #${id}`);
+  }
+  for (const href of ["map.kakao.com/link/search", "www.daangn.com/kr/group/"]) {
+    assert(courseHtml.includes(href), `교육과정 외부 링크 누락: ${href}`);
+  }
+  assert(!courseHtml.includes("coffee922ks"), "운영 페이지에 Wi-Fi 비밀번호가 노출됐습니다.");
+  const courseCss = await readFile(new URL("../src/app/course/course.module.css", import.meta.url), "utf8");
+  const selectorSource = await readFile(new URL("../src/app/course-selector.tsx", import.meta.url), "utf8");
+  assert(courseCss.includes("@media(max-width:900px)") && courseCss.includes("@media(max-width:600px)"), "교육과정 반응형 기준이 누락됐습니다.");
+  for (const marker of ["aria-expanded", "aria-controls", "Escape"]) {
+    assert(selectorSource.includes(marker), `교육과정 선택 메뉴 접근성 누락: ${marker}`);
+  }
+  console.log("✓ 교육과정 링크, 반응형, 선택 메뉴 접근성과 비밀정보 비노출");
+
   // Request 2: visual showcase and responsive design source.
   assert(html.includes("주제가 달라지면,"), "제작 사례 제목이 없습니다.");
   assert(html.includes("카페, 전문 컨설팅, 크리에이티브 포트폴리오"), "제작 사례 이미지 대체 텍스트가 없습니다.");

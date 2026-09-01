@@ -74,8 +74,22 @@ try {
     fetchRequired("/og.png", "image/png"),
   ]);
   assert((await robots.text()).includes("Disallow: /api/"), "robots.txt의 API 차단 규칙이 없습니다.");
-  assert((await sitemap.text()).includes("<urlset"), "sitemap.xml 형식이 올바르지 않습니다.");
-  assert((await fetchRequired("/course", "text/html")).ok, "/course 페이지를 열 수 없습니다.");
+  const sitemapXml = await sitemap.text();
+  assert(sitemapXml.includes("<urlset"), "sitemap.xml 형식이 올바르지 않습니다.");
+  assert(sitemapXml.includes("/course"), "sitemap.xml에 교육과정 페이지가 없습니다.");
+
+  const courseHtml = await (await fetchRequired("/course", "text/html")).text();
+  for (const copy of ["4주 만에 내 홈페이지를 만듭니다.", "2시간 수업표", "50,000원", "당근 모임에서 문의하기"]) {
+    assert(courseHtml.includes(copy), `교육과정 필수 문구 누락: ${copy}`);
+  }
+  for (const id of ["progress", "curriculum", "information", "recruitment"]) {
+    assert(courseHtml.includes(`id="${id}"`), `교육과정 섹션 ID 누락: #${id}`);
+  }
+  assert(courseHtml.includes("바이브코딩 흐름 안내"), "바이브코딩 이미지 대체 텍스트가 없습니다.");
+  assert(courseHtml.includes("map.kakao.com/link/search"), "카카오맵 링크가 없습니다.");
+  assert(courseHtml.includes("www.daangn.com/kr/group/"), "당근 모임 링크가 없습니다.");
+  assert(courseHtml.includes("rel=\"noreferrer\""), "외부 링크 보안 속성이 없습니다.");
+  assert(!courseHtml.includes("coffee922ks"), "Wi-Fi 비밀번호가 공개 페이지에 노출됐습니다.");
   assert(Number(socialImage.headers.get("content-length") ?? 0) > 0, "공유 이미지가 비어 있습니다.");
 
   const runtimeOutput = output.join("");
@@ -83,6 +97,7 @@ try {
   console.log(`✓ 필수 문구 ${requiredCopy.length}개`);
   console.log(`✓ 내부 링크 ${hashLinks.length}개`);
   console.log("✓ SEO 메타정보, robots.txt, sitemap.xml, 공유 이미지");
+  console.log("✓ 교육과정 섹션, 사진, 지도·당근 링크와 비밀정보 비노출");
   console.log("✓ 프로덕션 서버 응답 및 런타임 오류 검사");
 } catch (error) {
   console.error(`✗ 홈페이지 자동 검증 실패: ${error instanceof Error ? error.message : error}`);
