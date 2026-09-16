@@ -257,7 +257,7 @@ export const courseContent = {
     description: "1기는 이번 주 4주차 수업으로 마무리됩니다. 과정 종료 후 공개 동의를 받은 결과물과 후기만 확인해 소개합니다.",
     status: "1기 4주차 진행 예정",
     resultSlots: [
-      { title: "수강생 홈페이지", timing: "2~4주차 이후", description: "완성된 홈페이지 중 공개에 동의한 결과물과 운영 주소를 소개합니다." },
+      { title: "MOVIEBOX", timing: "1기 수강생 작품 · 운영 중", description: "인기 영화, 현재 상영작, 개봉 예정작과 영화 상세정보를 탐색할 수 있는 반응형 영화 정보 서비스입니다.", href: "https://bb-movie-rho.vercel.app/", actionLabel: "수강생 작품 보기" },
       { title: "수강 후기", timing: "4주차 이후", description: "실명 대신 닉네임 사용이 가능하며 공개에 동의한 후기만 게시합니다." },
       { title: "교육 현장 기록", timing: "수업 종료 후", description: "참여자의 얼굴이나 개인정보가 노출되지 않도록 확인한 사진만 사용합니다." },
     ],
