@@ -1,13 +1,13 @@
 :root {
   /* Color */
-  --site-canvas: #f4f1e9;
-  --site-surface: #fffdf8;
-  --site-surface-strong: #e8eee8;
-  --site-ink: #142019;
-  --site-ink-soft: #536059;
-  --site-line: #cfd5ce;
-  --site-accent: #176447;
-  --site-accent-hover: #0f4f38;
+  --site-canvas: #f7f7f3;
+  --site-surface: #ffffff;
+  --site-surface-strong: #eef3ef;
+  --site-ink: #111512;
+  --site-ink-soft: #5f6762;
+  --site-line: #dde2dd;
+  --site-accent: #1a6b4a;
+  --site-accent-hover: #115239;
   --site-accent-ink: #f7fff9;
   --site-highlight: #d9f99d;
   --site-code: #101713;
@@ -53,11 +53,11 @@
   --nav-height: 72px;
 
   /* Shape and depth */
-  --radius-sm: 10px;
-  --radius-md: 18px;
-  --radius-lg: 28px;
+  --radius-sm: 12px;
+  --radius-md: 22px;
+  --radius-lg: 34px;
   --radius-pill: 999px;
-  --shadow-card: 0 18px 48px rgba(20, 32, 25, 0.08);
+  --shadow-card: 0 24px 70px rgba(20, 32, 25, 0.10), 0 2px 8px rgba(20, 32, 25, 0.04);
   --shadow-focus: 0 0 0 4px rgba(23, 100, 71, 0.18);
 
   /* Motion */
