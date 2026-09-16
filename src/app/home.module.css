@@ -21,3 +21,5 @@
 @media(max-width:900px){.heroOrbits span:nth-child(2){display:none}.processSteps li{grid-template-columns:58px 100px 1fr}}
 @media(max-width:600px){.heroOrbits span{font-size:.58rem}.heroOrbits span:nth-child(1){top:4%;right:5%}.heroOrbits span:nth-child(3){top:15%;right:auto;bottom:auto;left:5%}.journey .iconBubble{width:2rem;height:2rem}.processSteps li{grid-template-columns:48px 1fr;gap:.7rem}.processSteps li>span{grid-column:2}.processSteps li>div{grid-column:1/-1}.classGrid li{grid-template-columns:46px 72px 1fr}}
 @media(prefers-reduced-motion:reduce){.heroOrbits span,.projectIcon,.resultCallout::after,.audienceGrid article,.techGrid article,.projectGrid article,.reasonGrid article,.setupGrid article,.sectionHeading{animation:none!important}.miniBrowser::after{display:none}.iconBubble,.processIcon,.classGrid li>b{transition:none}}
+.brand img{width:2.45rem;height:2.45rem;object-fit:contain;filter:drop-shadow(0 5px 10px rgba(20,32,25,.14));transition:transform var(--duration-fast)}.brand:hover img{transform:rotate(-7deg) scale(1.06)}
+@media(prefers-reduced-motion:reduce){.brand img{transition:none}.brand:hover img{transform:none}}

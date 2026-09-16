@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { courseContent, siteContent } from "@/content/site-content";
 import showcaseImage from "../../public/images/autosites-showcase.png";
+import autoSitesLogo from "../../public/images/brand/autosites-auto-logo-v2.png";
 import styles from "./home.module.css";
 import CourseSelector from "./course-selector";
 import HeroSlider from "./hero-slider";
@@ -19,7 +20,7 @@ export default function HomePage() {
   const { hero, journey, audience, workflow, technology, comparison, projects, classPreview, whyNow, pricing, setup, showcase, faq, finalCta, footer } = siteContent;
   return <div id="top" className={styles.page}>
     <a className={styles.skipLink} href="#main-content">본문으로 바로가기</a>
-    <header className={styles.header}><a className={styles.brand} href="#top" aria-label="AutoSites 홈"><span aria-hidden="true">A</span>AutoSites</a><CourseSelector items={siteContent.navigation} /><Link className={styles.headerCta} href="/education/join.html">남은 자리 확인</Link></header>
+    <header className={styles.header}><a className={styles.brand} href="#top" aria-label="AutoSites 홈"><Image src={autoSitesLogo} alt="" width={40} height={40} priority />AutoSites</a><CourseSelector items={siteContent.navigation} /><Link className={styles.headerCta} href="/education/join.html">남은 자리 확인</Link></header>
     <main id="main-content" tabIndex={-1}>
       <section className={`${styles.hero} ${styles.container}`} aria-labelledby="hero-title">
         <HeroSlider className={styles.heroBackdrop} />
