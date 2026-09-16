@@ -225,13 +225,13 @@ export const courseContent = {
   },
   progress: {
     eyebrow: "COHORT 01",
-    title: "1기 교육이 진행 중입니다.",
-    description: "공개가 확인된 수업 기록만 완료로 표시합니다. 2·3주차 기록은 현재 확인 중이며 확인 후 실제 진행 내용으로 갱신합니다.",
+    title: "1기 교육이 이번 주 마무리됩니다.",
+    description: "1~3주차 수업을 완료했고, 9월 19일 4주차 ‘수정과 운영’ 수업으로 첫 번째 4주 과정을 마무리합니다.",
     updatedAt: "2026. 09. 16 기준",
     sessions: [
       { week: "1주차", date: "8월 29일", topic: "웹과 작업환경 이해", status: "완료" },
-      { week: "2주차", date: "9월 5일", topic: "랜딩페이지 제작", status: "기록 확인 중" },
-      { week: "3주차", date: "9월 12일", topic: "GitHub·Vercel 배포", status: "기록 확인 중" },
+      { week: "2주차", date: "9월 5일", topic: "랜딩페이지 제작", status: "완료" },
+      { week: "3주차", date: "9월 12일", topic: "GitHub·Vercel 배포", status: "완료" },
       { week: "4주차", date: "9월 19일", topic: "수정과 운영", status: "예정" },
     ],
   },
@@ -246,16 +246,16 @@ export const courseContent = {
   audience: ["코딩을 처음 접하는 분", "직접 홈페이지를 만들고 싶은 분", "소상공인과 1인 사업자", "제작 이후 수정과 배포까지 배우고 싶은 분"],
   curriculum: [
     { week: "01", title: "웹과 작업환경 이해", objective: "홈페이지 제작에 필요한 도구의 역할을 이해하고 개인 작업환경을 준비합니다.", status: "완료", items: ["웹사이트가 작동하는 방법", "Codex·Git·GitHub·Vercel 역할", "Git 설치와 저장소 생성"], schedule: [{ time: "18:00", lesson: "웹사이트와 바이브코딩 이해" }, { time: "18:25", lesson: "Codex·GitHub·Vercel 역할" }, { time: "18:50", lesson: "ChatGPT·Git 설치와 설정" }, { time: "19:25", lesson: "GitHub 저장소 생성·첫 Push" }], result: "작업환경과 GitHub 저장소" },
-    { week: "02", title: "랜딩페이지 제작", objective: "만들고 싶은 홈페이지를 설명하고 반응형 랜딩페이지를 완성합니다.", status: "기록 확인 중", items: ["홈페이지 주제와 고객 정하기", "Codex 요청문 작성", "문구·색상·모바일 화면 수정"], schedule: [{ time: "18:00", lesson: "업종·고객·목표 정하기" }, { time: "18:25", lesson: "홈페이지 요청문 작성" }, { time: "18:50", lesson: "Codex로 화면 제작" }, { time: "19:30", lesson: "모바일·문구·색상 수정" }], result: "반응형 랜딩페이지" },
-    { week: "03", title: "실제 홈페이지 배포", objective: "제작한 코드를 안전하게 저장하고 누구나 접속할 수 있는 주소로 공개합니다.", status: "기록 확인 중", items: ["Git 변경사항 저장", "GitHub main Push", "Vercel 연결과 운영 URL 확인"], schedule: [{ time: "18:00", lesson: "저장과 배포의 차이" }, { time: "18:20", lesson: "Git 상태 확인·커밋" }, { time: "18:50", lesson: "GitHub main Push" }, { time: "19:20", lesson: "Vercel 연결·운영 검사" }], result: "공개된 홈페이지 주소" },
+    { week: "02", title: "랜딩페이지 제작", objective: "만들고 싶은 홈페이지를 설명하고 반응형 랜딩페이지를 완성합니다.", status: "완료", items: ["홈페이지 주제와 고객 정하기", "Codex 요청문 작성", "문구·색상·모바일 화면 수정"], schedule: [{ time: "18:00", lesson: "업종·고객·목표 정하기" }, { time: "18:25", lesson: "홈페이지 요청문 작성" }, { time: "18:50", lesson: "Codex로 화면 제작" }, { time: "19:30", lesson: "모바일·문구·색상 수정" }], result: "반응형 랜딩페이지" },
+    { week: "03", title: "실제 홈페이지 배포", objective: "제작한 코드를 안전하게 저장하고 누구나 접속할 수 있는 주소로 공개합니다.", status: "완료", items: ["Git 변경사항 저장", "GitHub main Push", "Vercel 연결과 운영 URL 확인"], schedule: [{ time: "18:00", lesson: "저장과 배포의 차이" }, { time: "18:20", lesson: "Git 상태 확인·커밋" }, { time: "18:50", lesson: "GitHub main Push" }, { time: "19:20", lesson: "Vercel 연결·운영 검사" }], result: "공개된 홈페이지 주소" },
     { week: "04", title: "수정과 운영", objective: "운영 홈페이지를 다시 수정하고 검사와 재배포를 스스로 반복합니다.", status: "예정", items: ["Codex로 내용 다시 수정", "오류 검사와 자동 재배포", "도메인·Supabase·CRUD 이해"], schedule: [{ time: "18:00", lesson: "실제 수정 요청 작성" }, { time: "18:30", lesson: "빌드 검사·오류 해결" }, { time: "19:00", lesson: "자동 재배포와 운영 확인" }, { time: "19:30", lesson: "도메인·로그인·CRUD 이해" }], result: "스스로 운영하는 작업 흐름" },
   ],
   outcomes: ["Codex로 홈페이지 제작·수정", "Git으로 변경 이력 관리", "GitHub에 소스코드 보관", "Vercel로 화면과 API 배포", "로그인·데이터베이스가 필요한 시점 구분"],
   completion: {
     eyebrow: "RESULTS & NEXT COHORT",
     title: "1기의 과정이\n다음 기수의 안내가 됩니다.",
-    description: "1기는 현재 진행 중입니다. 수업이 끝날 때마다 실제 결과를 기록하고, 과정 종료 후 공개 동의를 받은 결과물과 후기만 소개합니다.",
-    status: "1기 진행 중",
+    description: "1기는 이번 주 4주차 수업으로 마무리됩니다. 과정 종료 후 공개 동의를 받은 결과물과 후기만 확인해 소개합니다.",
+    status: "1기 4주차 진행 예정",
     resultSlots: [
       { title: "수강생 홈페이지", timing: "2~4주차 이후", description: "완성된 홈페이지 중 공개에 동의한 결과물과 운영 주소를 소개합니다." },
       { title: "수강 후기", timing: "4주차 이후", description: "실명 대신 닉네임 사용이 가능하며 공개에 동의한 후기만 게시합니다." },
