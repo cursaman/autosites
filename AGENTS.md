@@ -21,6 +21,9 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 - Website copy and section data: `src/content/site-content.ts`
 - Design tokens: `src/styles/design-tokens.css`
 - Homepage structure and scoped styles: `src/app/page.tsx`, `src/app/home.module.css`
+- Course page: `src/app/course/page.tsx` and its colocated CSS modules
+- Setup guide: `src/app/setup/page.tsx`, `src/app/setup/setup-page.module.css`
+- Public route index: `src/app/sitemap.ts`
 - Release target: `deployment-target.json`
 - Detailed workflow: `CODEX_WORKFLOW.md`
 - Request template: `홈페이지 수정 요청 양식.md`
@@ -30,6 +33,8 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 - Preserve the current warm ivory, deep green, editorial design system unless the request explicitly changes the brand direction.
 - Make the smallest coherent change that satisfies the request; preserve unrelated user work and working routes.
 - Use `next/image` with meaningful Korean alt text for content images. Keep mobile, keyboard, and reduced-motion behavior working.
+- Keep detailed setup content on `/setup` and detailed class information on `/course`; avoid duplicating it on the homepage.
+- Use only verified dates, prices, progress, testimonials, and participant information. Never invent social proof.
 - Never commit secrets, tokens, `.env` files, Vercel IDs, or Supabase credentials.
 - Treat `autosites-jd3d` and `https://autosites-jd3d.vercel.app` as the only production target.
 - Do not delete or deploy the duplicate Vercel project `autosites` without explicit user approval.
