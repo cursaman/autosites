@@ -211,6 +211,18 @@ export const courseContent = {
       { number: "04", title: "다시 수정하고 배포하는 방법", description: "수업 이후에도 Codex와 대화하며 스스로 운영할 수 있습니다." },
     ],
   },
+  instructor: {
+    eyebrow: "YOUR GUIDE",
+    name: "AutoSites 운영자",
+    title: "채팅 요청부터 실제 배포까지 함께합니다.",
+    description: "코드를 대신 외워주는 수업이 아니라, Codex에 원하는 결과를 설명하고 직접 확인·수정한 뒤 GitHub와 Vercel로 공개하는 과정을 같은 화면을 보며 진행합니다.",
+    proof: "지금 보고 있는 AutoSites 홈페이지도 같은 방식으로 제작하고 수정하며 운영하고 있습니다.",
+    support: [
+      { icon: "🧭", title: "처음 설정부터", description: "ChatGPT·Codex 준비, Git 설치와 GitHub 저장소 연결을 함께 확인합니다." },
+      { icon: "🛠️", title: "막힌 화면에서 바로", description: "오류 메시지와 현재 화면을 함께 보고 다음 요청을 어떻게 작성할지 안내합니다." },
+      { icon: "🚀", title: "실제 URL 확인까지", description: "Vercel 배포가 끝났다는 표시가 아니라 휴대폰에서 운영 주소가 열리는 것까지 확인합니다." },
+    ],
+  },
   progress: {
     eyebrow: "COHORT 01",
     title: "1기 교육이 진행 중입니다.",

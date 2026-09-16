@@ -14,6 +14,7 @@ import recordStyles from "./records.module.css";
 import completionStyles from "./completion.module.css";
 import promiseStyles from "./promise.module.css";
 import guideStyles from "./action-guide.module.css";
+import instructorStyles from "./instructor.module.css";
 
 export const metadata: Metadata = {
   title: "초보자를 위한 Codex 홈페이지 제작 4주 과정",
@@ -22,7 +23,7 @@ export const metadata: Metadata = {
 };
 
 export default function CoursePage() {
-  const { hero, promise, progress, records, audience, curriculum, outcomes, completion, nextCohort, fee, venue, preparation, recruitment } = courseContent;
+  const { hero, promise, instructor, progress, records, audience, curriculum, outcomes, completion, nextCohort, fee, venue, preparation, recruitment } = courseContent;
   const courseProgress = getCourseProgress(progress.sessions);
 
   return (
@@ -35,6 +36,8 @@ export default function CoursePage() {
         <section className={`${styles.section} ${styles.container}`} aria-labelledby="promise-title"><div className={styles.sectionHeading}><div><p className={styles.eyebrow}>{promise.eyebrow}</p><h2 id="promise-title">{promise.title}</h2></div><p>혼자 시작하면 설치와 배포에서 멈추기 쉽습니다. 수업에서는 원하는 내용을 말하고 결과를 확인해 실제 주소로 공개하는 전 과정을 함께 끝냅니다.</p></div><div className={promiseStyles.concerns}>{promise.concerns.map((item) => <article key={item.question}><h3>“{item.question}”</h3><p>{item.answer}</p></article>)}</div><div className={promiseStyles.deliverables}><div><span>TAKE IT HOME</span><h3>{promise.deliverablesTitle}</h3></div><ol>{promise.deliverables.map((item) => <li key={item.number}><span>{item.number}</span><div><h4>{item.title}</h4><p>{item.description}</p></div></li>)}</ol></div><a className={promiseStyles.cta} href={recruitment.action.href} target="_blank" rel="noreferrer">당근에서 남은 자리 문의하기 <span aria-hidden="true">↗</span></a></section>
 
         <section className={`${styles.section} ${styles.container}`} aria-labelledby="vibe-title"><div className={visualStyles.heading}><div><p className={styles.eyebrow}>VIBE CODING</p><h2 id="vibe-title">수업에서 배우는 제작 방식</h2></div><p>만들고 싶은 기능을 자연어로 설명하고, AI가 제안한 코드를 확인하며 수정과 배포까지 이어가는 과정을 한눈에 살펴보세요.</p></div><figure className={visualStyles.figure}><Image src={vibeCodingImage} alt="아이디어 구상, AI와 대화, 코드 적용, 수정과 개선, 완성과 배포로 이어지는 바이브코딩 흐름 안내" sizes="(max-width: 900px) calc(100vw - 40px), 1180px" placeholder="blur" /><figcaption>바이브코딩의 개념과 흐름, 실습에 활용하는 AI 도구 안내</figcaption></figure></section>
+
+        <section className={`${styles.section} ${styles.container}`} aria-labelledby="instructor-title"><div className={instructorStyles.intro}><div className={instructorStyles.identity}><Image src={autoSitesLogo} alt="" width={88} height={88} /><div><p className={styles.eyebrow}>{instructor.eyebrow}</p><strong>{instructor.name}</strong></div></div><div><h2 id="instructor-title">{instructor.title}</h2><p>{instructor.description}</p><small>{instructor.proof}</small></div></div><div className={instructorStyles.support}>{instructor.support.map((item) => <article key={item.title}><span aria-hidden="true">{item.icon}</span><h3>{item.title}</h3><p>{item.description}</p></article>)}</div></section>
 
         <section id="progress" className={styles.progressSection} aria-labelledby="progress-title"><div className={styles.container}><div className={styles.sectionHeading}><div><p className={styles.eyebrow}>{progress.eyebrow}</p><h2 id="progress-title">{progress.title}</h2><small className={styles.updatedAt}>{progress.updatedAt}</small></div><p>{progress.description}</p></div><div className={styles.progressMeta}><strong>{courseProgress.percentageLabel}</strong><div aria-label={`교육 진행률 ${courseProgress.percentageLabel}`}><span style={{ width: courseProgress.percentageLabel }} /></div></div><ol className={styles.sessionList}>{progress.sessions.map((session) => <li key={session.week} className={session.status === "완료" ? styles.completed : undefined}><span>{session.week}</span><time>{session.date}</time><strong>{session.topic}</strong><small>{session.status}</small></li>)}</ol></div></section>
 
