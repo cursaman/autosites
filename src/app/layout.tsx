@@ -8,6 +8,10 @@ const siteDescription = "코딩을 몰라도 AI와 함께 홈페이지를 만들
 
 export const metadata: Metadata = {
   metadataBase: getSiteUrl(),
+  applicationName: "AutoSites",
+  creator: "AutoSites",
+  category: "education",
+  manifest: "/manifest.webmanifest",
   title: { default: siteTitle, template: "%s | AutoSites" },
   description: siteDescription,
   alternates: { canonical: "/" },
@@ -28,6 +32,7 @@ export const metadata: Metadata = {
     images: [{ url: "/og.png", alt: "AutoSites Codex 홈페이지 자동 배포 흐름" }],
   },
   robots: { index: true, follow: true },
+  formatDetection: { email: false, address: false, telephone: false },
 };
 
 export const viewport: Viewport = { width: "device-width", initialScale: 1, themeColor: "#f4f1e9" };

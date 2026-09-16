@@ -9,6 +9,20 @@ export const metadata: Metadata = {
   title: "작업환경 준비 안내",
   description: "Codex, Git, GitHub, Vercel을 연결하고 필요할 때 Supabase를 추가하는 초보자용 안내입니다.",
   alternates: { canonical: "/setup" },
+  openGraph: {
+    type: "article",
+    locale: "ko_KR",
+    url: "/setup",
+    title: "Codex 홈페이지 작업환경 준비 안내",
+    description: "Codex, Git, GitHub, Vercel을 처음 연결하는 순서를 단계별로 확인하세요.",
+    images: [{ url: "/og.png", width: 1200, height: 630, alt: "AutoSites 작업환경 준비 안내" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Codex 홈페이지 작업환경 준비 안내",
+    description: "Codex부터 Vercel 배포까지 초보자도 따라 할 수 있는 단계별 준비 안내",
+    images: ["/og.png"],
+  },
 };
 
 export default function SetupPage() {

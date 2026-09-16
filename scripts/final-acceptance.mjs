@@ -68,7 +68,7 @@ try {
   // Request 2: visual showcase and responsive design source.
   assert(html.includes("주제가 달라지면,"), "제작 사례 제목이 없습니다.");
   assert(html.includes("카페, 전문 컨설팅, 크리에이티브 포트폴리오"), "제작 사례 이미지 대체 텍스트가 없습니다.");
-  await fetchRequired("/images/autosites-showcase.png", "image/png");
+  await fetchRequired("/images/autosites-showcase.webp", "image/webp");
   const css = await readFile(new URL("../src/app/home.module.css", import.meta.url), "utf8");
   assert(css.includes("@media(max-width:900px)") && css.includes("@media(max-width:600px)"), "반응형 기준이 누락됐습니다.");
   console.log("✓ 요청 2 — 제작 사례 이미지와 반응형 디자인");

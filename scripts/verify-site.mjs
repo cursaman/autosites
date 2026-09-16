@@ -76,8 +76,8 @@ try {
     fetchRequired("/sitemap.xml", "application/xml"),
     fetchRequired("/og.png", "image/png"),
   ]);
-  for (const imagePath of ["/images/hero/ai-idea-animation-v2.png", "/images/hero/ai-build-animation-v2.png", "/images/hero/ai-deploy-animation-v2.png"]) {
-    await fetchRequired(imagePath, "image/png");
+  for (const imagePath of ["/images/hero/ai-idea-animation-v2.webp", "/images/hero/ai-build-animation-v2.webp", "/images/hero/ai-deploy-animation-v2.webp", "/images/autosites-showcase.webp"]) {
+    await fetchRequired(imagePath, "image/webp");
   }
   for (const alt of ["아이디어 노트에서 홈페이지 화면을 구상하는 사업자", "AI와 대화하며 데스크톱과 모바일 홈페이지를 제작하는 모습", "완성된 홈페이지가 데스크톱과 태블릿, 휴대폰에 배포된 모습"]) {
     assert(html.includes(alt), `메인 슬라이드 이미지 설명 누락: ${alt}`);
@@ -110,6 +110,12 @@ try {
     assert(setupHtml.includes(copy), `작업환경 안내 필수 문구 누락: ${copy}`);
   }
   for (const id of ["roles", "steps", "supabase"]) assert(setupHtml.includes(`id="${id}"`), `작업환경 안내 섹션 ID 누락: #${id}`);
+  for (const [page, pageHtml] of [["교육과정", courseHtml], ["작업환경", setupHtml]]) {
+    for (const marker of ["rel=\"canonical\"", "property=\"og:title\"", "property=\"og:description\"", "name=\"twitter:title\""]) {
+      assert(pageHtml.includes(marker), `${page} 페이지 SEO 메타정보 누락: ${marker}`);
+    }
+  }
+  await fetchRequired("/manifest.webmanifest", "application/manifest+json");
 
   const runtimeOutput = output.join("");
   assert(!/(TypeError|ReferenceError|Unhandled|Internal Server Error)/i.test(runtimeOutput), "서버 실행 중 오류가 발견됐습니다.");

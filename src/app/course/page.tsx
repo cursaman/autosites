@@ -20,6 +20,20 @@ export const metadata: Metadata = {
   title: "초보자를 위한 Codex 홈페이지 제작 4주 과정",
   description: "부산에서 진행하는 Codex 홈페이지 제작·GitHub 저장·Vercel 배포 4주 실습 과정",
   alternates: { canonical: "/course" },
+  openGraph: {
+    type: "website",
+    locale: "ko_KR",
+    url: "/course",
+    title: "초보자를 위한 Codex 홈페이지 제작 4주 과정",
+    description: "부산에서 4주 동안 내 홈페이지를 만들고 GitHub와 Vercel로 실제 URL까지 배포합니다.",
+    images: [{ url: "/og.png", width: 1200, height: 630, alt: "AutoSites 4주 실전 홈페이지 제작 과정" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "초보자를 위한 Codex 홈페이지 제작 4주 과정",
+    description: "내 홈페이지 제작부터 실제 URL 배포까지 함께하는 부산 4주 실습 과정",
+    images: ["/og.png"],
+  },
 };
 
 export default function CoursePage() {

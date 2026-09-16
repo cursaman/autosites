@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { courseContent, recruitmentUrl, siteContent } from "@/content/site-content";
-import showcaseImage from "../../public/images/autosites-showcase.png";
+import showcaseImage from "../../public/images/autosites-showcase.webp";
 import autoSitesLogo from "../../public/images/brand/autosites-auto-logo-v2.png";
 import styles from "./home.module.css";
 import CourseSelector from "./course-selector";
