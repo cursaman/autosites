@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { courseContent, siteContent } from "@/content/site-content";
+import { courseContent, recruitmentUrl, siteContent } from "@/content/site-content";
 import showcaseImage from "../../public/images/autosites-showcase.png";
 import autoSitesLogo from "../../public/images/brand/autosites-auto-logo-v2.png";
 import styles from "./home.module.css";
@@ -20,7 +20,7 @@ export default function HomePage() {
   const { hero, journey, audience, workflow, technology, comparison, projects, classPreview, whyNow, pricing, setup, showcase, faq, finalCta, footer } = siteContent;
   return <div id="top" className={styles.page}>
     <a className={styles.skipLink} href="#main-content">본문으로 바로가기</a>
-    <header className={styles.header}><a className={styles.brand} href="#top" aria-label="AutoSites 홈"><Image src={autoSitesLogo} alt="" width={40} height={40} priority />AutoSites</a><CourseSelector items={siteContent.navigation} /><Link className={styles.headerCta} href="/education/join.html">남은 자리 확인</Link></header>
+    <header className={styles.header}><a className={styles.brand} href="#top" aria-label="AutoSites 홈"><Image src={autoSitesLogo} alt="" width={40} height={40} priority />AutoSites</a><CourseSelector items={siteContent.navigation} /><a className={styles.headerCta} href={recruitmentUrl}>당근에서 자리 문의</a></header>
     <main id="main-content" tabIndex={-1}>
       <section className={`${styles.hero} ${styles.container}`} aria-labelledby="hero-title">
         <HeroSlider className={styles.heroBackdrop} />
@@ -28,7 +28,7 @@ export default function HomePage() {
         <div className={styles.heroCopy}><p className={styles.eyebrow}>{hero.eyebrow}</p><h1 id="hero-title">{hero.title}</h1><p className={styles.lead}>{hero.description}</p><div className={styles.actions}><Link className={styles.primaryAction} href={hero.primaryAction.href}>{hero.primaryAction.label}<span>→</span></Link><a className={styles.secondaryAction} href={hero.secondaryAction.href}>{hero.secondaryAction.label}</a></div><small className={styles.heroNote}>✓ {hero.note}</small></div>
       </section>
       <section className={styles.journey} aria-label="아이디어에서 실제 URL까지"><div className={styles.container}>{journey.map((item,index)=><div key={item}><b className={styles.iconBubble} aria-hidden="true">{journeyIcons[index]}</b><span>0{index+1}</span><strong>{item}</strong></div>)}<p>아이디어에서 실제 URL까지</p></div></section>
-      <section className={`${styles.section} ${styles.container}`} aria-labelledby="audience-title"><Heading eyebrow={audience.eyebrow} title={audience.title} id="audience-title"/><div className={styles.audienceGrid}>{audience.items.map((item,index)=><article key={item.title}><b className={styles.iconBubble} aria-hidden="true">{audienceIcons[index]}</b><span>0{index+1}</span><h3>{item.title}</h3><p>{item.description}</p></article>)}</div><Link className={styles.inlineCta} href="/education/join.html">내 홈페이지 만들어보기 <span>→</span></Link></section>
+      <section className={`${styles.section} ${styles.container}`} aria-labelledby="audience-title"><Heading eyebrow={audience.eyebrow} title={audience.title} id="audience-title"/><div className={styles.audienceGrid}>{audience.items.map((item,index)=><article key={item.title}><b className={styles.iconBubble} aria-hidden="true">{audienceIcons[index]}</b><span>0{index+1}</span><h3>{item.title}</h3><p>{item.description}</p></article>)}</div><a className={styles.inlineCta} href={recruitmentUrl}>당근에서 남은 자리 문의하기 <span>→</span></a></section>
       <section id="process" className={styles.process} aria-labelledby="process-title"><div className={styles.container}><Heading eyebrow={workflow.eyebrow} title={workflow.title} description={workflow.description} id="process-title"/><ol className={styles.processSteps}>{workflow.steps.map((step,index)=><li key={step.number}><b className={styles.processIcon} aria-hidden="true">{workflowIcons[index]}</b><span>STEP {step.number}</span><div><h3>{step.title}</h3><p>{step.description}</p></div></li>)}</ol><p className={styles.resultCallout}>🚀 {workflow.result}</p></div></section>
       <section className={`${styles.section} ${styles.container}`} aria-labelledby="technology-title"><Heading eyebrow={technology.eyebrow} title={technology.title} id="technology-title"/><div className={styles.techGrid}>{technology.items.map((item,index)=><article key={item.name}><b className={styles.iconBubble} aria-hidden="true">{technologyIcons[index]}</b><span>0{index+1}</span><h3>{item.name}</h3><strong>{item.role}</strong><p>{item.description}</p></article>)}</div></section>
       <section className={styles.comparison} aria-labelledby="comparison-title"><div className={styles.container}><Heading eyebrow={comparison.eyebrow} title={comparison.title} id="comparison-title"/><div className={styles.comparisonGrid}><article><span>{comparison.before.label}</span><h3>{comparison.before.flow}</h3><p>{comparison.before.description}</p></article><article><span>{comparison.after.label}</span><h3>{comparison.after.flow}</h3><p>{comparison.after.description}</p></article></div></div></section>

@@ -1,3 +1,5 @@
+export const recruitmentUrl = "https://www.daangn.com/kr/group/%EB%B6%80%EC%82%B0-%EC%82%AC%EC%A7%81%EB%8F%99-%EB%B0%94%EC%9D%B4%EB%B8%8C%EC%BD%94%EB%94%A9-%EB%AA%A8%EC%9E%84-vxbz4quk5ntg/";
+
 export const siteContent = {
   brand: "AutoSites",
   navigation: [
@@ -11,7 +13,7 @@ export const siteContent = {
     eyebrow: "AI WEBSITE BUILDER",
     title: "코딩 없이\nAI로 홈페이지 하나 만들어보세요.",
     description: "아이디어만 있으면 됩니다. ChatGPT + Codex + GitHub + Vercel을 활용해 실제로 작동하는 홈페이지를 만들고 인터넷에 배포합니다.",
-    primaryAction: { label: "남은 자리 확인하고 시작하기", href: "/education/join.html" },
+    primaryAction: { label: "당근에서 남은 자리 문의하기", href: recruitmentUrl },
     secondaryAction: { label: "제작 과정 보기", href: "#process" },
     note: "HTML · CSS · JavaScript를 몰라도 시작할 수 있습니다.",
   },
@@ -80,7 +82,7 @@ export const siteContent = {
       { week: "4주차", title: "GitHub → Vercel → 실제 URL 배포" },
     ],
     promise: "4주 후에는 ‘배웠습니다’가 아니라 ‘제가 만든 홈페이지가 있습니다’라고 말할 수 있게 합니다.",
-    action: { label: "내 홈페이지 완성하러 가기 · 4주 실전 클래스 신청하기", href: "/education/join.html" },
+    action: { label: "당근에서 남은 자리 문의하기", href: recruitmentUrl },
   },
   whyNow: {
     eyebrow: "WHY START NOW",
@@ -94,13 +96,13 @@ export const siteContent = {
     ],
     result: "4주 뒤에는 ‘배웠습니다’가 아니라 ‘제가 만든 홈페이지가 있습니다’라고 말하게 됩니다.",
     note: "확인되지 않은 마감 안내는 하지 않습니다. 당근 채팅에서 실제 남은 자리와 참여 가능 일정을 안내합니다.",
-    action: { label: "남은 자리 확인하고 시작하기", href: "/education/join.html" },
+    action: { label: "당근에서 남은 자리 문의하기", href: recruitmentUrl },
   },
   pricing: {
     eyebrow: "STARTER CLASS",
     title: "처음 시작하는 사람을 위한 실전 클래스",
     included: ["AI 홈페이지 제작", "Codex 활용법", "GitHub 사용법", "Vercel 배포", "실제 프로젝트 제작", "모바일 최적화", "프로젝트 완성까지 실습"],
-    action: { label: "남은 자리 확인하기 · 클래스 신청하기", href: "/education/join.html" },
+    action: { label: "당근에서 남은 자리 문의하기", href: recruitmentUrl },
   },
   setup: {
     eyebrow: "BEFORE YOU START",
@@ -178,7 +180,7 @@ export const siteContent = {
     eyebrow: "START YOUR FIRST SITE",
     title: "아이디어만 가지고 오세요.\nAI와 함께 첫 번째 홈페이지를 완성해보세요.",
     description: "코딩을 잘하는 사람이 아니라 AI를 잘 활용하는 사람이 만드는 시대입니다.",
-    action: { label: "남은 자리 확인하고 시작하기", href: "/education/join.html" },
+    action: { label: "당근에서 남은 자리 문의하기", href: recruitmentUrl },
   },
   footer: {
     description: "Codex 채팅 기반 홈페이지 제작·수정·배포 워크플로",
@@ -276,6 +278,6 @@ export const courseContent = {
     ],
     inquiryItems: ["이름 또는 당근 닉네임", "참여 가능한 수업 날짜", "개인 노트북 보유 여부", "만들고 싶은 홈페이지 주제"],
     privacy: "이 페이지에서는 이름·전화번호·이메일을 수집하거나 공개하지 않습니다. 교육 운영에 필요한 연락은 당근 채팅으로 진행합니다.",
-    action: { label: "남은 자리 확인하고 시작하기", href: "https://www.daangn.com/kr/group/%EB%B6%80%EC%82%B0-%EC%82%AC%EC%A7%81%EB%8F%99-%EB%B0%94%EC%9D%B4%EB%B8%8C%EC%BD%94%EB%94%A9-%EB%AA%A8%EC%9E%84-vxbz4quk5ntg/" },
+    action: { label: "당근에서 남은 자리 문의하기", href: recruitmentUrl },
   },
 } as const;
