@@ -20,11 +20,25 @@
     "ctaLabel": "방문 예약하기",
     "ctaUrl": "https://example.com/reservation"
   },
+  "pages": [
+    { "path": "/", "purpose": "서비스 소개와 핵심 행동 유도", "indexable": true },
+    { "path": "/about", "purpose": "브랜드와 운영자 소개", "indexable": true }
+  ],
+  "seo": {
+    "title": "고객 상호명 | 핵심 서비스",
+    "description": "검색 결과와 카카오톡 공유에 표시할 실제 소개 문구",
+    "ogImage": "/og.png"
+  },
   "contact": {
     "phone": "",
     "email": "",
     "address": "",
     "hours": ""
+  },
+  "publishing": {
+    "verifiedFacts": ["가격", "영업시간", "주소"],
+    "approvedAssets": [],
+    "privateInformation": ["비밀번호", "비공개 연락처", "고객 개인정보"]
   },
   "operations": {
     "repository": "customer-owner/web-cafe-a",

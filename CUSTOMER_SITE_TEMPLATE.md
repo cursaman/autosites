@@ -16,6 +16,8 @@
 1. `홈페이지 수정 요청 양식.md`로 업종, 목적, 고객, CTA와 보존 조건을 확인한다.
 2. `templates/customer-site.example.json`을 복사해 고객 정보를 입력한다.
 3. 빈 연락처나 연결 주소는 임의로 만들지 않고 고객에게 확인한다.
+4. 공개할 페이지와 검색 노출 여부, SEO 제목·설명과 공유 이미지를 확정한다.
+5. 가격·주소·영업시간 등 확인된 사실과 공개 승인된 이미지·후기를 구분한다.
 
 ## 2. 새 저장소 만들기
 
@@ -34,6 +36,7 @@ web-company-c
 - `src/styles/design-tokens.css`의 고객 브랜드 색상
 - `public/images`와 `public/og.png`
 - `src/app/layout.tsx`의 SEO 정보
+- 공개 페이지별 metadata와 `src/app/sitemap.ts`
 - `deployment-target.json`의 저장소, 프로젝트와 운영 주소
 - `AGENTS.md`의 제품 방향과 보존 조건
 
@@ -78,6 +81,8 @@ npm run deployment:status
 - 운영 URL과 `/api/health` 정상 응답
 - 고객 상호, 헤드라인, CTA와 이미지가 운영 화면에 표시
 - 모바일, SEO 공유 이미지와 연락처 링크 정상
+- sitemap에는 검색 노출을 승인한 공개 페이지만 포함
+- 비밀번호, 비공개 연락처와 고객 개인정보가 HTML에 포함되지 않음
 
 ## 6. 커스텀 도메인
 

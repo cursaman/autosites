@@ -91,6 +91,13 @@ try {
   for (const key of ["repository", "branch", "vercelProject", "productionUrl"]) {
     assert(template.operations[key], `고객 템플릿 operations.${key} 누락`);
   }
+  for (const key of ["title", "description", "ogImage"]) {
+    assert(template.seo[key], `고객 템플릿 seo.${key} 누락`);
+  }
+  assert(Array.isArray(template.pages) && template.pages.length > 0, "고객 템플릿 공개 페이지 구성이 없습니다.");
+  for (const key of ["verifiedFacts", "approvedAssets", "privateInformation"]) {
+    assert(Array.isArray(template.publishing[key]), `고객 템플릿 publishing.${key} 목록 누락`);
+  }
   await access(new URL("../CUSTOMER_SITE_TEMPLATE.md", import.meta.url));
   console.log("✓ 새 고객 설정 템플릿과 복제 절차");
   console.log("✓ 10일 전체 시나리오 최종 검수 통과");
