@@ -29,6 +29,10 @@
 @media(max-width:900px){.header{top:8px}.hero{border-radius:30px}.hero::after{background:linear-gradient(180deg,rgba(247,247,243,.04),rgba(247,247,243,.96) 64%)}.process,.comparison,.classSection,.setup,.finalCta{border-radius:30px}}
 @media(max-width:600px){.header{width:calc(100% - 16px);border-radius:16px}.hero{margin-top:16px;border-radius:26px}.heroCopy{border-radius:22px}.journey{border-radius:22px}.process,.comparison,.classSection,.setup,.finalCta{width:calc(100% - 20px);border-radius:26px}.audienceGrid article,.techGrid article,.projectGrid article,.reasonGrid article,.setupGrid article{border-radius:22px}}
 
+.setupTeaser{margin-bottom:var(--section-space);padding:clamp(1.7rem,5vw,3.5rem);display:flex;align-items:center;justify-content:space-between;gap:clamp(2rem,6vw,5rem);border:1px solid rgba(20,32,25,.08);border-radius:36px;background:linear-gradient(135deg,#edf4ee,#f7f0ff);box-shadow:var(--shadow-card)}
+.setupTeaser>div{max-width:760px}.setupTeaser h2{margin:0;font-size:clamp(2rem,4vw,3.5rem);line-height:1.04;letter-spacing:-.055em;text-wrap:balance}.setupTeaser>div>p:last-child{margin:1.25rem 0 0;color:var(--site-ink-soft);line-height:1.75}.setupTeaser>.primaryAction{flex:0 0 auto}
+@media(max-width:700px){.setupTeaser{align-items:flex-start;flex-direction:column;border-radius:26px}.setupTeaser>.primaryAction{width:100%}}
+
 /* Keep the hero artwork visible on narrow screens */
 @media(max-width:900px){.hero{min-height:820px;padding:1rem;align-items:end}.heroBackdrop{inset:0 0 auto;z-index:0;height:48%;border-radius:30px 30px 0 0}.hero::after{z-index:1;background:linear-gradient(180deg,transparent 0%,transparent 30%,rgba(247,247,243,.2) 40%,rgba(247,247,243,.94) 50%,rgba(247,247,243,1) 66%)}.heroCopy{z-index:2;margin-top:clamp(300px,44vw,390px);background:rgba(255,255,255,.84)}.heroOrbits{z-index:2}}
 @media(max-width:600px){.hero{min-height:860px}.heroBackdrop{height:42%;border-radius:26px 26px 0 0}.heroCopy{margin-top:300px}.hero::after{background:linear-gradient(180deg,transparent 0%,transparent 27%,rgba(247,247,243,.18) 35%,rgba(247,247,243,.97) 45%,rgba(247,247,243,1) 60%)}}

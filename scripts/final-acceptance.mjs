@@ -37,10 +37,12 @@ try {
   }
   console.log("✓ 메인 랜딩페이지와 교육과정 연결");
 
-  for (const copy of ["처음 한 번만,", "ChatGPT", "Codex", "GitHub", "Vercel", "Supabase"]) {
-    assert(html.includes(copy), `작업환경 준비 안내 누락: ${copy}`);
+  assert(html.includes("작업환경 준비 안내 보기"), "메인 작업환경 안내 연결이 없습니다.");
+  const setupHtml = await (await fetchRequired("/setup", "text/html")).text();
+  for (const copy of ["처음 한 번만,", "ChatGPT 가입", "Codex", "GitHub", "Vercel", "Supabase — 로그인·DB가 필요할 때만"]) {
+    assert(setupHtml.includes(copy), `작업환경 준비 안내 누락: ${copy}`);
   }
-  console.log("✓ 작업환경 준비와 선택 기능 안내");
+  console.log("✓ 별도 작업환경 준비 페이지와 선택 기능 안내");
 
   const courseHtml = await (await fetchRequired("/course", "text/html")).text();
   for (const copy of ["4주 뒤, 직접 만든", "당근에서 남은 자리 문의하기", "지금 할 일", "4주 과정 문의", "남은 자리 안내받기", "4주 뒤 내 손에 남는 것", "내 주제의 반응형 홈페이지", "실제로 열리는 운영 URL", "수업에서 배우는 제작 방식", "바이브코딩 흐름 안내", "채팅 요청부터 실제 배포까지", "AutoSites 운영자", "2시간 수업표", "GitHub 저장소 생성·첫 Push", "수업이 끝날 때마다 기록합니다.", "첫 커밋과 Push 실습", "1기의 과정이", "2기 사전 관심 접수", "공개 자료 준비 중", "동의하지 않아도 불이익이 없습니다.", "1기 교육이 진행 중입니다.", "80,000원", "별도의 장소 이용료 없이", "오후 6시 정시 시작", "건물 주차 가능", "커피긱스 2층 8인룸", "자리 확인 후 신청 확정", "이 페이지에서는 이름·전화번호·이메일을 수집하거나 공개하지 않습니다."]) {

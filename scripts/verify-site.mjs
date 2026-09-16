@@ -56,7 +56,7 @@ try {
     "다음 기수 일정은 아직 미정",
     "당근에서 남은 자리 문의하기",
     "처음 시작하는 사람을 위한 실전 클래스",
-    "처음 한 번만,",
+    "작업환경 준비 안내 보기",
     "주제가 달라지면,",
     "자주 묻는 질문",
   ];
@@ -86,6 +86,7 @@ try {
   const sitemapXml = await sitemap.text();
   assert(sitemapXml.includes("<urlset"), "sitemap.xml 형식이 올바르지 않습니다.");
   assert(sitemapXml.includes("/course"), "sitemap.xml에 교육과정 페이지가 없습니다.");
+  assert(sitemapXml.includes("/setup"), "sitemap.xml에 작업환경 안내 페이지가 없습니다.");
   assert(sitemapXml.includes("/education/join.html"), "sitemap.xml에 클래스 신청 경로가 없습니다.");
   const joinResponse = await fetch(`${baseUrl}/education/join.html`, { redirect: "manual" });
   assert([307, 308].includes(joinResponse.status), "클래스 신청 경로가 교육과정으로 연결되지 않습니다.");
@@ -104,12 +105,18 @@ try {
   assert(!courseHtml.includes("coffee922ks"), "Wi-Fi 비밀번호가 공개 페이지에 노출됐습니다.");
   assert(Number(socialImage.headers.get("content-length") ?? 0) > 0, "공유 이미지가 비어 있습니다.");
 
+  const setupHtml = await (await fetchRequired("/setup", "text/html")).text();
+  for (const copy of ["처음 한 번만,", "ChatGPT 가입", "Git 설치", "GitHub 가입", "Vercel 가입", "Supabase — 로그인·DB가 필요할 때만"]) {
+    assert(setupHtml.includes(copy), `작업환경 안내 필수 문구 누락: ${copy}`);
+  }
+  for (const id of ["roles", "steps", "supabase"]) assert(setupHtml.includes(`id="${id}"`), `작업환경 안내 섹션 ID 누락: #${id}`);
+
   const runtimeOutput = output.join("");
   assert(!/(TypeError|ReferenceError|Unhandled|Internal Server Error)/i.test(runtimeOutput), "서버 실행 중 오류가 발견됐습니다.");
   console.log(`✓ 필수 문구 ${requiredCopy.length}개`);
   console.log(`✓ 내부 링크 ${hashLinks.length}개`);
   console.log("✓ SEO 메타정보, robots.txt, sitemap.xml, 공유 이미지");
-  console.log("✓ 교육과정 섹션, 사진, 지도·당근 링크와 비밀정보 비노출");
+  console.log("✓ 교육과정과 작업환경 안내 페이지, 지도·당근 링크와 비밀정보 비노출");
   console.log("✓ 프로덕션 서버 응답 및 런타임 오류 검사");
 } catch (error) {
   console.error(`✗ 홈페이지 자동 검증 실패: ${error instanceof Error ? error.message : error}`);
