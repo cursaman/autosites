@@ -6,9 +6,9 @@ import { A11y, Autoplay, Keyboard, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
-import ideaImage from "../../public/images/hero/ai-idea.png";
-import buildImage from "../../public/images/hero/ai-build.png";
-import deployImage from "../../public/images/hero/ai-deploy.png";
+import ideaImage from "../../public/images/hero/ai-idea-animation-v2.png";
+import buildImage from "../../public/images/hero/ai-build-animation-v2.png";
+import deployImage from "../../public/images/hero/ai-deploy-animation-v2.png";
 import styles from "./hero-slider.module.css";
 
 type HeroSlide = {
