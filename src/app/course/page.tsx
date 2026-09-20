@@ -15,6 +15,7 @@ import completionStyles from "./completion.module.css";
 import promiseStyles from "./promise.module.css";
 import guideStyles from "./action-guide.module.css";
 import instructorStyles from "./instructor.module.css";
+import workshopStyles from "./api-workshop.module.css";
 
 export const metadata: Metadata = {
   title: "초보자를 위한 Codex 홈페이지 제작 4주 과정",
@@ -37,7 +38,7 @@ export const metadata: Metadata = {
 };
 
 export default function CoursePage() {
-  const { hero, promise, instructor, progress, records, audience, curriculum, outcomes, completion, nextCohort, fee, venue, preparation, recruitment } = courseContent;
+  const { hero, promise, instructor, progress, records, audience, apiWorkshop, curriculum, outcomes, completion, nextCohort, fee, venue, preparation, recruitment } = courseContent;
   const courseProgress = getCourseProgress(progress.sessions);
 
   return (
@@ -58,6 +59,8 @@ export default function CoursePage() {
         <section id="records" className={`${styles.section} ${styles.container}`} aria-labelledby="records-title"><div className={styles.sectionHeading}><div><p className={styles.eyebrow}>{records.eyebrow}</p><h2 id="records-title">{records.title}</h2></div><p>{records.description}</p></div><div className={recordStyles.list}>{records.items.map((record) => <article key={record.week}><header><div><span>{record.week}</span><time>{record.date}</time></div><strong>교육 완료</strong></header><h3>{record.title}</h3><p>{record.summary}</p><div className={recordStyles.completedItems}><h4>완료한 내용</h4><ul>{record.completed.map((item) => <li key={item}>{item}</li>)}</ul></div><p className={recordStyles.next}><small>다음 수업</small>{record.next}</p></article>)}</div></section>
 
         <section className={`${styles.section} ${styles.container}`} aria-labelledby="audience-title"><div className={styles.sectionHeading}><div><p className={styles.eyebrow}>WHO IT IS FOR</p><h2 id="audience-title">이런 분에게 맞습니다.</h2></div><p>코드를 암기하기보다 만들고 싶은 내용을 설명하고, 결과를 확인하고, 직접 운영하는 방법을 배웁니다.</p></div><ul className={styles.audienceGrid}>{audience.map((item, index) => <li key={item}><span>0{index + 1}</span>{item}</li>)}</ul></section>
+
+        <section id="api-workshop" className={`${styles.section} ${styles.container}`} aria-labelledby="api-workshop-title"><div className={styles.sectionHeading}><div><p className={styles.eyebrow}>{apiWorkshop.eyebrow}</p><h2 id="api-workshop-title">{apiWorkshop.title}</h2></div><p>{apiWorkshop.description}</p></div><div className={workshopStyles.summary}><span>2시간 실습의 완성 목표</span><strong>{apiWorkshop.goal}</strong></div><ol className={workshopStyles.schedule}>{apiWorkshop.schedule.map((item, index) => <li key={item.time}><span className={workshopStyles.number}>{String(index + 1).padStart(2, "0")}</span><time>{item.time}</time><div><h3>{item.title}</h3><p>{item.result}</p></div></li>)}</ol><aside className={workshopStyles.principles} aria-label="초보자 실습 진행 원칙"><h3>처음이어도 끝까지 따라오는 진행 원칙</h3><ul>{apiWorkshop.principles.map((principle) => <li key={principle}>{principle}</li>)}</ul></aside></section>
 
         <section id="curriculum" className={`${styles.section} ${styles.container}`} aria-labelledby="curriculum-title"><div className={styles.sectionHeading}><div><p className={styles.eyebrow}>CURRICULUM</p><h2 id="curriculum-title">매주 하나씩 완성합니다.</h2></div><p>설명만 듣는 수업이 아니라 자신의 노트북에서 직접 만들고 저장하고 배포합니다.</p></div><div className={styles.curriculumGrid}>{curriculum.map((week) => <article key={week.week}><div className={detailStyles.cardHeading}><div><span>WEEK {week.week}</span><h3>{week.title}</h3></div><small className={week.status === "완료" ? detailStyles.done : undefined}>{week.status}</small></div><p className={detailStyles.objective}>{week.objective}</p><ul>{week.items.map((item) => <li key={item}>{item}</li>)}</ul><div className={detailStyles.lessonPlan} aria-label={`${week.week}주차 2시간 수업표`}><strong>2시간 수업표</strong><ol>{week.schedule.map((item) => <li key={item.time}><time>{item.time}</time><span>{item.lesson}</span></li>)}</ol></div><p><small>이번 주 결과물</small>{week.result}</p></article>)}</div></section>
 
