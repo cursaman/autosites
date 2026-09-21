@@ -7,6 +7,7 @@ export const siteContent = {
     { label: "제작 과정", href: "#process" },
     { label: "프로젝트", href: "#projects" },
     { label: "4주 커리큘럼", href: "/course#curriculum" },
+    { label: "무료 자료", href: "/resources" },
     { label: "FAQ", href: "#faq" },
   ],
   hero: {
@@ -29,6 +30,18 @@ export const siteContent = {
       { number: "03", label: "4주 뒤", title: "내가 만든 주소를 직접 보여줍니다.", description: "반응형 홈페이지, GitHub 저장소, 실제 운영 URL과 다시 수정하고 배포하는 방법이 남습니다." },
     ],
     result: "혼자서는 멈췄던 순간을 함께 넘고, 4주 뒤 실제 홈페이지 주소를 가져가세요.",
+  },
+  cohortProof: {
+    eyebrow: "COHORT 01 · REAL RESULT",
+    title: "먼저 시작한 1기도\n같은 자리에서 출발했습니다.",
+    description: "1기는 4주 과정을 모두 수료했고, 직접 만든 서비스를 실제 주소로 운영하고 있습니다. 설명보다 결과를 먼저 확인해 보세요.",
+    facts: ["4주 과정 수료", "진행률 100%", "실제 운영 작품 공개"],
+    project: {
+      label: "1기 수강생 작품 · 운영 중",
+      title: "MOVIEBOX",
+      description: "인기 영화, 현재 상영작, 개봉 예정작과 상세정보를 탐색할 수 있는 반응형 영화 정보 서비스입니다.",
+      href: "https://bb-movie-rho.vercel.app/",
+    },
   },
   workflow: {
     eyebrow: "HOW IT WORKS",
@@ -263,10 +276,10 @@ export const courseContent = {
     description: "4주 홈페이지 과정과 구분된 별도 실습 계획입니다. API가 처음인 분도 완성된 예제를 먼저 실행하고, 키 설정부터 화면 연결과 오류 해결까지 한 단계씩 따라갑니다.",
     goal: "입력 → AI 요청 → 결과 출력이 작동하는 나만의 프로그램",
     resources: [
-      { type: "ZIP", title: "초보자용 샘플 소스", description: "Node.js 서버, 질문 화면, 환경변수 예제와 실행 README가 포함되어 있습니다.", href: "/downloads/ai-api-workshop-sample.zip", fileName: "ai-api-workshop-sample.zip" },
-      { type: "MD", title: "AI API 실습 안내서", description: "설치, API 키 설정, 실행 순서, 코드 흐름과 자주 발생하는 오류를 정리했습니다.", href: "/downloads/AI-API-실습-안내서.md", fileName: "AI-API-실습-안내서.md" },
-      { type: "ZIP", title: "local-food 완성 패키지", description: "Next.js 소스, PRD·API·DB 문서, Supabase 스키마와 14일 체크리스트가 포함된 실전 프로젝트입니다.", href: "/downloads/local-food-complete-package.zip", fileName: "local-food-complete-package.zip" },
-      { type: "PDF", title: "14일 웹서비스 제작 교재", description: "local-food 프로젝트를 화면, API, 데이터베이스, 로그인, 지도, AI와 배포 순서로 설명한 22쪽 교재입니다.", href: "/downloads/AI와_함께_14일_웹서비스_만들기.pdf", fileName: "AI와_함께_14일_웹서비스_만들기.pdf" },
+      { order: "1단계", type: "MD", difficulty: "입문", audience: "API 연결이 처음인 분", title: "AI API 실습 안내서", description: "설치, API 키 설정, 실행 순서, 코드 흐름과 자주 발생하는 오류를 정리했습니다.", href: "/downloads/AI-API-실습-안내서.md", fileName: "AI-API-실습-안내서.md" },
+      { order: "2단계", type: "ZIP", difficulty: "입문", audience: "첫 AI 응답을 직접 받아볼 분", title: "초보자용 샘플 소스", description: "Node.js 서버, 질문 화면, 환경변수 예제와 실행 README가 포함되어 있습니다.", href: "/downloads/ai-api-workshop-sample.zip", fileName: "ai-api-workshop-sample.zip" },
+      { order: "3단계", type: "PDF", difficulty: "입문 이후", audience: "전체 제작 흐름을 순서대로 공부할 분", title: "14일 웹서비스 제작 교재", description: "local-food 프로젝트를 화면, API, 데이터베이스, 로그인, 지도, AI와 배포 순서로 설명한 22쪽 교재입니다.", href: "/downloads/AI와_함께_14일_웹서비스_만들기.pdf", fileName: "AI와_함께_14일_웹서비스_만들기.pdf" },
+      { order: "4단계", type: "ZIP", difficulty: "실전", audience: "Next.js·API·DB까지 확장할 분", title: "local-food 완성 패키지", description: "Next.js 소스, PRD·API·DB 문서, Supabase 스키마와 14일 체크리스트가 포함된 실전 프로젝트입니다.", href: "/downloads/local-food-complete-package.zip", fileName: "local-food-complete-package.zip" },
     ],
     schedule: [
       { time: "00:00–00:10", title: "완성 예제와 API 흐름 이해", result: "오늘 만들 결과를 먼저 확인합니다." },

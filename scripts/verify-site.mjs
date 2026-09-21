@@ -57,6 +57,8 @@ try {
     "내가 따라갈 수 있는지 물어보기",
     "막막했던 시작이",
     "혼자서는 멈췄던 순간을 함께 넘고",
+    "먼저 시작한 1기도",
+    "실제 작품 보기",
     "처음 시작하는 사람을 위한 실전 클래스",
     "작업환경 준비 안내 보기",
     "주제가 달라지면,",
@@ -88,6 +90,7 @@ try {
   const sitemapXml = await sitemap.text();
   assert(sitemapXml.includes("<urlset"), "sitemap.xml 형식이 올바르지 않습니다.");
   assert(sitemapXml.includes("/course"), "sitemap.xml에 교육과정 페이지가 없습니다.");
+  assert(sitemapXml.includes("/resources"), "sitemap.xml에 무료 자료실 페이지가 없습니다.");
   assert(sitemapXml.includes("/setup"), "sitemap.xml에 작업환경 안내 페이지가 없습니다.");
   assert(sitemapXml.includes("/education/join.html"), "sitemap.xml에 클래스 신청 경로가 없습니다.");
   const joinResponse = await fetch(`${baseUrl}/education/join.html`, { redirect: "manual" });
@@ -112,6 +115,14 @@ try {
   assert(!courseHtml.includes("coffee922ks"), "Wi-Fi 비밀번호가 공개 페이지에 노출됐습니다.");
   assert(Number(socialImage.headers.get("content-length") ?? 0) > 0, "공유 이미지가 비어 있습니다.");
 
+  const resourcesHtml = await (await fetchRequired("/resources", "text/html")).text();
+  for (const copy of ["막막한 API 연결,", "이 순서대로 시작하면 됩니다.", "무료 실습자료", "추천 대상", "난이도", "API 키는 소스나 GitHub에 올리지 마세요."]) {
+    assert(resourcesHtml.includes(copy), `무료 자료실 필수 문구 누락: ${copy}`);
+  }
+  for (const href of ["/downloads/AI-API-실습-안내서.md", "/downloads/ai-api-workshop-sample.zip", "/downloads/AI와_함께_14일_웹서비스_만들기.pdf", "/downloads/local-food-complete-package.zip"]) {
+    assert(resourcesHtml.includes(href), `무료 자료실 다운로드 링크 누락: ${href}`);
+  }
+
   const [sampleZip, workshopGuide, localFoodZip, localFoodBook] = await Promise.all([
     fetchRequired("/downloads/ai-api-workshop-sample.zip", "application/zip"),
     fetchRequired("/downloads/AI-API-실습-안내서.md", "text/markdown"),
@@ -132,7 +143,7 @@ try {
     assert(setupHtml.includes(copy), `작업환경 안내 필수 문구 누락: ${copy}`);
   }
   for (const id of ["roles", "steps", "supabase"]) assert(setupHtml.includes(`id="${id}"`), `작업환경 안내 섹션 ID 누락: #${id}`);
-  for (const [page, pageHtml] of [["교육과정", courseHtml], ["작업환경", setupHtml]]) {
+  for (const [page, pageHtml] of [["교육과정", courseHtml], ["작업환경", setupHtml], ["무료 자료실", resourcesHtml]]) {
     for (const marker of ["rel=\"canonical\"", "property=\"og:title\"", "property=\"og:description\"", "name=\"twitter:title\""]) {
       assert(pageHtml.includes(marker), `${page} 페이지 SEO 메타정보 누락: ${marker}`);
     }
