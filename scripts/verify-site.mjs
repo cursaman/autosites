@@ -113,10 +113,10 @@ try {
   assert(Number(socialImage.headers.get("content-length") ?? 0) > 0, "공유 이미지가 비어 있습니다.");
 
   const experienceHtml = await (await fetchRequired("/experience", "text/html")).text();
-  for (const copy of ["AI와 함께 2시간 만에", "하루 2시간 체험 진행표", "내 홈페이지", "실제 URL", "작업환경 준비 안내 보기", "체험 일정 물어보기", "AI 애니메이션 앨범", "지브리풍 이미지로 변환", "다른 포맷으로 다시 만들기", "앨범 사이트 구성", "사진 준비 전 꼭 확인하세요."]) {
+  for (const copy of ["AI와 함께 2시간 만에", "하루 2시간 체험 진행표", "내 홈페이지", "실제 URL", "작업환경 준비 안내 보기", "체험 일정 물어보기", "AI 애니메이션 앨범", "지브리풍 이미지로 변환", "다른 포맷으로 다시 만들기", "앨범 사이트 구성", "사진 준비 전 꼭 확인하세요.", "ChatGPT에는 이렇게", "HTML + CSS + JavaScript", "백엔드는 사용하지 않아", "마지막 검사 요청"]) {
     assert(experienceHtml.includes(copy), `2시간 체험 페이지 필수 문구 누락: ${copy}`);
   }
-  for (const id of ["result", "schedule", "album", "preparation"]) assert(experienceHtml.includes(`id="${id}"`), `2시간 체험 섹션 ID 누락: #${id}`);
+  for (const id of ["result", "schedule", "album", "prompts", "preparation"]) assert(experienceHtml.includes(`id="${id}"`), `2시간 체험 섹션 ID 누락: #${id}`);
 
   const resourcesHtml = await (await fetchRequired("/resources", "text/html")).text();
   for (const copy of ["막막한 API 연결,", "이 순서대로 시작하면 됩니다.", "무료 실습자료", "추천 대상", "난이도", "API 키는 소스나 GitHub에 올리지 마세요."]) {
