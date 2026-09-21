@@ -27,19 +27,23 @@ try {
   const html = await homepageResponse.text();
 
   // Request 1: homepage content and workflow landing page.
-  for (const copy of ["코딩 없이", "내 홈페이지", "2기 모집 중", "선행 지식 필요 없음", "막히는 지점이 정해져 있기에", "설명보다", "MOVIEBOX", "실제 작품 열어보기", "매주 하나씩, 필요한 것만 배웁니다.", "결정에 필요한 정보만", "신청 전에 확인하세요."]) {
+  for (const copy of ["말로 요청하고,", "사이트를 공개합니다.", "Codex 제작", "요청 한 문장이 운영 사이트가 되는 순서", "도구는 어려운 이름보다", "이렇게 요청하면 됩니다.", "바로 올리지 않고,", "준비작업 시작하기"]) {
     assert(html.includes(copy), `콘텐츠 요청 결과 누락: ${copy}`);
   }
   console.log("✓ 요청 1 — 메인 콘텐츠와 작업 흐름");
 
-  for (const copy of ["당근에서 편하게 물어보기", "80,000원", "무료 API 실습자료 보기"]) {
-    assert(html.includes(copy), `메인 교육과정 연결 누락: ${copy}`);
+  for (const copy of ["AutoSites 소개", "Codex 질문 예시 전체 보기", "무료 실습 소스 보기"]) {
+    assert(html.includes(copy), `메인 제작 방법 연결 누락: ${copy}`);
   }
   console.log("✓ 메인 랜딩페이지와 교육과정 연결");
 
   assert(html.includes("준비작업") && html.includes("준비 안내"), "메인 작업환경 안내 연결이 없습니다.");
   assert(html.indexOf("1일 체험") < html.indexOf("준비작업"), "준비작업 메뉴가 1일 체험 다음에 있지 않습니다.");
-  assert(html.indexOf("1일 체험") < html.indexOf("클래스 소개"), "1일 체험 메뉴가 클래스 소개 앞에 있지 않습니다.");
+  assert(html.indexOf("1일 체험") < html.indexOf("AutoSites 소개"), "1일 체험 메뉴가 AutoSites 소개 앞에 있지 않습니다.");
+  const aboutHtml = await (await fetchRequired("/about", "text/html")).text();
+  for (const copy of ["혼자 멈췄던 지점부터", "막히는 지점이 정해져 있기에", "MOVIEBOX", "실제 작품 열어보기", "결정에 필요한 정보만", "신청 전에 확인하세요."]) {
+    assert(aboutHtml.includes(copy), `AutoSites 소개 페이지 누락: ${copy}`);
+  }
   const setupHtml = await (await fetchRequired("/setup", "text/html")).text();
   for (const copy of ["처음 한 번만,", "ChatGPT 가입", "Codex", "GitHub", "Vercel", "Supabase — 로그인·DB가 필요할 때만"]) {
     assert(setupHtml.includes(copy), `작업환경 준비 안내 누락: ${copy}`);
@@ -82,7 +86,7 @@ try {
   console.log("✓ 교육과정 링크, 반응형, 선택 메뉴 접근성과 비밀정보 비노출");
 
   // Request 2: simplified enrollment journey and responsive design source.
-  for (const marker of ["id=\"about\"", "2기 클래스 핵심 정보", "클래스 검증 정보", "무료 API 실습자료 보기"]) {
+  for (const marker of ["id=\"workflow\"", "AutoSites 핵심 도구", "Codex 질문 예시 전체 보기", "무료 실습 소스 보기"]) {
     assert(html.includes(marker), `단순화된 신청 흐름 누락: ${marker}`);
   }
   const css = await readFile(new URL("../src/app/home.module.css", import.meta.url), "utf8");

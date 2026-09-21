@@ -47,25 +47,22 @@ try {
   const homeResponse = await waitForServer();
   const html = await homeResponse.text();
   const requiredCopy = [
-    "코딩 없이",
-    "내 홈페이지",
-    "2기 모집 중",
-    "선행 지식 필요 없음",
-    "막히는 지점이 정해져 있기에",
-    "설명보다",
-    "매주 하나씩, 필요한 것만 배웁니다.",
-    "결정에 필요한 정보만",
-    "내가 따라갈 수 있는지 물어보기",
-    "실제 작품 열어보기",
-    "상세 커리큘럼 보기",
-    "무료 API 실습자료 보기",
-    "신청 전에 확인하세요.",
+    "말로 요청하고,",
+    "사이트를 공개합니다.",
+    "Codex 제작",
+    "요청 한 문장이 운영 사이트가 되는 순서",
+    "도구는 어려운 이름보다",
+    "이렇게 요청하면 됩니다.",
+    "Codex 질문 예시 전체 보기",
+    "바로 올리지 않고,",
+    "준비작업 시작하기",
+    "AutoSites 소개 보기",
   ];
 
   for (const copy of requiredCopy) assert(html.includes(copy), `필수 문구 누락: ${copy}`);
   assert(html.includes("준비작업"), "메인 메뉴에 준비작업 링크가 없습니다.");
   assert(html.indexOf("1일 체험") < html.indexOf("준비작업"), "준비작업 메뉴가 1일 체험 다음에 있지 않습니다.");
-  assert(html.indexOf("1일 체험") < html.indexOf("클래스 소개"), "1일 체험 메뉴가 클래스 소개 앞에 있지 않습니다.");
+  assert(html.indexOf("1일 체험") < html.indexOf("AutoSites 소개"), "1일 체험 메뉴가 AutoSites 소개 앞에 있지 않습니다.");
 
   for (const marker of ["rel=\"canonical\"", "property=\"og:image\"", "name=\"twitter:card\""]) {
     assert(html.includes(marker), `SEO 메타정보 누락: ${marker}`);
@@ -87,6 +84,7 @@ try {
   const sitemapXml = await sitemap.text();
   assert(sitemapXml.includes("<urlset"), "sitemap.xml 형식이 올바르지 않습니다.");
   assert(sitemapXml.includes("/course"), "sitemap.xml에 교육과정 페이지가 없습니다.");
+  assert(sitemapXml.includes("/about"), "sitemap.xml에 AutoSites 소개 페이지가 없습니다.");
   assert(sitemapXml.includes("/experience"), "sitemap.xml에 2시간 체험 페이지가 없습니다.");
   assert(sitemapXml.includes("/resources"), "sitemap.xml에 무료 자료실 페이지가 없습니다.");
   assert(sitemapXml.includes("/setup"), "sitemap.xml에 작업환경 안내 페이지가 없습니다.");
@@ -112,6 +110,11 @@ try {
   assert(courseHtml.includes("rel=\"noreferrer\""), "외부 링크 보안 속성이 없습니다.");
   assert(!courseHtml.includes("coffee922ks"), "Wi-Fi 비밀번호가 공개 페이지에 노출됐습니다.");
   assert(Number(socialImage.headers.get("content-length") ?? 0) > 0, "공유 이미지가 비어 있습니다.");
+
+  const aboutHtml = await (await fetchRequired("/about", "text/html")).text();
+  for (const copy of ["혼자 멈췄던 지점부터", "막히는 지점이 정해져 있기에", "설명보다", "MOVIEBOX", "실제 작품 열어보기", "이런 분과 함께합니다.", "결정에 필요한 정보만", "신청 전에 확인하세요.", "1일 체험 보기"]) {
+    assert(aboutHtml.includes(copy), `AutoSites 소개 페이지 필수 문구 누락: ${copy}`);
+  }
 
   const experienceHtml = await (await fetchRequired("/experience", "text/html")).text();
   for (const copy of ["AI와 함께 2시간 만에", "하루 2시간 체험 진행표", "내 홈페이지", "실제 URL", "작업환경 준비 안내 보기", "체험 일정 물어보기", "AI 애니메이션 앨범", "지브리풍 이미지로 변환", "다른 포맷으로 다시 만들기", "앨범 사이트 구성", "사진 준비 전 꼭 확인하세요.", "ChatGPT에는 이렇게", "HTML + CSS + JavaScript", "백엔드는 사용하지 않아", "마지막 검사 요청", "Codex에는 이렇게", "현재 열려 있는 작업공간의 절대 경로", "Sites 스킬은 사용하지 마", "GitHub main 브랜치에 올려줘", "sample 폴더", "중복 프로젝트 autosites는 건드리지 마"]) {
@@ -155,7 +158,7 @@ try {
     assert(setupHtml.includes(copy), `작업환경 안내 필수 문구 누락: ${copy}`);
   }
   for (const id of ["roles", "steps", "supabase"]) assert(setupHtml.includes(`id="${id}"`), `작업환경 안내 섹션 ID 누락: #${id}`);
-  for (const [page, pageHtml] of [["교육과정", courseHtml], ["2시간 체험", experienceHtml], ["작업환경", setupHtml], ["무료 자료실", resourcesHtml]]) {
+  for (const [page, pageHtml] of [["AutoSites 소개", aboutHtml], ["교육과정", courseHtml], ["2시간 체험", experienceHtml], ["작업환경", setupHtml], ["무료 자료실", resourcesHtml]]) {
     for (const marker of ["rel=\"canonical\"", "property=\"og:title\"", "property=\"og:description\"", "name=\"twitter:title\""]) {
       assert(pageHtml.includes(marker), `${page} 페이지 SEO 메타정보 누락: ${marker}`);
     }
