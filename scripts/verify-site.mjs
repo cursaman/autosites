@@ -125,12 +125,16 @@ try {
   for (const href of ["/downloads/AI-API-실습-안내서.md", "/downloads/ai-api-workshop-sample.zip", "/downloads/AI와_함께_14일_웹서비스_만들기.pdf", "/downloads/local-food-complete-package.zip"]) {
     assert(resourcesHtml.includes(href), `무료 자료실 다운로드 링크 누락: ${href}`);
   }
+  for (const copy of ["영화·여행 사이트 소스", "MOVIEPIK 영화 사이트 소스", "TRIP 여행 사이트 소스", "API 키 제거 완료"]) assert(resourcesHtml.includes(copy), `무료 소스 안내 누락: ${copy}`);
+  for (const href of ["/downloads/moviepik-source.zip", "/downloads/trip-source.zip"]) assert(resourcesHtml.includes(href), `무료 소스 링크 누락: ${href}`);
 
-  const [sampleZip, workshopGuide, localFoodZip, localFoodBook] = await Promise.all([
+  const [sampleZip, workshopGuide, localFoodZip, localFoodBook, movieSource, tripSource] = await Promise.all([
     fetchRequired("/downloads/ai-api-workshop-sample.zip", "application/zip"),
     fetchRequired("/downloads/AI-API-실습-안내서.md", "text/markdown"),
     fetchRequired("/downloads/local-food-complete-package.zip", "application/zip"),
     fetchRequired("/downloads/AI와_함께_14일_웹서비스_만들기.pdf", "application/pdf"),
+    fetchRequired("/downloads/moviepik-source.zip", "application/zip"),
+    fetchRequired("/downloads/trip-source.zip", "application/zip"),
   ]);
   const zipBytes = new Uint8Array(await sampleZip.arrayBuffer());
   assert(zipBytes[0] === 0x50 && zipBytes[1] === 0x4b, "API 샘플 ZIP 파일 형식이 올바르지 않습니다.");
@@ -140,6 +144,10 @@ try {
   assert(localFoodZipBytes[0] === 0x50 && localFoodZipBytes[1] === 0x4b, "local-food ZIP 파일 형식이 올바르지 않습니다.");
   const bookBytes = new Uint8Array(await localFoodBook.arrayBuffer());
   assert(String.fromCharCode(...bookBytes.slice(0, 4)) === "%PDF", "14일 웹서비스 교재 PDF 형식이 올바르지 않습니다.");
+  for (const [name, response] of [["영화", movieSource], ["여행", tripSource]]) {
+    const bytes = new Uint8Array(await response.arrayBuffer());
+    assert(bytes[0] === 0x50 && bytes[1] === 0x4b, `${name} 사이트 소스 ZIP 형식이 올바르지 않습니다.`);
+  }
 
   const setupHtml = await (await fetchRequired("/setup", "text/html")).text();
   for (const copy of ["처음 한 번만,", "ChatGPT 가입", "Git 설치", "GitHub 가입", "Vercel 가입", "Supabase — 로그인·DB가 필요할 때만"]) {

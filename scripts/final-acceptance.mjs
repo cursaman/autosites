@@ -53,7 +53,7 @@ try {
   console.log("✓ 하루 2시간 체험 페이지와 별도 메뉴");
 
   const resourcesHtml = await (await fetchRequired("/resources", "text/html")).text();
-  for (const copy of ["막막한 API 연결,", "이 순서대로 시작하면 됩니다.", "무료 실습자료", "추천 대상", "난이도"]) {
+  for (const copy of ["막막한 API 연결,", "이 순서대로 시작하면 됩니다.", "무료 실습자료", "추천 대상", "난이도", "영화·여행 사이트 소스", "MOVIEPIK 영화 사이트 소스", "TRIP 여행 사이트 소스", "API 키 제거 완료"]) {
     assert(resourcesHtml.includes(copy), `무료 자료실 누락: ${copy}`);
   }
   console.log("✓ 무료 자료실과 단계별 다운로드 안내");

@@ -43,6 +43,10 @@ export const siteContent = {
       href: "https://bb-movie-rho.vercel.app/",
     },
   },
+  sourceProjects: [
+    { type: "ZIP", title: "MOVIEPIK 영화 사이트 소스", description: "영화·TV 탐색, 검색, 상세정보와 찜 기능이 포함된 Vite·React 예제입니다. TMDB 토큰은 제거되어 있으며 직접 발급한 키를 설정해야 합니다.", stack: "Vite · React · TMDB API", href: "/downloads/moviepik-source.zip", fileName: "moviepik-source.zip" },
+    { type: "ZIP", title: "TRIP 여행 사이트 소스", description: "관광지·축제 검색, 여행지 상세정보, 찜과 일정 계획 기능이 포함된 Vite·React 예제입니다. 관광 API 키는 제거되어 있으며 직접 발급한 키를 설정해야 합니다.", stack: "Vite · React · Tour API", href: "/downloads/trip-source.zip", fileName: "trip-source.zip" },
+  ],
   experience: {
     eyebrow: "ONE-DAY · 2-HOUR EXPERIENCE",
     title: "AI와 함께 2시간 만에\n내 홈페이지 공개하기",
