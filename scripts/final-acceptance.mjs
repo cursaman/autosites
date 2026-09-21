@@ -44,6 +44,13 @@ try {
   }
   console.log("✓ 별도 작업환경 준비 페이지와 선택 기능 안내");
 
+  assert(html.includes("2시간 체험"), "메인 메뉴에 2시간 체험 연결이 없습니다.");
+  const experienceHtml = await (await fetchRequired("/experience", "text/html")).text();
+  for (const copy of ["AI와 함께 2시간 만에", "하루 2시간 체험 진행표", "2시간 뒤,", "인터넷 주소로 공개", "체험 일정 물어보기"]) {
+    assert(experienceHtml.includes(copy), `2시간 체험 페이지 누락: ${copy}`);
+  }
+  console.log("✓ 하루 2시간 체험 페이지와 별도 메뉴");
+
   const resourcesHtml = await (await fetchRequired("/resources", "text/html")).text();
   for (const copy of ["막막한 API 연결,", "이 순서대로 시작하면 됩니다.", "무료 실습자료", "추천 대상", "난이도"]) {
     assert(resourcesHtml.includes(copy), `무료 자료실 누락: ${copy}`);

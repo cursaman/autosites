@@ -4,6 +4,7 @@ export const siteContent = {
   brand: "AutoSites",
   navigation: [
     { label: "클래스 소개", href: "#about" },
+    { label: "2시간 체험", href: "/experience" },
     { label: "4주 커리큘럼", href: "/course#curriculum" },
     { label: "무료 자료", href: "/resources" },
     { label: "신청 문의", href: recruitmentUrl },
@@ -40,6 +41,23 @@ export const siteContent = {
       description: "인기 영화, 현재 상영작, 개봉 예정작과 상세정보를 탐색할 수 있는 반응형 영화 정보 서비스입니다.",
       href: "https://bb-movie-rho.vercel.app/",
     },
+  },
+  experience: {
+    eyebrow: "ONE-DAY · 2-HOUR EXPERIENCE",
+    title: "AI와 함께 2시간 만에\n내 홈페이지 공개하기",
+    description: "코딩을 배우는 데서 끝나는 체험이 아닙니다. 만들고 싶은 홈페이지를 AI에게 설명하고, 직접 수정한 뒤 다른 사람에게 보여줄 수 있는 인터넷 주소까지 완성합니다.",
+    audience: ["코딩이 처음인 분", "홈페이지 아이디어만 가지고 있던 분", "4주 과정 전에 수업 방식을 경험하고 싶은 분"],
+    outcomes: ["내 문구가 들어간 1페이지 홈페이지", "휴대폰에서도 보기 좋은 화면", "다른 사람에게 공유할 수 있는 실제 URL"],
+    schedule: [
+      { time: "00:00–00:15", title: "만들 홈페이지 정하기", description: "소개할 내용과 방문자가 해야 할 행동 한 가지를 정합니다." },
+      { time: "00:15–00:30", title: "AI에게 첫 제작 요청", description: "어려운 개발 용어 없이 원하는 화면을 문장으로 설명합니다." },
+      { time: "00:30–01:00", title: "내 문구와 색상으로 수정", description: "제목, 소개, 버튼과 색상을 내 목적에 맞게 바꿉니다." },
+      { time: "01:00–01:15", title: "모바일 화면 확인", description: "휴대폰에서도 읽고 누르기 편한지 직접 점검합니다." },
+      { time: "01:15–01:45", title: "인터넷 주소로 공개", description: "GitHub와 Vercel을 연결해 실제 URL로 배포합니다." },
+      { time: "01:45–02:00", title: "결과 공유와 다시 수정하는 법", description: "완성 주소를 공유하고 이후 혼자 수정하는 흐름을 익힙니다." },
+    ],
+    preparation: ["개인 노트북", "노트북 충전기", "사용 가능한 이메일 계정", "소개하고 싶은 주제 한 가지"],
+    note: "체험 일정과 참가비는 확정된 회차만 당근 채팅으로 안내합니다.",
   },
   workflow: {
     eyebrow: "HOW IT WORKS",
