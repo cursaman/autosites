@@ -27,12 +27,12 @@ try {
   const html = await homepageResponse.text();
 
   // Request 1: homepage content and workflow landing page.
-  for (const copy of ["코딩 없이", "말 한마디에서", "이런 분께 추천합니다", "무엇을 만들 수 있나요?", "4주 동안 하나의", "계속 미루면 홈페이지는", "2기는 10월 10일 시작", "당근에서 남은 자리 문의하기", "처음 시작하는 사람을 위한 실전 클래스"]) {
+  for (const copy of ["코딩 없이", "말 한마디에서", "이런 분께 추천합니다", "무엇을 만들 수 있나요?", "4주 동안 하나의", "계속 미루면 홈페이지는", "2기는 10월 10일 시작", "내가 따라갈 수 있는지 물어보기", "막막했던 시작이", "혼자서는 멈췄던 순간을 함께 넘고", "처음 시작하는 사람을 위한 실전 클래스"]) {
     assert(html.includes(copy), `콘텐츠 요청 결과 누락: ${copy}`);
   }
   console.log("✓ 요청 1 — 메인 콘텐츠와 작업 흐름");
 
-  for (const copy of ["4주 후에는", "당근에서 남은 자리 문의하기", "80,000원"]) {
+  for (const copy of ["4주 후에는", "당근에서 편하게 물어보기", "80,000원"]) {
     assert(html.includes(copy), `메인 교육과정 연결 누락: ${copy}`);
   }
   console.log("✓ 메인 랜딩페이지와 교육과정 연결");
