@@ -6,7 +6,7 @@ export const siteContent = {
     { label: "AI 홈페이지", href: "#top" },
     { label: "제작 과정", href: "#process" },
     { label: "프로젝트", href: "#projects" },
-    { label: "4주 클래스", href: "#class" },
+    { label: "4주 커리큘럼", href: "/course#curriculum" },
     { label: "FAQ", href: "#faq" },
   ],
   hero: {
@@ -14,7 +14,7 @@ export const siteContent = {
     title: "코딩 없이\nAI로 홈페이지 하나 만들어보세요.",
     description: "아이디어만 있으면 됩니다. ChatGPT + Codex + GitHub + Vercel을 활용해 실제로 작동하는 홈페이지를 만들고 인터넷에 배포합니다.",
     primaryAction: { label: "당근에서 남은 자리 문의하기", href: recruitmentUrl },
-    secondaryAction: { label: "제작 과정 보기", href: "#process" },
+    secondaryAction: { label: "4주 커리큘럼 보기", href: "/course#curriculum" },
     note: "HTML · CSS · JavaScript를 몰라도 시작할 수 있습니다.",
   },
   workflow: {
