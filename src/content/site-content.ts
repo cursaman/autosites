@@ -251,6 +251,10 @@ export const courseContent = {
     title: "AI API 연결을 위한 별도 2시간 실습 계획표",
     description: "4주 홈페이지 과정과 구분된 별도 실습 계획입니다. API가 처음인 분도 완성된 예제를 먼저 실행하고, 키 설정부터 화면 연결과 오류 해결까지 한 단계씩 따라갑니다.",
     goal: "입력 → AI 요청 → 결과 출력이 작동하는 나만의 프로그램",
+    resources: [
+      { type: "ZIP", title: "초보자용 샘플 소스", description: "Node.js 서버, 질문 화면, 환경변수 예제와 실행 README가 포함되어 있습니다.", href: "/downloads/ai-api-workshop-sample.zip", fileName: "ai-api-workshop-sample.zip" },
+      { type: "MD", title: "AI API 실습 안내서", description: "설치, API 키 설정, 실행 순서, 코드 흐름과 자주 발생하는 오류를 정리했습니다.", href: "/downloads/AI-API-실습-안내서.md", fileName: "AI-API-실습-안내서.md" },
+    ],
     schedule: [
       { time: "00:00–00:10", title: "완성 예제와 API 흐름 이해", result: "오늘 만들 결과를 먼저 확인합니다." },
       { time: "00:10–00:25", title: "개발 환경 확인", result: "예제 프로젝트를 내 노트북에서 실행합니다." },
