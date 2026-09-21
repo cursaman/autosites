@@ -48,21 +48,18 @@ try {
   const html = await homeResponse.text();
   const requiredCopy = [
     "코딩 없이",
-    "말 한마디에서",
-    "이런 분께 추천합니다",
-    "무엇을 만들 수 있나요?",
-    "4주 동안 하나의",
-    "계속 미루면 홈페이지는",
-    "2기는 10월 10일 시작",
+    "내 홈페이지",
+    "2기 모집 중",
+    "선행 지식 필요 없음",
+    "막히는 지점이 정해져 있기에",
+    "설명보다",
+    "매주 하나씩, 필요한 것만 배웁니다.",
+    "결정에 필요한 정보만",
     "내가 따라갈 수 있는지 물어보기",
-    "막막했던 시작이",
-    "혼자서는 멈췄던 순간을 함께 넘고",
-    "먼저 시작한 1기도",
-    "실제 작품 보기",
-    "처음 시작하는 사람을 위한 실전 클래스",
-    "작업환경 준비 안내 보기",
-    "주제가 달라지면,",
-    "자주 묻는 질문",
+    "실제 작품 열어보기",
+    "상세 커리큘럼 보기",
+    "무료 API 실습자료 보기",
+    "신청 전에 확인하세요.",
   ];
 
   for (const copy of requiredCopy) assert(html.includes(copy), `필수 문구 누락: ${copy}`);
@@ -82,9 +79,6 @@ try {
   ]);
   for (const imagePath of ["/images/hero/ai-idea-animation-v2.webp", "/images/hero/ai-build-animation-v2.webp", "/images/hero/ai-deploy-animation-v2.webp", "/images/autosites-showcase.webp"]) {
     await fetchRequired(imagePath, "image/webp");
-  }
-  for (const alt of ["아이디어 노트에서 홈페이지 화면을 구상하는 사업자", "AI와 대화하며 데스크톱과 모바일 홈페이지를 제작하는 모습", "완성된 홈페이지가 데스크톱과 태블릿, 휴대폰에 배포된 모습"]) {
-    assert(html.includes(alt), `메인 슬라이드 이미지 설명 누락: ${alt}`);
   }
   assert((await robots.text()).includes("Disallow: /api/"), "robots.txt의 API 차단 규칙이 없습니다.");
   const sitemapXml = await sitemap.text();

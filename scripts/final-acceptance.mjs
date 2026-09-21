@@ -27,17 +27,17 @@ try {
   const html = await homepageResponse.text();
 
   // Request 1: homepage content and workflow landing page.
-  for (const copy of ["코딩 없이", "말 한마디에서", "이런 분께 추천합니다", "무엇을 만들 수 있나요?", "4주 동안 하나의", "계속 미루면 홈페이지는", "2기는 10월 10일 시작", "내가 따라갈 수 있는지 물어보기", "막막했던 시작이", "혼자서는 멈췄던 순간을 함께 넘고", "먼저 시작한 1기도", "MOVIEBOX", "실제 작품 보기", "처음 시작하는 사람을 위한 실전 클래스"]) {
+  for (const copy of ["코딩 없이", "내 홈페이지", "2기 모집 중", "선행 지식 필요 없음", "막히는 지점이 정해져 있기에", "설명보다", "MOVIEBOX", "실제 작품 열어보기", "매주 하나씩, 필요한 것만 배웁니다.", "결정에 필요한 정보만", "신청 전에 확인하세요."]) {
     assert(html.includes(copy), `콘텐츠 요청 결과 누락: ${copy}`);
   }
   console.log("✓ 요청 1 — 메인 콘텐츠와 작업 흐름");
 
-  for (const copy of ["4주 후에는", "당근에서 편하게 물어보기", "80,000원"]) {
+  for (const copy of ["당근에서 편하게 물어보기", "80,000원", "무료 API 실습자료 보기"]) {
     assert(html.includes(copy), `메인 교육과정 연결 누락: ${copy}`);
   }
   console.log("✓ 메인 랜딩페이지와 교육과정 연결");
 
-  assert(html.includes("작업환경 준비 안내 보기"), "메인 작업환경 안내 연결이 없습니다.");
+  assert(html.includes("준비 안내"), "메인 작업환경 안내 연결이 없습니다.");
   const setupHtml = await (await fetchRequired("/setup", "text/html")).text();
   for (const copy of ["처음 한 번만,", "ChatGPT 가입", "Codex", "GitHub", "Vercel", "Supabase — 로그인·DB가 필요할 때만"]) {
     assert(setupHtml.includes(copy), `작업환경 준비 안내 누락: ${copy}`);

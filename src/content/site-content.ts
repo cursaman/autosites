@@ -3,12 +3,10 @@ export const recruitmentUrl = "https://www.daangn.com/kr/group/%EB%B6%80%EC%82%B
 export const siteContent = {
   brand: "AutoSites",
   navigation: [
-    { label: "AI 홈페이지", href: "#top" },
-    { label: "제작 과정", href: "#process" },
-    { label: "프로젝트", href: "#projects" },
+    { label: "클래스 소개", href: "#about" },
     { label: "4주 커리큘럼", href: "/course#curriculum" },
     { label: "무료 자료", href: "/resources" },
-    { label: "FAQ", href: "#faq" },
+    { label: "신청 문의", href: recruitmentUrl },
   ],
   hero: {
     eyebrow: "BUSAN · BEGINNER 4-WEEK CLASS",
