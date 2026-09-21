@@ -64,7 +64,8 @@ try {
 
   for (const copy of requiredCopy) assert(html.includes(copy), `필수 문구 누락: ${copy}`);
   assert(html.includes("준비작업"), "메인 메뉴에 준비작업 링크가 없습니다.");
-  assert(html.indexOf("2시간 체험") < html.indexOf("준비작업"), "준비작업 메뉴가 2시간 체험 다음에 있지 않습니다.");
+  assert(html.indexOf("1일 체험") < html.indexOf("준비작업"), "준비작업 메뉴가 1일 체험 다음에 있지 않습니다.");
+  assert(html.indexOf("1일 체험") < html.indexOf("클래스 소개"), "1일 체험 메뉴가 클래스 소개 앞에 있지 않습니다.");
 
   for (const marker of ["rel=\"canonical\"", "property=\"og:image\"", "name=\"twitter:card\""]) {
     assert(html.includes(marker), `SEO 메타정보 누락: ${marker}`);

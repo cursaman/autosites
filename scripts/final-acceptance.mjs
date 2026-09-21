@@ -38,14 +38,15 @@ try {
   console.log("✓ 메인 랜딩페이지와 교육과정 연결");
 
   assert(html.includes("준비작업") && html.includes("준비 안내"), "메인 작업환경 안내 연결이 없습니다.");
-  assert(html.indexOf("2시간 체험") < html.indexOf("준비작업"), "준비작업 메뉴가 2시간 체험 다음에 있지 않습니다.");
+  assert(html.indexOf("1일 체험") < html.indexOf("준비작업"), "준비작업 메뉴가 1일 체험 다음에 있지 않습니다.");
+  assert(html.indexOf("1일 체험") < html.indexOf("클래스 소개"), "1일 체험 메뉴가 클래스 소개 앞에 있지 않습니다.");
   const setupHtml = await (await fetchRequired("/setup", "text/html")).text();
   for (const copy of ["처음 한 번만,", "ChatGPT 가입", "Codex", "GitHub", "Vercel", "Supabase — 로그인·DB가 필요할 때만"]) {
     assert(setupHtml.includes(copy), `작업환경 준비 안내 누락: ${copy}`);
   }
   console.log("✓ 별도 작업환경 준비 페이지와 선택 기능 안내");
 
-  assert(html.includes("2시간 체험"), "메인 메뉴에 2시간 체험 연결이 없습니다.");
+  assert(html.includes("1일 체험"), "메인 메뉴에 1일 체험 연결이 없습니다.");
   const experienceHtml = await (await fetchRequired("/experience", "text/html")).text();
   for (const copy of ["AI와 함께 2시간 만에", "하루 2시간 체험 진행표", "2시간 뒤,", "인터넷 주소로 공개", "체험 일정 물어보기", "AI 애니메이션 앨범", "지브리풍 이미지로 변환", "정사각형·세로형·가로형", "앨범 주소 공개", "ChatGPT에는 이렇게", "HTML + CSS + JavaScript", "백엔드는 사용하지 않아"]) {
     assert(experienceHtml.includes(copy), `2시간 체험 페이지 누락: ${copy}`);
