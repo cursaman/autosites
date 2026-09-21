@@ -37,7 +37,8 @@ try {
   }
   console.log("✓ 메인 랜딩페이지와 교육과정 연결");
 
-  assert(html.includes("준비 안내"), "메인 작업환경 안내 연결이 없습니다.");
+  assert(html.includes("준비작업") && html.includes("준비 안내"), "메인 작업환경 안내 연결이 없습니다.");
+  assert(html.indexOf("2시간 체험") < html.indexOf("준비작업"), "준비작업 메뉴가 2시간 체험 다음에 있지 않습니다.");
   const setupHtml = await (await fetchRequired("/setup", "text/html")).text();
   for (const copy of ["처음 한 번만,", "ChatGPT 가입", "Codex", "GitHub", "Vercel", "Supabase — 로그인·DB가 필요할 때만"]) {
     assert(setupHtml.includes(copy), `작업환경 준비 안내 누락: ${copy}`);

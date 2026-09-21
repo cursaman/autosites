@@ -5,6 +5,7 @@ export const siteContent = {
   navigation: [
     { label: "클래스 소개", href: "#about" },
     { label: "2시간 체험", href: "/experience" },
+    { label: "준비작업", href: "/setup" },
     { label: "4주 커리큘럼", href: "/course#curriculum" },
     { label: "무료 자료", href: "/resources" },
     { label: "신청 문의", href: recruitmentUrl },
