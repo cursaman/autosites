@@ -158,6 +158,10 @@ try {
     assert(setupHtml.includes(copy), `작업환경 안내 필수 문구 누락: ${copy}`);
   }
   for (const id of ["roles", "steps", "supabase"]) assert(setupHtml.includes(`id="${id}"`), `작업환경 안내 섹션 ID 누락: #${id}`);
+  for (const [page, pageHtml] of [["메인", html], ["AutoSites 소개", aboutHtml], ["교육과정", courseHtml], ["2시간 체험", experienceHtml], ["작업환경", setupHtml], ["무료 자료실", resourcesHtml]]) {
+    assert(pageHtml.includes("전체 메뉴"), `${page} 상단에 공통 드롭다운 메뉴가 없습니다.`);
+    assert(pageHtml.includes('aria-controls="main-menu"'), `${page} 드롭다운 접근성 연결이 없습니다.`);
+  }
   for (const [page, pageHtml] of [["AutoSites 소개", aboutHtml], ["교육과정", courseHtml], ["2시간 체험", experienceHtml], ["작업환경", setupHtml], ["무료 자료실", resourcesHtml]]) {
     for (const marker of ["rel=\"canonical\"", "property=\"og:title\"", "property=\"og:description\"", "name=\"twitter:title\""]) {
       assert(pageHtml.includes(marker), `${page} 페이지 SEO 메타정보 누락: ${marker}`);

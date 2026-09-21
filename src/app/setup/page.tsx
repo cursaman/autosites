@@ -4,6 +4,7 @@ import Link from "next/link";
 import { siteContent } from "@/content/site-content";
 import autoSitesLogo from "../../../public/images/brand/autosites-auto-logo-v2.png";
 import styles from "./setup-page.module.css";
+import CourseSelector from "../course-selector";
 
 export const metadata: Metadata = {
   title: "작업환경 준비 안내",
@@ -36,11 +37,7 @@ export default function SetupPage() {
           <Image src={autoSitesLogo} alt="" width={40} height={40} priority />
           AutoSites
         </Link>
-        <nav aria-label="작업환경 안내 메뉴">
-          <a href="#roles">도구 역할</a>
-          <a href="#steps">설정 순서</a>
-          <a href="#supabase">Supabase</a>
-        </nav>
+        <CourseSelector items={siteContent.navigation} />
         <Link className={styles.headerAction} href="/course">4주 클래스</Link>
       </header>
 

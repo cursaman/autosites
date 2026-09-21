@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { recruitmentUrl } from "@/content/site-content";
+import { usePathname } from "next/navigation";
 import styles from "./course-selector.module.css";
 
 type NavigationItem = { readonly label: string; readonly href: string };
@@ -9,6 +9,8 @@ type NavigationItem = { readonly label: string; readonly href: string };
 export default function CourseSelector({ items }: { items: readonly NavigationItem[] }) {
   const [isOpen, setIsOpen] = useState(false);
   const menuRef = useRef<HTMLElement>(null);
+  const buttonRef = useRef<HTMLButtonElement>(null);
+  const pathname = usePathname();
 
   useEffect(() => {
     function closeFromOutside(event: MouseEvent) {
@@ -16,7 +18,10 @@ export default function CourseSelector({ items }: { items: readonly NavigationIt
     }
 
     function closeFromEscape(event: KeyboardEvent) {
-      if (event.key === "Escape") setIsOpen(false);
+      if (event.key === "Escape") {
+        setIsOpen(false);
+        buttonRef.current?.focus();
+      }
     }
 
     document.addEventListener("pointerdown", closeFromOutside);
@@ -29,10 +34,10 @@ export default function CourseSelector({ items }: { items: readonly NavigationIt
 
   return (
     <nav className={styles.navigation} aria-label="주요 메뉴" ref={menuRef}>
-      <button className={styles.menuButton} type="button" aria-expanded={isOpen} aria-controls="main-menu" aria-label={isOpen ? "메뉴 닫기" : "메뉴 열기"} onClick={() => setIsOpen((current) => !current)}><span /><span /><span /></button>
+      <button ref={buttonRef} className={styles.menuButton} type="button" aria-expanded={isOpen} aria-controls="main-menu" aria-haspopup="true" onClick={() => setIsOpen((current) => !current)}><span>전체 메뉴</span><i aria-hidden="true" /></button>
       <div id="main-menu" className={styles.links} data-open={isOpen}>
-        {items.map((item) => <a key={item.href} href={item.href} onClick={() => setIsOpen(false)}>{item.label}</a>)}
-        <a className={styles.mobileCta} href={recruitmentUrl} onClick={() => setIsOpen(false)}>내가 따라갈 수 있는지 물어보기</a>
+        <p>원하는 페이지를 선택하세요.</p>
+        {items.map((item) => <a key={item.href} href={item.href} aria-current={item.href.startsWith("/") && pathname === item.href.split("#")[0] ? "page" : undefined} onClick={() => setIsOpen(false)}><span>{item.label}</span><b aria-hidden="true">→</b></a>)}
       </div>
     </nav>
   );

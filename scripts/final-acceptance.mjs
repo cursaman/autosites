@@ -85,6 +85,11 @@ try {
   }
   console.log("✓ 교육과정 링크, 반응형, 선택 메뉴 접근성과 비밀정보 비노출");
 
+  for (const [page, pageHtml] of [["메인", html], ["소개", aboutHtml], ["교육과정", courseHtml], ["1일 체험", experienceHtml], ["준비작업", setupHtml], ["무료 자료", resourcesHtml]]) {
+    assert(pageHtml.includes("전체 메뉴") && pageHtml.includes('aria-controls="main-menu"'), `${page} 공통 드롭다운 메뉴 누락`);
+  }
+  console.log("✓ 전체 공개 페이지 공통 드롭다운 상단 메뉴");
+
   // Request 2: simplified enrollment journey and responsive design source.
   for (const marker of ["id=\"workflow\"", "AutoSites 핵심 도구", "Codex 질문 예시 전체 보기", "무료 실습 소스 보기"]) {
     assert(html.includes(marker), `단순화된 신청 흐름 누락: ${marker}`);
