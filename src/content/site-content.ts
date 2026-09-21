@@ -10,12 +10,14 @@ export const siteContent = {
     { label: "FAQ", href: "#faq" },
   ],
   hero: {
-    eyebrow: "AI WEBSITE BUILDER",
-    title: "코딩 없이\nAI로 홈페이지 하나 만들어보세요.",
-    description: "아이디어만 있으면 됩니다. ChatGPT + Codex + GitHub + Vercel을 활용해 실제로 작동하는 홈페이지를 만들고 인터넷에 배포합니다.",
+    eyebrow: "BUSAN · BEGINNER 4-WEEK CLASS",
+    title: "부산에서 4주,\n내 AI 홈페이지를 완성하세요.",
+    description: "코딩이 처음이어도 괜찮습니다. Codex와 대화하며 내 홈페이지를 만들고 GitHub에 저장한 뒤 실제 인터넷 주소로 배포합니다.",
     primaryAction: { label: "당근에서 남은 자리 문의하기", href: recruitmentUrl },
     secondaryAction: { label: "4주 커리큘럼 보기", href: "/course#curriculum" },
-    note: "HTML · CSS · JavaScript를 몰라도 시작할 수 있습니다.",
+    facts: ["2기 2026. 10. 10 시작", "매주 토요일 오후 6시–8시", "4주 전체 80,000원", "부산 · 최대 8명"],
+    achievement: "1기 4주 과정 수료 완료 · 진행률 100%",
+    note: "HTML · CSS · JavaScript를 몰라도 같은 화면을 보며 따라갈 수 있습니다.",
   },
   workflow: {
     eyebrow: "HOW IT WORKS",
@@ -245,9 +247,9 @@ export const courseContent = {
   },
   audience: ["코딩을 처음 접하는 분", "직접 홈페이지를 만들고 싶은 분", "소상공인과 1인 사업자", "제작 이후 수정과 배포까지 배우고 싶은 분"],
   apiWorkshop: {
-    eyebrow: "BEGINNER API WORKSHOP",
-    title: "AI API 연결, 2시간 동안 함께 완성합니다.",
-    description: "API가 처음인 분도 완성된 예제를 먼저 실행하고, 키 설정부터 화면 연결과 오류 해결까지 한 단계씩 따라갑니다.",
+    eyebrow: "SEPARATE WORKSHOP PLAN",
+    title: "AI API 연결을 위한 별도 2시간 실습 계획표",
+    description: "4주 홈페이지 과정과 구분된 별도 실습 계획입니다. API가 처음인 분도 완성된 예제를 먼저 실행하고, 키 설정부터 화면 연결과 오류 해결까지 한 단계씩 따라갑니다.",
     goal: "입력 → AI 요청 → 결과 출력이 작동하는 나만의 프로그램",
     schedule: [
       { time: "00:00–00:10", title: "완성 예제와 API 흐름 이해", result: "오늘 만들 결과를 먼저 확인합니다." },
