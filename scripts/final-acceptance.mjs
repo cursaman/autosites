@@ -72,13 +72,13 @@ try {
   }
   console.log("✓ 교육과정 링크, 반응형, 선택 메뉴 접근성과 비밀정보 비노출");
 
-  // Request 2: visual showcase and responsive design source.
-  assert(html.includes("주제가 달라지면,"), "제작 사례 제목이 없습니다.");
-  assert(html.includes("카페, 전문 컨설팅, 크리에이티브 포트폴리오"), "제작 사례 이미지 대체 텍스트가 없습니다.");
-  await fetchRequired("/images/autosites-showcase.webp", "image/webp");
+  // Request 2: simplified enrollment journey and responsive design source.
+  for (const marker of ["id=\"about\"", "2기 클래스 핵심 정보", "클래스 검증 정보", "무료 API 실습자료 보기"]) {
+    assert(html.includes(marker), `단순화된 신청 흐름 누락: ${marker}`);
+  }
   const css = await readFile(new URL("../src/app/home.module.css", import.meta.url), "utf8");
   assert(css.includes("@media(max-width:900px)") && css.includes("@media(max-width:600px)"), "반응형 기준이 누락됐습니다.");
-  console.log("✓ 요청 2 — 제작 사례 이미지와 반응형 디자인");
+  console.log("✓ 요청 2 — 단순화된 신청 흐름과 반응형 디자인");
 
   // Request 3: SEO, accessibility, and production endpoints.
   for (const marker of ["rel=\"canonical\"", "property=\"og:image\"", "name=\"twitter:card\"", "본문으로 바로가기"]) {
