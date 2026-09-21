@@ -106,18 +106,26 @@ try {
   assert(courseHtml.includes("bb-movie-rho.vercel.app"), "1기 수강생 작품 링크가 없습니다.");
   assert(courseHtml.includes("/downloads/ai-api-workshop-sample.zip"), "API 샘플 ZIP 다운로드 링크가 없습니다.");
   assert(courseHtml.includes("/downloads/AI-API-실습-안내서.md"), "API 실습 안내서 다운로드 링크가 없습니다.");
+  assert(courseHtml.includes("/downloads/local-food-complete-package.zip"), "local-food 완성 패키지 링크가 없습니다.");
+  assert(courseHtml.includes("/downloads/AI와_함께_14일_웹서비스_만들기.pdf"), "14일 웹서비스 교재 링크가 없습니다.");
   assert(courseHtml.includes("rel=\"noreferrer\""), "외부 링크 보안 속성이 없습니다.");
   assert(!courseHtml.includes("coffee922ks"), "Wi-Fi 비밀번호가 공개 페이지에 노출됐습니다.");
   assert(Number(socialImage.headers.get("content-length") ?? 0) > 0, "공유 이미지가 비어 있습니다.");
 
-  const [sampleZip, workshopGuide] = await Promise.all([
+  const [sampleZip, workshopGuide, localFoodZip, localFoodBook] = await Promise.all([
     fetchRequired("/downloads/ai-api-workshop-sample.zip", "application/zip"),
     fetchRequired("/downloads/AI-API-실습-안내서.md", "text/markdown"),
+    fetchRequired("/downloads/local-food-complete-package.zip", "application/zip"),
+    fetchRequired("/downloads/AI와_함께_14일_웹서비스_만들기.pdf", "application/pdf"),
   ]);
   const zipBytes = new Uint8Array(await sampleZip.arrayBuffer());
   assert(zipBytes[0] === 0x50 && zipBytes[1] === 0x4b, "API 샘플 ZIP 파일 형식이 올바르지 않습니다.");
   const guideText = await workshopGuide.text();
   assert(guideText.includes("OPENAI_API_KEY") && guideText.includes("완료 체크리스트"), "API 실습 안내서의 필수 내용이 없습니다.");
+  const localFoodZipBytes = new Uint8Array(await localFoodZip.arrayBuffer());
+  assert(localFoodZipBytes[0] === 0x50 && localFoodZipBytes[1] === 0x4b, "local-food ZIP 파일 형식이 올바르지 않습니다.");
+  const bookBytes = new Uint8Array(await localFoodBook.arrayBuffer());
+  assert(String.fromCharCode(...bookBytes.slice(0, 4)) === "%PDF", "14일 웹서비스 교재 PDF 형식이 올바르지 않습니다.");
 
   const setupHtml = await (await fetchRequired("/setup", "text/html")).text();
   for (const copy of ["처음 한 번만,", "ChatGPT 가입", "Git 설치", "GitHub 가입", "Vercel 가입", "Supabase — 로그인·DB가 필요할 때만"]) {

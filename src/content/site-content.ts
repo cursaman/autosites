@@ -265,6 +265,8 @@ export const courseContent = {
     resources: [
       { type: "ZIP", title: "초보자용 샘플 소스", description: "Node.js 서버, 질문 화면, 환경변수 예제와 실행 README가 포함되어 있습니다.", href: "/downloads/ai-api-workshop-sample.zip", fileName: "ai-api-workshop-sample.zip" },
       { type: "MD", title: "AI API 실습 안내서", description: "설치, API 키 설정, 실행 순서, 코드 흐름과 자주 발생하는 오류를 정리했습니다.", href: "/downloads/AI-API-실습-안내서.md", fileName: "AI-API-실습-안내서.md" },
+      { type: "ZIP", title: "local-food 완성 패키지", description: "Next.js 소스, PRD·API·DB 문서, Supabase 스키마와 14일 체크리스트가 포함된 실전 프로젝트입니다.", href: "/downloads/local-food-complete-package.zip", fileName: "local-food-complete-package.zip" },
+      { type: "PDF", title: "14일 웹서비스 제작 교재", description: "local-food 프로젝트를 화면, API, 데이터베이스, 로그인, 지도, AI와 배포 순서로 설명한 22쪽 교재입니다.", href: "/downloads/AI와_함께_14일_웹서비스_만들기.pdf", fileName: "AI와_함께_14일_웹서비스_만들기.pdf" },
     ],
     schedule: [
       { time: "00:00–00:10", title: "완성 예제와 API 흐름 이해", result: "오늘 만들 결과를 먼저 확인합니다." },
