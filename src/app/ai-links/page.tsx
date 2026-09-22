@@ -17,7 +17,7 @@ export default function AiLinksPage() {
   const { categories } = siteContent.aiLinks;
   return <div className={styles.page}>
     <a className={styles.skipLink} href="#links-main">본문으로 바로가기</a>
-    <header className={styles.header}><Link className={styles.brand} href="/" aria-label="AutoSites 홈으로 이동"><Image src={autoSitesLogo} alt="" width={40} height={40} priority />AutoSites</Link><CourseSelector items={siteContent.navigation} /><Link className={styles.headerAction} href="/ai-guide">AI 비교 보기</Link></header>
+    <header className={styles.header} data-site-header><Link className={styles.brand} href="/" aria-label="AutoSites 홈으로 이동"><Image src={autoSitesLogo} alt="" width={40} height={40} priority />AutoSites</Link><CourseSelector items={siteContent.navigation} /><Link className={styles.headerAction} href="/ai-guide">AI 비교 보기</Link></header>
     <main id="links-main" tabIndex={-1}>
       <section className={`${styles.hero} ${styles.container}`} aria-labelledby="links-title">
         <p className={styles.eyebrow}>AI LINK HUB</p><h1 id="links-title">무엇을 할지 고르면,<br /><em>쓸 도구가 보입니다.</em></h1>

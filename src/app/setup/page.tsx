@@ -32,7 +32,7 @@ export default function SetupPage() {
   return (
     <div className={styles.page}>
       <a className={styles.skipLink} href="#setup-content">본문으로 바로가기</a>
-      <header className={styles.header}>
+      <header className={styles.header} data-site-header>
         <Link className={styles.brand} href="/" aria-label="AutoSites 홈으로 이동">
           <Image src={autoSitesLogo} alt="" width={40} height={40} priority />
           AutoSites

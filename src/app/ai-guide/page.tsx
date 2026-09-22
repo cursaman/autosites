@@ -17,7 +17,7 @@ export default function AiGuidePage() {
   const guide = siteContent.aiGuide;
   return <div className={styles.page}>
     <a className={styles.skipLink} href="#ai-guide-main">본문으로 바로가기</a>
-    <header className={styles.header}>
+    <header className={styles.header} data-site-header>
       <Link className={styles.brand} href="/" aria-label="AutoSites 홈으로 이동"><Image src={autoSitesLogo} alt="" width={40} height={40} priority />AutoSites</Link>
       <CourseSelector items={siteContent.navigation} />
       <Link className={styles.headerAction} href="/setup">준비작업</Link>

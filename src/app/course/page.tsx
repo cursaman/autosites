@@ -45,7 +45,7 @@ export default function CoursePage() {
   return (
     <div className={styles.page}>
       <a className={styles.skipLink} href="#course-main">본문으로 바로가기</a>
-      <header className={styles.header}><Link className={styles.brand} href="/"><Image src={autoSitesLogo} alt="" width={40} height={40} priority />AutoSites</Link><CourseSelector items={siteContent.navigation} /><Link className={styles.homeLink} href="/">메인으로</Link></header>
+      <header className={styles.header} data-site-header><Link className={styles.brand} href="/"><Image src={autoSitesLogo} alt="" width={40} height={40} priority />AutoSites</Link><CourseSelector items={siteContent.navigation} /><Link className={styles.homeLink} href="/">메인으로</Link></header>
       <main id="course-main" className={styles.main} tabIndex={-1}>
         <section className={`${styles.hero} ${styles.container}`} aria-labelledby="course-title"><div><p className={styles.eyebrow}>{hero.eyebrow}</p><h1 id="course-title">{hero.title}</h1><p className={styles.lead}>{hero.description}</p><div className={styles.actions}><a href={recruitment.action.href} target="_blank" rel="noreferrer">당근에서 남은 자리 문의하기 ↗</a><a href="#api-workshop">AI API 실습표 보기 ↓</a></div><div className={guideStyles.guide} aria-label="지금 신청하는 방법"><strong>지금 할 일</strong><ol><li><span>1</span>당근 모임 열기</li><li><span>2</span>“4주 과정 문의” 채팅 보내기</li><li><span>3</span>남은 자리 안내받기</li></ol><small>바로 신청하지 않아도 괜찮습니다. 실제 남은 자리와 궁금한 점부터 확인하세요.</small></div></div><aside className={styles.heroCard} aria-label="교육과정 핵심 정보"><p>최대 8명 · 부산 · 초보자 실습</p><strong>{fee.amount}</strong><span>{fee.label} · 장소·빔프로젝터·커피 포함</span><ul>{hero.facts.map((fact) => <li key={fact}>{fact}</li>)}</ul></aside></section>
 

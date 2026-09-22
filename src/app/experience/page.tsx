@@ -18,7 +18,7 @@ export default function ExperiencePage() {
   const experience = siteContent.experience;
   return <div className={styles.page}>
     <a className={styles.skipLink} href="#experience-main">본문으로 바로가기</a>
-    <header className={styles.header}><Link className={styles.brand} href="/" aria-label="AutoSites 홈으로 이동"><Image src={autoSitesLogo} alt="" width={40} height={40} priority />AutoSites</Link><CourseSelector items={siteContent.navigation} /><a className={styles.headerAction} href={recruitmentUrl}>체험 문의</a></header>
+    <header className={styles.header} data-site-header><Link className={styles.brand} href="/" aria-label="AutoSites 홈으로 이동"><Image src={autoSitesLogo} alt="" width={40} height={40} priority />AutoSites</Link><CourseSelector items={siteContent.navigation} /><a className={styles.headerAction} href={recruitmentUrl}>체험 문의</a></header>
     <main id="experience-main" tabIndex={-1}>
       <section className={`${styles.hero} ${styles.container}`} aria-labelledby="experience-title"><div><p className={styles.eyebrow}>{experience.eyebrow}</p><h1 id="experience-title">{experience.title}</h1><p>{experience.description}</p><div className={styles.actions}><a href={recruitmentUrl}>체험 일정 물어보기 <span>→</span></a><a href="#schedule">진행표 먼저 보기 ↓</a></div><small>{experience.note}</small></div><aside><span>오늘의 목표</span><strong>2시간 뒤,<br />내 홈페이지<br />주소 완성</strong><p>선행 지식 필요 없음<br />개인 노트북만 준비</p></aside></section>
       <section className={`${styles.section} ${styles.container}`} aria-labelledby="audience-title"><div className={styles.heading}><p className={styles.eyebrow}>WHO IT IS FOR</p><h2 id="audience-title">이런 분께 맞습니다.</h2></div><ul className={styles.audience}>{experience.audience.map((item)=><li key={item}>✓ {item}</li>)}</ul></section>
