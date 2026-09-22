@@ -45,7 +45,7 @@ try {
     assert(aboutHtml.includes(copy), `AutoSites 소개 페이지 누락: ${copy}`);
   }
   const setupHtml = await (await fetchRequired("/setup", "text/html")).text();
-  for (const copy of ["처음 한 번만,", "Google 계정 만들기 · Chrome 통일", "계정과 브라우저를 섞지 마세요.", "Windows 기본 브라우저를 Chrome으로 설정", "Edge에서 다른 계정으로 인증하지 않기", "ChatGPT 가입", "Codex", "GitHub", "Vercel", "Supabase — 로그인·DB가 필요할 때만"]) {
+  for (const copy of ["처음 한 번만,", "Google 계정 만들기 · Chrome 통일", "계정과 브라우저를 섞지 마세요.", "Windows 기본 브라우저를 Chrome으로 설정", "Edge에서 다른 계정으로 인증하지 않기", "ChatGPT 가입", "Codex", "GitHub", "Vercel", "Supabase 가입 · 프로젝트 만들기", "Sign in with GitHub", "Supabase 가입·대시보드 열기"]) {
     assert(setupHtml.includes(copy), `작업환경 준비 안내 누락: ${copy}`);
   }
   console.log("✓ 별도 작업환경 준비 페이지와 선택 기능 안내");

@@ -223,9 +223,10 @@ export const siteContent = {
       { number: "05", title: "Vercel 가입 · 자동 배포", description: "같은 Chrome에서 GitHub 계정으로 Vercel에 가입하고 저장소를 Import하면 main Push마다 운영 주소가 갱신됩니다.", checklist: ["Chrome에서 현재 GitHub 사용자 다시 확인", "GitHub로 Vercel 가입 및 권한 승인", "Add New → Project에서 GitHub 저장소 Import", "Framework Preset: Next.js 확인", "Deploy 후 READY와 운영 URL 확인"], action: { label: "Git 배포 안내", href: "https://vercel.com/docs/git" } },
     ],
     optional: {
-      number: "06", title: "Supabase — 로그인·DB가 필요할 때만", description: "현재 소개 홈페이지와 Codex 배포 흐름에는 필요하지 않습니다. 회원 로그인, 문의 저장, 관리자 데이터가 생길 때 연결합니다.",
-      checklist: ["Supabase 프로젝트 생성", "Connect 화면에서 URL·Publishable key 확인", ".env.local과 Vercel 환경변수에 같은 값 등록", "데이터 테이블의 RLS 정책 점검"],
+      number: "06", title: "Supabase 가입 · 프로젝트 만들기", description: "회원 로그인, 문의 저장, 게시판처럼 데이터 기능이 필요할 때만 진행합니다. 수업용 Chrome에서 GitHub 계정으로 가입하면 계정 혼동을 줄일 수 있습니다.",
+      checklist: ["같은 Chrome 프로필에서 Supabase 대시보드 열기", "Sign in with GitHub를 선택하고 현재 GitHub 사용자 확인", "GitHub 권한 요청 내용을 확인한 뒤 승인", "New project에서 조직·프로젝트 이름 입력", "Database 비밀번호를 만들고 공개되지 않는 곳에 별도 보관", "가까운 Region을 선택하고 Create new project 실행", "Connect 화면에서 Project URL·Publishable key 확인", ".env.local과 Vercel 환경변수에 같은 값 등록", "테이블 생성 후 RLS 보안 정책 점검"],
       env: ["NEXT_PUBLIC_SUPABASE_URL=...", "NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY=..."], warning: "Secret·service role 키는 NEXT_PUBLIC에 넣거나 GitHub에 올리면 안 됩니다.",
+      signupAction: { label: "Supabase 가입·대시보드 열기", href: "https://supabase.com/dashboard" },
       action: { label: "Next.js 연결 안내", href: "https://supabase.com/docs/guides/getting-started/quickstarts/nextjs" },
     },
   },

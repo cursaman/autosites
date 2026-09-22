@@ -156,10 +156,11 @@ try {
   }
 
   const setupHtml = await (await fetchRequired("/setup", "text/html")).text();
-  for (const copy of ["처음 한 번만,", "Google 계정 만들기 · Chrome 통일", "계정과 브라우저를 섞지 마세요.", "Windows 기본 브라우저를 Chrome으로 설정", "Edge에서 다른 계정으로 인증하지 않기", "ChatGPT 가입", "Git 설치", "GitHub 가입", "Vercel 가입", "Supabase — 로그인·DB가 필요할 때만"]) {
+  for (const copy of ["처음 한 번만,", "Google 계정 만들기 · Chrome 통일", "계정과 브라우저를 섞지 마세요.", "Windows 기본 브라우저를 Chrome으로 설정", "Edge에서 다른 계정으로 인증하지 않기", "ChatGPT 가입", "Git 설치", "GitHub 가입", "Vercel 가입", "Supabase 가입 · 프로젝트 만들기", "Sign in with GitHub", "Database 비밀번호", "Supabase 가입·대시보드 열기"]) {
     assert(setupHtml.includes(copy), `작업환경 안내 필수 문구 누락: ${copy}`);
   }
   for (const id of ["roles", "steps", "supabase"]) assert(setupHtml.includes(`id="${id}"`), `작업환경 안내 섹션 ID 누락: #${id}`);
+  assert(setupHtml.includes("https://supabase.com/dashboard"), "Supabase 가입 링크가 없습니다.");
   for (const [page, pageHtml] of [["메인", html], ["AutoSites 소개", aboutHtml], ["교육과정", courseHtml], ["2시간 체험", experienceHtml], ["작업환경", setupHtml], ["무료 자료실", resourcesHtml]]) {
     assert(pageHtml.includes("전체 메뉴"), `${page} 상단에 공통 드롭다운 메뉴가 없습니다.`);
     assert(pageHtml.includes('aria-controls="main-menu"'), `${page} 드롭다운 접근성 연결이 없습니다.`);
