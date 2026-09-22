@@ -6,3 +6,5 @@
 @media(max-width:1000px){.methodGrid{grid-template-columns:repeat(2,1fr)}.toolGrid{grid-template-columns:repeat(3,1fr)}}
 @media(max-width:900px){.methodSummary{max-width:620px}.deploymentSection{grid-template-columns:1fr}.audienceGrid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:600px){.methodGrid,.toolGrid,.promptList,.audienceGrid{grid-template-columns:1fr}.methodGrid li,.toolGrid li{min-height:220px}.deploymentSection{width:calc(100% - 20px);border-radius:24px}.aboutHero{padding:5.5rem 0}.aboutHero h1{font-size:clamp(3rem,14vw,4.8rem)}}
+.container{width:min(calc(100% - var(--page-gutter)*2),var(--container-wide))}.header{width:min(calc(100% - var(--page-gutter)*2),var(--container-wide))}
+@media(max-width:600px){.header{width:min(calc(100% - var(--page-gutter)*2),var(--container-wide))}.trustBar{width:min(calc(100% - var(--page-gutter)*2),var(--container-wide));padding-inline:1.4rem}.enrollment,.finalCta,.deploymentSection{width:min(calc(100% - var(--page-gutter)*2),var(--container-wide))}}

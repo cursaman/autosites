@@ -9,3 +9,7 @@
 .updatedAt{display:inline-block;margin-top:1rem;padding:.45rem .75rem;border:1px solid var(--site-line);border-radius:999px;color:var(--site-ink-soft);font:700 var(--text-xs) var(--font-mono);background:rgba(255,255,255,.7)}
 .featuredNav{padding:.55rem .85rem;border-radius:var(--radius-pill);background:var(--site-ink);color:var(--site-highlight)!important}
 @media(max-width:900px){.header{flex-wrap:wrap;padding-block:.65rem}.header nav{order:3;width:100%;display:flex;gap:.5rem;overflow-x:auto;padding-bottom:.1rem;scrollbar-width:none}.header nav::-webkit-scrollbar{display:none}.header nav a{flex:none;padding:.55rem .75rem;border:1px solid var(--site-line);border-radius:var(--radius-pill);background:rgba(255,255,255,.7)}.header nav .featuredNav{border-color:var(--site-ink);background:var(--site-ink)}}
+.header{width:min(calc(100% - var(--page-gutter)*2),var(--container-wide))}
+@media(max-width:600px){.header,.progressSection,.outcomeSection,.recruitment{width:min(calc(100% - var(--page-gutter)*2),var(--container-wide))}}
+@media(max-width:900px){.header{flex-wrap:nowrap;padding-block:0}}
+@media(max-width:600px){.brand{font-size:0}.homeLink{display:none}}

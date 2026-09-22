@@ -96,6 +96,10 @@ try {
   }
   const css = await readFile(new URL("../src/app/home.module.css", import.meta.url), "utf8");
   assert(css.includes("@media(max-width:900px)") && css.includes("@media(max-width:600px)"), "반응형 기준이 누락됐습니다.");
+  for (const path of ["../src/app/home.module.css", "../src/app/experience/experience.module.css", "../src/app/resources/resources.module.css", "../src/app/setup/setup-page.module.css", "../src/app/course/course.module.css"]) {
+    const pageCss = await readFile(new URL(path, import.meta.url), "utf8");
+    assert(pageCss.includes("calc(100% - var(--page-gutter)*2),var(--container-wide)"), `공통 좌우 여백 기준 누락: ${path}`);
+  }
   console.log("✓ 요청 2 — 단순화된 신청 흐름과 반응형 디자인");
 
   // Request 3: SEO, accessibility, and production endpoints.

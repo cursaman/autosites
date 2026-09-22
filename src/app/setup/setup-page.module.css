@@ -2,3 +2,6 @@
 @media(max-width:900px){.header nav{display:none}.rolesIntro,.comparison,.optional{grid-template-columns:1fr}.flow{overflow-x:auto;justify-content:flex-start;border-radius:18px}.roleGrid{grid-template-columns:repeat(2,1fr)}.stepGrid{grid-template-columns:1fr}.comparison{gap:1.2rem}.hero,.roles,.finalCta{border-radius:30px}}
 @media(max-width:600px){.header{top:8px;width:calc(100% - 16px);gap:.7rem;border-radius:16px}.headerAction{margin-left:auto;padding:.65rem .8rem}.hero{margin-top:16px;padding-block:5rem;border-radius:26px}.roles{width:calc(100% - 20px);border-radius:26px}.roleGrid{grid-template-columns:1fr}.stepCard{border-radius:22px}.optional{border-radius:26px}.finalCta{width:calc(100% - 20px);border-radius:26px}.finalCta>div{align-items:stretch;flex-direction:column}.footer{align-items:flex-start;flex-direction:column}.hero h1{font-size:clamp(2.8rem,14vw,4.4rem)}}
 @media(prefers-reduced-motion:reduce){.page *{scroll-behavior:auto!important}}
+.header{width:min(calc(100% - var(--page-gutter)*2),var(--container-wide))}
+@media(max-width:600px){.header,.roles,.finalCta{width:min(calc(100% - var(--page-gutter)*2),var(--container-wide))}}
+@media(max-width:600px){.brand{font-size:0}.headerAction{display:none}}

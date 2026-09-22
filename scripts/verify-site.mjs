@@ -1,4 +1,5 @@
 import { spawn } from "node:child_process";
+import { readFile } from "node:fs/promises";
 import { fileURLToPath } from "node:url";
 import path from "node:path";
 
@@ -168,6 +169,15 @@ try {
     }
   }
   await fetchRequired("/manifest.webmanifest", "application/manifest+json");
+
+  const layoutCss = await Promise.all([
+    readFile(new URL("../src/app/home.module.css", import.meta.url), "utf8"),
+    readFile(new URL("../src/app/experience/experience.module.css", import.meta.url), "utf8"),
+    readFile(new URL("../src/app/resources/resources.module.css", import.meta.url), "utf8"),
+    readFile(new URL("../src/app/setup/setup-page.module.css", import.meta.url), "utf8"),
+    readFile(new URL("../src/app/course/course.module.css", import.meta.url), "utf8"),
+  ]);
+  for (const css of layoutCss) assert(css.includes("calc(100% - var(--page-gutter)*2),var(--container-wide)"), "공개 페이지 공통 좌우 여백 기준이 누락됐습니다.");
 
   const runtimeOutput = output.join("");
   assert(!/(TypeError|ReferenceError|Unhandled|Internal Server Error)/i.test(runtimeOutput), "서버 실행 중 오류가 발견됐습니다.");

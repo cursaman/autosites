@@ -72,3 +72,9 @@
     --duration-base: 0ms;
   }
 }
+
+@media (max-width: 600px) {
+  :root {
+    --page-gutter: 1rem;
+  }
+}
