@@ -58,7 +58,7 @@ export default function HomePage() {
       <section className={`${styles.finalCta} ${styles.container}`} aria-labelledby="cta-title"><p className={styles.lightEyebrow}>START WITH THE RIGHT PATH</p><h2 id="cta-title">먼저 환경을 준비하고,<br />첫 요청을 보내세요.</h2><p>직접 따라 해보고 싶다면 준비 안내와 1일 체험에서 실제 요청 문장을 확인할 수 있습니다.</p><div className={styles.ctaActions}><Link href="/setup">준비작업 시작하기 <span>→</span></Link><Link href="/about">AutoSites 소개 보기</Link></div></section>
     </main>
 
-    <footer className={styles.footer}><div className={styles.container}><p><strong>AutoSites</strong><span>{footer.description}</span></p><nav aria-label="하단 메뉴"><Link href="/about">AutoSites 소개</Link><Link href="/course">4주 커리큘럼</Link><Link href="/resources">무료 자료</Link><Link href="/setup">준비 안내</Link></nav></div></footer>
+    <footer className={styles.footer}><div className={styles.container}><p><strong>AutoSites</strong><span>{footer.description}</span></p><nav aria-label="하단 메뉴"><Link href="/about">AutoSites 소개</Link><Link href="/course">4주 교육과정</Link><Link href="/resources">무료 자료</Link><Link href="/setup">준비 안내</Link></nav></div></footer>
   </div>;
 }
 

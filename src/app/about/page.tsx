@@ -37,7 +37,7 @@ export default function AboutPage() {
 
       <section className={`${styles.finalCta} ${styles.container}`} aria-labelledby="about-cta-title"><p className={styles.lightEyebrow}>START SMALL, FINISH LIVE</p><h2 id="about-cta-title">먼저 1일 체험으로<br />만드는 방식을 확인하세요.</h2><p>2시간 동안 한 페이지를 만들고 실제 주소로 공개하며 AutoSites의 작업 흐름을 직접 경험합니다.</p><div className={styles.ctaActions}><Link href="/experience">1일 체험 보기 <span>→</span></Link><a href={recruitmentUrl}>당근에서 문의하기</a></div></section>
     </main>
-    <footer className={styles.footer}><div className={styles.container}><p><strong>AutoSites</strong><span>{footer.description}</span></p><nav aria-label="하단 메뉴"><Link href="/">제작 방법</Link><Link href="/course">4주 커리큘럼</Link><Link href="/resources">무료 자료</Link><Link href="/setup">준비 안내</Link></nav></div></footer>
+    <footer className={styles.footer}><div className={styles.container}><p><strong>AutoSites</strong><span>{footer.description}</span></p><nav aria-label="하단 메뉴"><Link href="/">제작 방법</Link><Link href="/course">4주 교육과정</Link><Link href="/resources">무료 자료</Link><Link href="/setup">준비 안내</Link></nav></div></footer>
   </div>;
 }
 

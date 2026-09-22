@@ -51,6 +51,7 @@ try {
   console.log("✓ 별도 작업환경 준비 페이지와 선택 기능 안내");
 
   assert(html.includes("1일 체험"), "메인 메뉴에 1일 체험 연결이 없습니다.");
+  assert(html.includes('<a href="/course"><span>4주 교육과정</span>'), "상단 메뉴의 4주 교육과정이 페이지 상단으로 연결되지 않습니다.");
   const experienceHtml = await (await fetchRequired("/experience", "text/html")).text();
   for (const copy of ["AI와 함께 2시간 만에", "하루 2시간 체험 진행표", "2시간 뒤,", "인터넷 주소로 공개", "체험 일정 물어보기", "AI 애니메이션 앨범", "지브리풍 이미지로 변환", "정사각형·세로형·가로형", "앨범 주소 공개", "ChatGPT에는 이렇게", "HTML + CSS + JavaScript", "백엔드는 사용하지 않아", "Codex에는 이렇게", "작업공간의 절대 경로", "Sites 스킬은 사용하지 마", "GitHub main 브랜치에 올려줘"]) {
     assert(experienceHtml.includes(copy), `2시간 체험 페이지 누락: ${copy}`);

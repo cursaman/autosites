@@ -62,6 +62,7 @@ try {
 
   for (const copy of requiredCopy) assert(html.includes(copy), `필수 문구 누락: ${copy}`);
   assert(html.includes("준비작업"), "메인 메뉴에 준비작업 링크가 없습니다.");
+  assert(html.includes('<a href="/course"><span>4주 교육과정</span>'), "상단 메뉴의 4주 교육과정이 페이지 상단으로 연결되지 않습니다.");
   assert(html.indexOf("1일 체험") < html.indexOf("준비작업"), "준비작업 메뉴가 1일 체험 다음에 있지 않습니다.");
   assert(html.indexOf("1일 체험") < html.indexOf("AutoSites 소개"), "1일 체험 메뉴가 AutoSites 소개 앞에 있지 않습니다.");
 

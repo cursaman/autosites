@@ -6,7 +6,7 @@ export const siteContent = {
     { label: "1일 체험", href: "/experience" },
     { label: "준비작업", href: "/setup" },
     { label: "AutoSites 소개", href: "/about" },
-    { label: "4주 커리큘럼", href: "/course#curriculum" },
+    { label: "4주 교육과정", href: "/course" },
     { label: "무료 자료", href: "/resources" },
     { label: "신청 문의", href: recruitmentUrl },
   ],

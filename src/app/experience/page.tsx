@@ -30,6 +30,6 @@ export default function ExperiencePage() {
       <section id="preparation" className={`${styles.preparation} ${styles.container}`} aria-labelledby="preparation-title"><div><p className={styles.eyebrow}>BEFORE CLASS</p><h2 id="preparation-title">이것만 준비하세요.</h2><p>프로그램 연결이 걱정된다면 별도 준비 안내를 먼저 확인할 수 있습니다.</p><Link href="/setup">작업환경 준비 안내 보기 →</Link></div><ul>{experience.preparation.map((item)=><li key={item}>✓ {item}</li>)}</ul></section>
       <section className={`${styles.nextStep} ${styles.container}`} aria-labelledby="next-step-title"><p className={styles.lightEyebrow}>TRY BEFORE 4 WEEKS</p><h2 id="next-step-title">먼저 2시간 경험하고,<br />더 만들고 싶을 때 4주로 이어가세요.</h2><p>체험에서는 한 페이지를 실제 주소로 공개합니다. 4주 과정에서는 내 주제로 기획하고, 수정·배포를 반복하며 혼자 운영하는 흐름까지 완성합니다.</p><div><a href={recruitmentUrl}>당근에서 체험 일정 물어보기 <span>→</span></a><Link href="/course#curriculum">4주 커리큘럼 비교하기</Link></div></section>
     </main>
-    <footer className={styles.footer}><div className={styles.container}><strong>AutoSites Experience</strong><nav aria-label="하단 메뉴"><Link href="/">메인</Link><Link href="/course">4주 과정</Link><Link href="/resources">무료 자료</Link></nav></div></footer>
+    <footer className={styles.footer}><div className={styles.container}><strong>AutoSites Experience</strong><nav aria-label="하단 메뉴"><Link href="/">메인</Link><Link href="/course">4주 교육과정</Link><Link href="/resources">무료 자료</Link></nav></div></footer>
   </div>;
 }
