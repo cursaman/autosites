@@ -47,8 +47,8 @@ try {
   const homeResponse = await waitForServer();
   const html = await homeResponse.text();
   const requiredCopy = [
-    "말로 요청하고,",
-    "사이트를 공개합니다.",
+    "아이디어를 나누면,",
+    "홈페이지가 세상에 나옵니다.",
     "Codex 제작",
     "요청 한 문장이 운영 사이트가 되는 순서",
     "도구는 어려운 이름보다",

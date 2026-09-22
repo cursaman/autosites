@@ -20,7 +20,7 @@ export default function HomePage() {
       <section className={`${styles.hero} ${styles.container}`} aria-labelledby="hero-title">
         <div className={styles.heroCopy}>
           <p className={styles.eyebrow}>CODEX → GITHUB → VERCEL</p>
-          <h1 id="hero-title">말로 요청하고,<br />검사한 뒤,<br /><em>사이트를 공개합니다.</em></h1>
+          <h1 id="hero-title">아이디어를 나누면,<br /><em>홈페이지가 세상에 나옵니다.</em></h1>
           <p className={styles.lead}>AutoSites는 홈페이지 수정 요청을 실제 코드로 반영하고, 오류를 검사한 뒤 GitHub와 Vercel을 거쳐 운영 주소까지 확인하는 작업 방식입니다.</p>
           <div className={styles.actions}><a className={styles.primaryAction} href="#workflow">제작 흐름 보기 <span>↓</span></a><Link className={styles.secondaryAction} href="/setup">작업환경 준비하기</Link></div>
           <p className={styles.reassurance}>요청 내용 확인 · 기존 작업 보존 · 자동 검사 · 운영 배포 확인</p>

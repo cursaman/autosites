@@ -27,7 +27,7 @@ try {
   const html = await homepageResponse.text();
 
   // Request 1: homepage content and workflow landing page.
-  for (const copy of ["말로 요청하고,", "사이트를 공개합니다.", "Codex 제작", "요청 한 문장이 운영 사이트가 되는 순서", "도구는 어려운 이름보다", "이렇게 요청하면 됩니다.", "바로 올리지 않고,", "준비작업 시작하기"]) {
+  for (const copy of ["아이디어를 나누면,", "홈페이지가 세상에 나옵니다.", "Codex 제작", "요청 한 문장이 운영 사이트가 되는 순서", "도구는 어려운 이름보다", "이렇게 요청하면 됩니다.", "바로 올리지 않고,", "준비작업 시작하기"]) {
     assert(html.includes(copy), `콘텐츠 요청 결과 누락: ${copy}`);
   }
   console.log("✓ 요청 1 — 메인 콘텐츠와 작업 흐름");
