@@ -1,9 +1,7 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { siteContent } from "@/content/site-content";
-import autoSitesLogo from "../../../public/images/brand/autosites-auto-logo-v2.png";
-import CourseSelector from "../course-selector";
+import SiteHeader from "../site-header";
 import styles from "./ai-guide.module.css";
 
 export const metadata: Metadata = {
@@ -17,11 +15,7 @@ export default function AiGuidePage() {
   const guide = siteContent.aiGuide;
   return <div className={styles.page}>
     <a className={styles.skipLink} href="#ai-guide-main">본문으로 바로가기</a>
-    <header className={styles.header} data-site-header>
-      <Link className={styles.brand} href="/" aria-label="AutoSites 홈으로 이동"><Image src={autoSitesLogo} alt="" width={40} height={40} priority />AutoSites</Link>
-      <CourseSelector items={siteContent.navigation} />
-      <Link className={styles.headerAction} href="/setup">준비작업</Link>
-    </header>
+    <SiteHeader />
     <main id="ai-guide-main" tabIndex={-1}>
       <section className={`${styles.hero} ${styles.container}`} aria-labelledby="guide-title">
         <p className={styles.eyebrow}>AI TOOL GUIDE</p><h1 id="guide-title">어떤 AI를<br /><em>어디에 써야 할까요?</em></h1>

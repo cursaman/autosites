@@ -1,20 +1,14 @@
-import Image from "next/image";
 import Link from "next/link";
-import { recruitmentUrl, siteContent } from "@/content/site-content";
-import autoSitesLogo from "../../public/images/brand/autosites-auto-logo-v2.png";
+import { siteContent } from "@/content/site-content";
 import styles from "./home.module.css";
-import CourseSelector from "./course-selector";
+import SiteHeader from "./site-header";
 
 export default function HomePage() {
   const { workflow, technology, examples, deployment, footer } = siteContent;
 
   return <div id="top" className={styles.page}>
     <a className={styles.skipLink} href="#main-content">본문으로 바로가기</a>
-    <header className={styles.header} data-site-header>
-      <a className={styles.brand} href="#top" aria-label="AutoSites 홈"><Image src={autoSitesLogo} alt="" width={40} height={40} priority /><span>AutoSites</span></a>
-      <CourseSelector items={siteContent.navigation} />
-      <a className={styles.headerCta} href={recruitmentUrl}>제작 방법 문의</a>
-    </header>
+    <SiteHeader />
 
     <main id="main-content" tabIndex={-1}>
       <section className={`${styles.hero} ${styles.container}`} aria-labelledby="hero-title">

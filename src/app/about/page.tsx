@@ -1,9 +1,7 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { courseContent, recruitmentUrl, siteContent } from "@/content/site-content";
-import autoSitesLogo from "../../../public/images/brand/autosites-auto-logo-v2.png";
-import CourseSelector from "../course-selector";
+import SiteHeader from "../site-header";
 import styles from "../home.module.css";
 
 export const metadata: Metadata = {
@@ -19,7 +17,7 @@ export default function AboutPage() {
 
   return <div className={styles.page}>
     <a className={styles.skipLink} href="#about-main">본문으로 바로가기</a>
-    <header className={styles.header} data-site-header><Link className={styles.brand} href="/" aria-label="AutoSites 홈"><Image src={autoSitesLogo} alt="" width={40} height={40} priority /><span>AutoSites</span></Link><CourseSelector items={siteContent.navigation} /><a className={styles.headerCta} href={recruitmentUrl}>자리 문의</a></header>
+    <SiteHeader />
     <main id="about-main" tabIndex={-1}>
       <section className={`${styles.aboutHero} ${styles.container}`} aria-labelledby="about-title"><p className={styles.eyebrow}>ABOUT AUTOSITES</p><h1 id="about-title">혼자 멈췄던 지점부터,<br /><em>함께 완성합니다.</em></h1><p>AutoSites는 코딩 경험보다 만들고 싶은 이유를 먼저 듣습니다. 같은 화면을 보며 막힌 곳을 넘고, 마지막에는 직접 운영할 수 있는 홈페이지 주소를 남깁니다.</p><div className={styles.actions}><a className={styles.primaryAction} href={recruitmentUrl}>내가 따라갈 수 있는지 물어보기 <span>→</span></a><Link className={styles.secondaryAction} href="/course#curriculum">4주 과정 확인</Link></div></section>
 

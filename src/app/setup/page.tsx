@@ -1,10 +1,8 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { siteContent } from "@/content/site-content";
-import autoSitesLogo from "../../../public/images/brand/autosites-auto-logo-v2.png";
 import styles from "./setup-page.module.css";
-import CourseSelector from "../course-selector";
+import SiteHeader from "../site-header";
 
 export const metadata: Metadata = {
   title: "작업환경 준비 안내",
@@ -32,14 +30,7 @@ export default function SetupPage() {
   return (
     <div className={styles.page}>
       <a className={styles.skipLink} href="#setup-content">본문으로 바로가기</a>
-      <header className={styles.header} data-site-header>
-        <Link className={styles.brand} href="/" aria-label="AutoSites 홈으로 이동">
-          <Image src={autoSitesLogo} alt="" width={40} height={40} priority />
-          AutoSites
-        </Link>
-        <CourseSelector items={siteContent.navigation} />
-        <Link className={styles.headerAction} href="/course">4주 클래스</Link>
-      </header>
+      <SiteHeader />
 
       <main id="setup-content" tabIndex={-1}>
         <section className={styles.hero} aria-labelledby="setup-title">

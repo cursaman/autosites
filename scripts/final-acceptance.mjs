@@ -98,6 +98,7 @@ try {
   for (const [page, pageHtml] of [["메인", html], ["소개", aboutHtml], ["교육과정", courseHtml], ["1일 체험", experienceHtml], ["준비작업", setupHtml], ["무료 자료", resourcesHtml], ["AI 도구 비교", aiGuideHtml], ["AI 링크 허브", aiLinksHtml]]) {
     assert(pageHtml.includes("전체 메뉴") && pageHtml.includes('aria-controls="main-menu"'), `${page} 공통 드롭다운 메뉴 누락`);
     assert(pageHtml.includes("data-site-header"), `${page} 상단 메뉴 고정 표식 누락`);
+    assert(pageHtml.includes('class="siteHeader"') && pageHtml.includes("클래스 문의"), `${page} 공통 상단 메뉴 구성 누락`);
   }
   console.log("✓ 전체 공개 페이지 공통 드롭다운 상단 메뉴");
 

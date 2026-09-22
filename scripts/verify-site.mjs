@@ -178,6 +178,8 @@ try {
     assert(pageHtml.includes("전체 메뉴"), `${page} 상단에 공통 드롭다운 메뉴가 없습니다.`);
     assert(pageHtml.includes('aria-controls="main-menu"'), `${page} 드롭다운 접근성 연결이 없습니다.`);
     assert(pageHtml.includes("data-site-header"), `${page} 상단 메뉴 고정 표식이 없습니다.`);
+    assert(pageHtml.includes('class="siteHeader"'), `${page} 공통 상단 메뉴 컴포넌트가 없습니다.`);
+    assert(pageHtml.includes("클래스 문의"), `${page} 상단 메뉴 문의 버튼 문구가 다릅니다.`);
   }
   for (const [page, pageHtml] of [["AutoSites 소개", aboutHtml], ["교육과정", courseHtml], ["2시간 체험", experienceHtml], ["작업환경", setupHtml], ["무료 자료실", resourcesHtml], ["AI 도구 비교", aiGuideHtml], ["AI 링크 허브", aiLinksHtml]]) {
     for (const marker of ["rel=\"canonical\"", "property=\"og:title\"", "property=\"og:description\"", "name=\"twitter:title\""]) {
@@ -197,7 +199,7 @@ try {
   ]);
   for (const css of layoutCss) assert(css.includes("calc(100% - var(--page-gutter)*2),var(--container-wide)"), "공개 페이지 공통 좌우 여백 기준이 누락됐습니다.");
   const globalCss = await readFile(new URL("../src/app/globals.css", import.meta.url), "utf8");
-  for (const marker of ["[data-site-header]", "position:sticky!important", "top:0!important", "height:var(--nav-height)!important"]) assert(globalCss.includes(marker), `공통 상단 메뉴 고정 스타일 누락: ${marker}`);
+  for (const marker of ["[data-site-header]", "position:sticky!important", "top:0!important", "height:var(--nav-height)!important", ".siteHeader{", ".siteHeaderBrand", ".siteHeaderAction"]) assert(globalCss.includes(marker), `공통 상단 메뉴 고정 스타일 누락: ${marker}`);
 
   const runtimeOutput = output.join("");
   assert(!/(TypeError|ReferenceError|Unhandled|Internal Server Error)/i.test(runtimeOutput), "서버 실행 중 오류가 발견됐습니다.");
