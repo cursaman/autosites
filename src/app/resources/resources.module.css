@@ -4,3 +4,4 @@
 .header,.hero{width:min(calc(100% - var(--page-gutter)*2),var(--container-wide))}
 @media(max-width:600px){.header{gap:.7rem}.brand{font-size:0}.headerAction{display:none}}
 .sources{padding-bottom:clamp(6rem,10vw,9rem)}
+.externalHub{margin-top:clamp(3rem,6vw,5rem);padding:clamp(2rem,5vw,4rem);display:grid;grid-template-columns:1.2fr .8fr;gap:3rem;align-items:end;border:1px solid var(--site-line);border-radius:32px;background:#fff}.externalHub h2{margin:.8rem 0 1rem;font-size:clamp(2rem,4vw,3.7rem);line-height:1.05;letter-spacing:-.055em}.externalHub p:last-child{max-width:680px;color:var(--site-ink-soft);line-height:1.75}.externalHub>a{justify-self:end;padding:1rem 1.2rem;display:flex;gap:2rem;border-radius:999px;background:var(--site-accent);color:#fff;font-weight:850;text-decoration:none}@media(max-width:800px){.externalHub{grid-template-columns:1fr}.externalHub>a{justify-self:stretch;justify-content:space-between}}

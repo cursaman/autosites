@@ -91,6 +91,7 @@ try {
   assert(sitemapXml.includes("/about"), "sitemap.xml에 AutoSites 소개 페이지가 없습니다.");
   assert(sitemapXml.includes("/experience"), "sitemap.xml에 2시간 체험 페이지가 없습니다.");
   assert(sitemapXml.includes("/resources"), "sitemap.xml에 무료 자료실 페이지가 없습니다.");
+  assert(sitemapXml.includes("/learning-resources"), "sitemap.xml에 AI Together 학습 자료 안내가 없습니다.");
   assert(sitemapXml.includes("/setup"), "sitemap.xml에 작업환경 안내 페이지가 없습니다.");
   assert(sitemapXml.includes("/ai-guide"), "sitemap.xml에 AI 도구 비교 페이지가 없습니다.");
   assert(sitemapXml.includes("/ai-links"), "sitemap.xml에 AI 링크 허브 페이지가 없습니다.");
@@ -137,6 +138,7 @@ try {
   }
   for (const copy of ["영화·여행 사이트 소스", "MOVIEPIK 영화 사이트 소스", "TRIP 여행 사이트 소스", "API 키 제거 완료"]) assert(resourcesHtml.includes(copy), `무료 소스 안내 누락: ${copy}`);
   for (const href of ["/downloads/moviepik-source.zip", "/downloads/trip-source.zip"]) assert(resourcesHtml.includes(href), `무료 소스 링크 누락: ${href}`);
+  assert(resourcesHtml.includes("/learning-resources") && resourcesHtml.includes("AI Together 자료 안내 보기"), "무료 자료 페이지에 AI Together 자료 안내 링크가 없습니다.");
 
   const [sampleZip, workshopGuide, localFoodZip, localFoodBook, movieSource, tripSource] = await Promise.all([
     fetchRequired("/downloads/ai-api-workshop-sample.zip", "application/zip"),
@@ -174,14 +176,17 @@ try {
   assert((aiLinksHtml.match(/공식 사이트 새 창으로 열기/g) ?? []).length >= 54, "AI 링크 허브에 공식 링크 54개가 구성되지 않았습니다.");
   for (const id of ["conversation", "research", "visual", "video", "building", "publishing"]) assert(aiLinksHtml.includes(`id="${id}"`), `AI 링크 허브 분류 ID 누락: #${id}`);
   for (const href of ["https://chatgpt.com/", "https://claude.ai/", "https://gemini.google.com/", "https://notebooklm.google.com/", "https://www.canva.com/canva-ai/", "https://openai.com/codex/", "https://github.com/", "https://vercel.com/", "https://supabase.com/"]) assert(aiLinksHtml.includes(href), `AI 링크 허브 공식 링크 누락: ${href}`);
-  for (const [page, pageHtml] of [["메인", html], ["AutoSites 소개", aboutHtml], ["교육과정", courseHtml], ["2시간 체험", experienceHtml], ["작업환경", setupHtml], ["무료 자료실", resourcesHtml], ["AI 도구 비교", aiGuideHtml], ["AI 링크 허브", aiLinksHtml]]) {
+  const learningResourcesHtml = await (await fetchRequired("/learning-resources", "text/html")).text();
+  for (const copy of ["배우고 만드는 데 필요한", "AI Together 자료실 열기", "AI·홈페이지 학습", "수업용 크롬 확장 프로그램", "디자인 참고 사이트", "웹 개발 문서", "아이콘 참고 사이트"]) assert(learningResourcesHtml.includes(copy), `AI Together 학습 자료 안내 누락: ${copy}`);
+  assert(learningResourcesHtml.includes("https://ai-together-mu.vercel.app/resources"), "AI Together 외부 자료실 링크가 없습니다.");
+  for (const [page, pageHtml] of [["메인", html], ["AutoSites 소개", aboutHtml], ["교육과정", courseHtml], ["2시간 체험", experienceHtml], ["작업환경", setupHtml], ["무료 자료실", resourcesHtml], ["AI 도구 비교", aiGuideHtml], ["AI 링크 허브", aiLinksHtml], ["학습 자료 안내", learningResourcesHtml]]) {
     assert(pageHtml.includes("전체 메뉴"), `${page} 상단에 공통 드롭다운 메뉴가 없습니다.`);
     assert(pageHtml.includes('aria-controls="main-menu"'), `${page} 드롭다운 접근성 연결이 없습니다.`);
     assert(pageHtml.includes("data-site-header"), `${page} 상단 메뉴 고정 표식이 없습니다.`);
     assert(pageHtml.includes('class="siteHeader"'), `${page} 공통 상단 메뉴 컴포넌트가 없습니다.`);
     assert(pageHtml.includes("클래스 문의"), `${page} 상단 메뉴 문의 버튼 문구가 다릅니다.`);
   }
-  for (const [page, pageHtml] of [["AutoSites 소개", aboutHtml], ["교육과정", courseHtml], ["2시간 체험", experienceHtml], ["작업환경", setupHtml], ["무료 자료실", resourcesHtml], ["AI 도구 비교", aiGuideHtml], ["AI 링크 허브", aiLinksHtml]]) {
+  for (const [page, pageHtml] of [["AutoSites 소개", aboutHtml], ["교육과정", courseHtml], ["2시간 체험", experienceHtml], ["작업환경", setupHtml], ["무료 자료실", resourcesHtml], ["AI 도구 비교", aiGuideHtml], ["AI 링크 허브", aiLinksHtml], ["학습 자료 안내", learningResourcesHtml]]) {
     for (const marker of ["rel=\"canonical\"", "property=\"og:title\"", "property=\"og:description\"", "name=\"twitter:title\""]) {
       assert(pageHtml.includes(marker), `${page} 페이지 SEO 메타정보 누락: ${marker}`);
     }
@@ -196,6 +201,7 @@ try {
     readFile(new URL("../src/app/course/course.module.css", import.meta.url), "utf8"),
     readFile(new URL("../src/app/ai-guide/ai-guide.module.css", import.meta.url), "utf8"),
     readFile(new URL("../src/app/ai-links/ai-links.module.css", import.meta.url), "utf8"),
+    readFile(new URL("../src/app/learning-resources/learning-resources.module.css", import.meta.url), "utf8"),
   ]);
   for (const css of layoutCss) assert(css.includes("calc(100% - var(--page-gutter)*2),var(--container-wide)"), "공개 페이지 공통 좌우 여백 기준이 누락됐습니다.");
   const globalCss = await readFile(new URL("../src/app/globals.css", import.meta.url), "utf8");

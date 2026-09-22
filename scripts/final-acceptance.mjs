@@ -72,6 +72,10 @@ try {
     assert(resourcesHtml.includes(copy), `무료 자료실 누락: ${copy}`);
   }
   console.log("✓ 무료 자료실과 단계별 다운로드 안내");
+  const learningResourcesHtml = await (await fetchRequired("/learning-resources", "text/html")).text();
+  for (const copy of ["배우고 만드는 데 필요한", "AI Together 자료실 열기", "수업용 크롬 확장 프로그램", "웹 개발 문서", "아이콘 참고 사이트"]) assert(learningResourcesHtml.includes(copy), `AI Together 학습 자료 안내 누락: ${copy}`);
+  assert(resourcesHtml.includes("/learning-resources") && learningResourcesHtml.includes("https://ai-together-mu.vercel.app/resources"), "AI Together 자료실 연결이 누락됐습니다.");
+  console.log("✓ AI Together 외부 자료실 별도 안내와 무료 자료 페이지 연결");
 
   const courseHtml = await (await fetchRequired("/course", "text/html")).text();
   for (const copy of ["4주 뒤, 직접 만든", "당근에서 남은 자리 문의하기", "지금 할 일", "4주 과정 문의", "남은 자리 안내받기", "4주 뒤 내 손에 남는 것", "내 주제의 반응형 홈페이지", "실제로 열리는 운영 URL", "수업에서 배우는 제작 방식", "바이브코딩 흐름 안내", "채팅 요청부터 실제 배포까지", "AutoSites 운영자", "2시간 수업표", "GitHub 저장소 생성·첫 Push", "수업이 끝날 때마다 기록합니다.", "첫 커밋과 Push 실습", "1기의 과정이", "MOVIEBOX", "1기 수강생 작품 · 운영 중", "수강생 작품 보기", "2기 모집 안내", "2기는 10월 10일 토요일에 시작합니다.", "2026. 10. 10–10. 31", "2기 남은 자리 문의하기", "공개 자료 준비 중", "동의하지 않아도 불이익이 없습니다.", "1기 4주 과정을 수료했습니다.", "1기 4주 과정 수료 완료", "100%", "80,000원", "별도의 장소 이용료 없이", "오후 6시 정시 시작", "건물 주차 가능", "커피긱스 2층 8인룸", "자리 확인 후 신청 확정", "이 페이지에서는 이름·전화번호·이메일을 수집하거나 공개하지 않습니다."]) {
@@ -95,7 +99,7 @@ try {
   }
   console.log("✓ 교육과정 링크, 반응형, 선택 메뉴 접근성과 비밀정보 비노출");
 
-  for (const [page, pageHtml] of [["메인", html], ["소개", aboutHtml], ["교육과정", courseHtml], ["1일 체험", experienceHtml], ["준비작업", setupHtml], ["무료 자료", resourcesHtml], ["AI 도구 비교", aiGuideHtml], ["AI 링크 허브", aiLinksHtml]]) {
+  for (const [page, pageHtml] of [["메인", html], ["소개", aboutHtml], ["교육과정", courseHtml], ["1일 체험", experienceHtml], ["준비작업", setupHtml], ["무료 자료", resourcesHtml], ["AI 도구 비교", aiGuideHtml], ["AI 링크 허브", aiLinksHtml], ["학습 자료 안내", learningResourcesHtml]]) {
     assert(pageHtml.includes("전체 메뉴") && pageHtml.includes('aria-controls="main-menu"'), `${page} 공통 드롭다운 메뉴 누락`);
     assert(pageHtml.includes("data-site-header"), `${page} 상단 메뉴 고정 표식 누락`);
     assert(pageHtml.includes('class="siteHeader"') && pageHtml.includes("클래스 문의"), `${page} 공통 상단 메뉴 구성 누락`);
@@ -108,7 +112,7 @@ try {
   }
   const css = await readFile(new URL("../src/app/home.module.css", import.meta.url), "utf8");
   assert(css.includes("@media(max-width:900px)") && css.includes("@media(max-width:600px)"), "반응형 기준이 누락됐습니다.");
-  for (const path of ["../src/app/home.module.css", "../src/app/experience/experience.module.css", "../src/app/resources/resources.module.css", "../src/app/setup/setup-page.module.css", "../src/app/course/course.module.css", "../src/app/ai-guide/ai-guide.module.css", "../src/app/ai-links/ai-links.module.css"]) {
+  for (const path of ["../src/app/home.module.css", "../src/app/experience/experience.module.css", "../src/app/resources/resources.module.css", "../src/app/setup/setup-page.module.css", "../src/app/course/course.module.css", "../src/app/ai-guide/ai-guide.module.css", "../src/app/ai-links/ai-links.module.css", "../src/app/learning-resources/learning-resources.module.css"]) {
     const pageCss = await readFile(new URL(path, import.meta.url), "utf8");
     assert(pageCss.includes("calc(100% - var(--page-gutter)*2),var(--container-wide)"), `공통 좌우 여백 기준 누락: ${path}`);
   }
