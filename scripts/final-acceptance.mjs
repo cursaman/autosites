@@ -55,7 +55,8 @@ try {
   console.log("✓ ChatGPT·Claude·Gemini 역할 비교와 AutoSites 사용 흐름");
 
   const aiLinksHtml = await (await fetchRequired("/ai-links", "text/html")).text();
-  for (const copy of ["무엇을 할지 고르면", "대화 · 기획", "조사 · 학습", "이미지 · 디자인", "코딩 · 웹 제작", "저장 · 배포 · 데이터", "처음이라면 이 세 개만", "ChatGPT", "NotebookLM", "Canva AI", "Codex"]) assert(aiLinksHtml.includes(copy), `AI 링크 허브 누락: ${copy}`);
+  for (const copy of ["무엇을 할지 고르면", "총 30개", "대화 · 기획", "조사 · 학습", "이미지 · 디자인", "코딩 · 웹 제작", "저장 · 배포 · 데이터", "처음이라면 이 세 개만", "ChatGPT", "Microsoft Copilot", "NotebookLM", "Elicit", "Canva AI", "Leonardo.Ai", "Codex", "Claude Code", "Cloudflare Pages"]) assert(aiLinksHtml.includes(copy), `AI 링크 허브 누락: ${copy}`);
+  assert((aiLinksHtml.match(/공식 사이트 새 창으로 열기/g) ?? []).length >= 30, "운영 AI 링크 허브의 공식 링크가 30개가 아닙니다.");
   console.log("✓ 용도별 AI 링크 허브와 초보자 추천 경로");
 
   assert(html.includes("1일 체험"), "메인 메뉴에 1일 체험 연결이 없습니다.");
