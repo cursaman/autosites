@@ -210,6 +210,27 @@ export const siteContent = {
       { name: "Supabase", role: "로그인·DB·CRUD", description: "회원 인증과 데이터 생성·조회·수정·삭제, 파일 저장 기능을 제공합니다.", status: "필요할 때" },
     ],
     flow: ["Codex 수정", "Git 기록", "GitHub 저장", "Vercel 배포", "Supabase 데이터"],
+    modeGuide: {
+      eyebrow: "CHAT · WORK · CODEX",
+      title: "앱에서 무엇을\n선택해야 하나요?",
+      description: "셋 다 자연어로 요청하지만 맡기는 일과 보이는 화면이 다릅니다. 아래 기준만 기억하면 됩니다.",
+      items: [
+        { name: "Chat", role: "질문하고 아이디어 나누기", useFor: "설명 듣기 · 아이디어 정리 · 문구 초안 · 비교", example: "사진 앨범 홈페이지에 어떤 메뉴가 필요할까?" },
+        { name: "ChatGPT Work", role: "검토할 결과물 완성하기", useFor: "기획서 · 계획표 · 문서 · 발표자료 · 스프레드시트", example: "2시간 체험 수업 계획표를 표로 완성해줘." },
+        { name: "Codex", role: "실제 소스코드 작업하기", useFor: "프로젝트 파일 수정 · 오류 검사 · GitHub 저장 · 배포 확인", example: "이 작업공간의 1일 체험 페이지를 수정하고 검사해줘." },
+      ],
+      appSteps: [
+        { number: "01", title: "아이디어는 Chat에서 질문", description: "ChatGPT를 선택한 뒤 Chat에서 궁금한 점을 묻고 만들 주제와 문구를 정합니다." },
+        { number: "02", title: "계획표는 Work에서 정리", description: "ChatGPT의 상단 선택기에서 Work로 바꾸고, 시간표나 기획서처럼 완성할 결과의 형식을 말합니다." },
+        { number: "03", title: "코딩은 Codex로 전환", description: "제품 선택기에서 Codex를 선택하고 홈페이지 프로젝트 폴더를 작업공간으로 엽니다." },
+        { number: "04", title: "수정·검사·배포를 한 흐름으로 요청", description: "수정 범위, 검사, GitHub 커밋, Vercel 운영 확인을 순서대로 요청하고 중요한 권한은 확인 후 승인합니다." },
+      ],
+      rule: "질문은 Chat, 완성 문서는 Work, 홈페이지 파일을 직접 바꾸는 일은 Codex를 선택하세요.",
+      actions: [
+        { label: "공식 사용 방식 보기", href: "https://learn.chatgpt.com/docs/use-chatgpt" },
+        { label: "데스크톱 앱 시작 안내", href: "https://learn.chatgpt.com/docs/quickstart?setup=app" },
+      ],
+    },
     browserRule: {
       title: "계정과 브라우저를 섞지 마세요.",
       description: "Chrome과 Edge에 서로 다른 계정이 로그인되어 있으면 GitHub·Vercel 인증 때 다른 사용자를 승인하기 쉽습니다. 수업에서는 하나의 Google 계정과 하나의 Chrome 프로필을 처음부터 끝까지 사용합니다.",

@@ -67,6 +67,13 @@ export default function SetupPage() {
           </div>
         </section>
 
+        <section className={styles.modeGuide} aria-labelledby="mode-guide-title">
+          <div className={styles.modeIntro}><div><p className={styles.eyebrow}>{setup.modeGuide.eyebrow}</p><h2 id="mode-guide-title">{setup.modeGuide.title}</h2></div><p>{setup.modeGuide.description}</p></div>
+          <div className={styles.modeGrid}>{setup.modeGuide.items.map((item, index) => <article key={item.name}><span>0{index + 1}</span><h3>{item.name}</h3><strong>{item.role}</strong><p>{item.useFor}</p><blockquote>“{item.example}”</blockquote></article>)}</div>
+          <div className={styles.appFlow}><h3>데스크톱 앱에서는 이렇게 진행하세요.</h3><ol>{setup.modeGuide.appSteps.map((step) => <li key={step.number}><span>{step.number}</span><div><strong>{step.title}</strong><p>{step.description}</p></div></li>)}</ol></div>
+          <aside className={styles.modeRule}><strong>{setup.modeGuide.rule}</strong><div>{setup.modeGuide.actions.map((action) => <a key={action.href} href={action.href} target="_blank" rel="noreferrer">{action.label} ↗</a>)}</div></aside>
+        </section>
+
         <section className={styles.comparison} aria-labelledby="comparison-title">
           <div><p className={styles.eyebrow}>{comparison.eyebrow}</p><h2 id="comparison-title">{comparison.title}</h2></div>
           <article><span>{comparison.before.label}</span><h3>{comparison.before.flow}</h3><p>{comparison.before.description}</p></article>
