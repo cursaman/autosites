@@ -54,6 +54,10 @@ try {
   for (const copy of ["어떤 AI를", "하나를 승자로 고르기보다", "ChatGPT", "Claude", "Gemini", "Google Workspace", "GPT 안에서도", "Codex", "공식 안내를"]) assert(aiGuideHtml.includes(copy), `AI 도구 비교 페이지 누락: ${copy}`);
   console.log("✓ ChatGPT·Claude·Gemini 역할 비교와 AutoSites 사용 흐름");
 
+  const aiLinksHtml = await (await fetchRequired("/ai-links", "text/html")).text();
+  for (const copy of ["무엇을 할지 고르면", "대화 · 기획", "조사 · 학습", "이미지 · 디자인", "코딩 · 웹 제작", "저장 · 배포 · 데이터", "처음이라면 이 세 개만", "ChatGPT", "NotebookLM", "Canva AI", "Codex"]) assert(aiLinksHtml.includes(copy), `AI 링크 허브 누락: ${copy}`);
+  console.log("✓ 용도별 AI 링크 허브와 초보자 추천 경로");
+
   assert(html.includes("1일 체험"), "메인 메뉴에 1일 체험 연결이 없습니다.");
   assert(html.includes('<a href="/course"><span>4주 교육과정</span>'), "상단 메뉴의 4주 교육과정이 페이지 상단으로 연결되지 않습니다.");
   const experienceHtml = await (await fetchRequired("/experience", "text/html")).text();
@@ -90,7 +94,7 @@ try {
   }
   console.log("✓ 교육과정 링크, 반응형, 선택 메뉴 접근성과 비밀정보 비노출");
 
-  for (const [page, pageHtml] of [["메인", html], ["소개", aboutHtml], ["교육과정", courseHtml], ["1일 체험", experienceHtml], ["준비작업", setupHtml], ["무료 자료", resourcesHtml], ["AI 도구 비교", aiGuideHtml]]) {
+  for (const [page, pageHtml] of [["메인", html], ["소개", aboutHtml], ["교육과정", courseHtml], ["1일 체험", experienceHtml], ["준비작업", setupHtml], ["무료 자료", resourcesHtml], ["AI 도구 비교", aiGuideHtml], ["AI 링크 허브", aiLinksHtml]]) {
     assert(pageHtml.includes("전체 메뉴") && pageHtml.includes('aria-controls="main-menu"'), `${page} 공통 드롭다운 메뉴 누락`);
   }
   console.log("✓ 전체 공개 페이지 공통 드롭다운 상단 메뉴");
@@ -101,7 +105,7 @@ try {
   }
   const css = await readFile(new URL("../src/app/home.module.css", import.meta.url), "utf8");
   assert(css.includes("@media(max-width:900px)") && css.includes("@media(max-width:600px)"), "반응형 기준이 누락됐습니다.");
-  for (const path of ["../src/app/home.module.css", "../src/app/experience/experience.module.css", "../src/app/resources/resources.module.css", "../src/app/setup/setup-page.module.css", "../src/app/course/course.module.css", "../src/app/ai-guide/ai-guide.module.css"]) {
+  for (const path of ["../src/app/home.module.css", "../src/app/experience/experience.module.css", "../src/app/resources/resources.module.css", "../src/app/setup/setup-page.module.css", "../src/app/course/course.module.css", "../src/app/ai-guide/ai-guide.module.css", "../src/app/ai-links/ai-links.module.css"]) {
     const pageCss = await readFile(new URL(path, import.meta.url), "utf8");
     assert(pageCss.includes("calc(100% - var(--page-gutter)*2),var(--container-wide)"), `공통 좌우 여백 기준 누락: ${path}`);
   }

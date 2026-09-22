@@ -6,6 +6,7 @@ export const siteContent = {
     { label: "1일 체험", href: "/experience" },
     { label: "준비작업", href: "/setup" },
     { label: "AI 도구 비교", href: "/ai-guide" },
+    { label: "AI 링크 허브", href: "/ai-links" },
     { label: "AutoSites 소개", href: "/about" },
     { label: "4주 교육과정", href: "/course" },
     { label: "무료 자료", href: "/resources" },
@@ -132,6 +133,35 @@ export const siteContent = {
       { number: "02", title: "기획과 문구를 다듬습니다", description: "Work, Claude 또는 Gemini에서 계획표와 화면 문구를 검토 가능한 형태로 만듭니다." },
       { number: "03", title: "Codex가 소스를 수정합니다", description: "확정한 기획을 Codex에 전달해 실제 프로젝트 파일을 만들고 모바일 화면과 오류를 검사합니다." },
       { number: "04", title: "GitHub와 Vercel로 공개합니다", description: "검사를 통과한 파일만 GitHub에 기록하고 실제 인터넷 주소로 배포합니다." },
+    ],
+  },
+  aiLinks: {
+    categories: [
+      { id: "conversation", number: "01", title: "대화 · 기획", description: "아이디어를 정리하고 계획표, 문구, 질문의 초안을 만들 때 시작하는 도구입니다.", tools: [
+        { name: "ChatGPT", purpose: "질문·아이디어·기획", description: "처음 떠오른 생각을 대화로 구체화하고 작업 순서를 정리합니다.", href: "https://chatgpt.com/", tag: "처음 시작" },
+        { name: "Claude", purpose: "긴 글·문서 분석", description: "긴 문서를 읽고 구조를 정리하거나 문장을 다듬을 때 활용합니다.", href: "https://claude.ai/", tag: "문서 중심" },
+        { name: "Gemini", purpose: "Google 자료 활용", description: "Google 계정과 Workspace 자료를 함께 쓰는 흐름에 활용합니다.", href: "https://gemini.google.com/", tag: "Google 중심" },
+      ] },
+      { id: "research", number: "02", title: "조사 · 학습", description: "자료를 모으고 출처를 확인하거나, 내가 가진 문서를 바탕으로 공부할 때 사용합니다.", tools: [
+        { name: "NotebookLM", purpose: "내 자료로 공부", description: "업로드한 자료를 기준으로 요약하고 질문하며 학습 내용을 정리합니다.", href: "https://notebooklm.google.com/", tag: "자료 기반" },
+        { name: "Perplexity", purpose: "웹 조사·출처 찾기", description: "인터넷 자료를 조사하고 답변에 연결된 출처를 함께 확인합니다.", href: "https://www.perplexity.ai/", tag: "검색 중심" },
+        { name: "Google AI Studio", purpose: "Gemini 실험", description: "Gemini 모델에 프롬프트를 입력하고 다양한 입력과 결과를 시험합니다.", href: "https://aistudio.google.com/", tag: "실험용" },
+      ] },
+      { id: "visual", number: "03", title: "이미지 · 디자인", description: "앨범 사진을 변환하고 배너, 카드뉴스, 발표 자료용 이미지를 만들 때 사용합니다.", tools: [
+        { name: "Canva AI", purpose: "디자인·편집", description: "템플릿 위에서 이미지와 문구를 만들고 크기와 배치를 손쉽게 편집합니다.", href: "https://www.canva.com/canva-ai/", tag: "초보자 추천" },
+        { name: "Adobe Firefly", purpose: "이미지 생성·편집", description: "문장으로 이미지를 만들고 생성형 채우기 같은 시각 편집을 진행합니다.", href: "https://firefly.adobe.com/", tag: "이미지 중심" },
+        { name: "ImageFX", purpose: "빠른 이미지 생성", description: "Google의 이미지 도구에서 여러 표현과 스타일을 빠르게 시험합니다.", href: "https://labs.google/fx/tools/image-fx", tag: "스타일 탐색" },
+      ] },
+      { id: "building", number: "04", title: "코딩 · 웹 제작", description: "기획을 실제 화면과 소스 파일로 만들고 오류를 검사할 때 사용하는 제작 도구입니다.", tools: [
+        { name: "Codex", purpose: "프로젝트 직접 수정", description: "작업공간의 소스를 읽고 수정한 뒤 검사와 Git 작업까지 수행합니다.", href: "https://openai.com/codex/", tag: "AutoSites 핵심" },
+        { name: "GitHub Copilot", purpose: "코드 작성 보조", description: "에디터와 GitHub 작업 흐름에서 코드 제안과 개발 도움을 받습니다.", href: "https://github.com/features/copilot", tag: "개발 보조" },
+        { name: "v0", purpose: "웹 화면 초안", description: "말로 원하는 인터페이스를 설명하고 웹 화면의 초안을 빠르게 만듭니다.", href: "https://v0.dev/", tag: "화면 설계" },
+      ] },
+      { id: "publishing", number: "05", title: "저장 · 배포 · 데이터", description: "AI 도구는 아니지만 만든 홈페이지를 보관하고 실제 주소로 공개하는 데 필요한 연결 도구입니다.", tools: [
+        { name: "GitHub", purpose: "소스 저장·기록", description: "홈페이지 파일과 변경 이력을 저장하고 다른 서비스와 연결합니다.", href: "https://github.com/", tag: "필수 준비" },
+        { name: "Vercel", purpose: "홈페이지 배포", description: "GitHub 저장소를 연결해 누구나 접속할 수 있는 인터넷 주소로 공개합니다.", href: "https://vercel.com/", tag: "필수 준비" },
+        { name: "Supabase", purpose: "로그인·데이터 저장", description: "회원, 게시글, 신청 정보처럼 홈페이지에 저장 기능이 필요할 때 연결합니다.", href: "https://supabase.com/", tag: "필요할 때" },
+      ] },
     ],
   },
   workflow: {

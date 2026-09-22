@@ -11,6 +11,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: new URL("/resources", siteUrl).toString(), changeFrequency: "monthly", priority: 0.8 },
     { url: new URL("/setup", siteUrl).toString(), changeFrequency: "monthly", priority: 0.7 },
     { url: new URL("/ai-guide", siteUrl).toString(), changeFrequency: "monthly", priority: 0.8 },
+    { url: new URL("/ai-links", siteUrl).toString(), changeFrequency: "monthly", priority: 0.8 },
     { url: new URL("/education/join.html", siteUrl).toString(), changeFrequency: "weekly", priority: 0.9 },
   ];
 }

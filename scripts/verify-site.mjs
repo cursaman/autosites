@@ -63,6 +63,7 @@ try {
   for (const copy of requiredCopy) assert(html.includes(copy), `필수 문구 누락: ${copy}`);
   assert(html.includes("준비작업"), "메인 메뉴에 준비작업 링크가 없습니다.");
   assert(html.includes('<a href="/ai-guide"><span>AI 도구 비교</span>'), "메인 메뉴에 AI 도구 비교 링크가 없습니다.");
+  assert(html.includes('<a href="/ai-links"><span>AI 링크 허브</span>'), "메인 메뉴에 AI 링크 허브가 없습니다.");
   assert(html.includes('<a href="/course"><span>4주 교육과정</span>'), "상단 메뉴의 4주 교육과정이 페이지 상단으로 연결되지 않습니다.");
   assert(html.indexOf("1일 체험") < html.indexOf("준비작업"), "준비작업 메뉴가 1일 체험 다음에 있지 않습니다.");
   assert(html.indexOf("1일 체험") < html.indexOf("AutoSites 소개"), "1일 체험 메뉴가 AutoSites 소개 앞에 있지 않습니다.");
@@ -92,6 +93,7 @@ try {
   assert(sitemapXml.includes("/resources"), "sitemap.xml에 무료 자료실 페이지가 없습니다.");
   assert(sitemapXml.includes("/setup"), "sitemap.xml에 작업환경 안내 페이지가 없습니다.");
   assert(sitemapXml.includes("/ai-guide"), "sitemap.xml에 AI 도구 비교 페이지가 없습니다.");
+  assert(sitemapXml.includes("/ai-links"), "sitemap.xml에 AI 링크 허브 페이지가 없습니다.");
   assert(sitemapXml.includes("/education/join.html"), "sitemap.xml에 클래스 신청 경로가 없습니다.");
   const joinResponse = await fetch(`${baseUrl}/education/join.html`, { redirect: "manual" });
   assert([307, 308].includes(joinResponse.status), "클래스 신청 경로가 교육과정으로 연결되지 않습니다.");
@@ -167,11 +169,15 @@ try {
   for (const copy of ["어떤 AI를", "하나를 승자로 고르기보다", "ChatGPT", "Claude", "Gemini", "Google Workspace", "GPT 안에서도", "ChatGPT Work", "Codex", "기능과 제공 범위는", "공식 안내를"]) assert(aiGuideHtml.includes(copy), `AI 도구 비교 페이지 필수 문구 누락: ${copy}`);
   for (const id of ["quick-guide", "comparison", "gpt-roles", "workflow"]) assert(aiGuideHtml.includes(`id="${id}"`), `AI 도구 비교 섹션 ID 누락: #${id}`);
   for (const href of ["learn.chatgpt.com/docs/use-chatgpt", "docs.anthropic.com/en/docs/welcome", "support.google.com/gemini/answer/15229592"]) assert(aiGuideHtml.includes(href), `AI 도구 공식 출처 링크 누락: ${href}`);
-  for (const [page, pageHtml] of [["메인", html], ["AutoSites 소개", aboutHtml], ["교육과정", courseHtml], ["2시간 체험", experienceHtml], ["작업환경", setupHtml], ["무료 자료실", resourcesHtml], ["AI 도구 비교", aiGuideHtml]]) {
+  const aiLinksHtml = await (await fetchRequired("/ai-links", "text/html")).text();
+  for (const copy of ["무엇을 할지 고르면", "대화 · 기획", "조사 · 학습", "이미지 · 디자인", "코딩 · 웹 제작", "저장 · 배포 · 데이터", "처음이라면 이 세 개만", "가입하기 전에", "ChatGPT", "NotebookLM", "Canva AI", "Codex", "GitHub + Vercel"]) assert(aiLinksHtml.includes(copy), `AI 링크 허브 필수 문구 누락: ${copy}`);
+  for (const id of ["conversation", "research", "visual", "building", "publishing"]) assert(aiLinksHtml.includes(`id="${id}"`), `AI 링크 허브 분류 ID 누락: #${id}`);
+  for (const href of ["https://chatgpt.com/", "https://claude.ai/", "https://gemini.google.com/", "https://notebooklm.google.com/", "https://www.canva.com/canva-ai/", "https://openai.com/codex/", "https://github.com/", "https://vercel.com/", "https://supabase.com/"]) assert(aiLinksHtml.includes(href), `AI 링크 허브 공식 링크 누락: ${href}`);
+  for (const [page, pageHtml] of [["메인", html], ["AutoSites 소개", aboutHtml], ["교육과정", courseHtml], ["2시간 체험", experienceHtml], ["작업환경", setupHtml], ["무료 자료실", resourcesHtml], ["AI 도구 비교", aiGuideHtml], ["AI 링크 허브", aiLinksHtml]]) {
     assert(pageHtml.includes("전체 메뉴"), `${page} 상단에 공통 드롭다운 메뉴가 없습니다.`);
     assert(pageHtml.includes('aria-controls="main-menu"'), `${page} 드롭다운 접근성 연결이 없습니다.`);
   }
-  for (const [page, pageHtml] of [["AutoSites 소개", aboutHtml], ["교육과정", courseHtml], ["2시간 체험", experienceHtml], ["작업환경", setupHtml], ["무료 자료실", resourcesHtml], ["AI 도구 비교", aiGuideHtml]]) {
+  for (const [page, pageHtml] of [["AutoSites 소개", aboutHtml], ["교육과정", courseHtml], ["2시간 체험", experienceHtml], ["작업환경", setupHtml], ["무료 자료실", resourcesHtml], ["AI 도구 비교", aiGuideHtml], ["AI 링크 허브", aiLinksHtml]]) {
     for (const marker of ["rel=\"canonical\"", "property=\"og:title\"", "property=\"og:description\"", "name=\"twitter:title\""]) {
       assert(pageHtml.includes(marker), `${page} 페이지 SEO 메타정보 누락: ${marker}`);
     }
@@ -185,6 +191,7 @@ try {
     readFile(new URL("../src/app/setup/setup-page.module.css", import.meta.url), "utf8"),
     readFile(new URL("../src/app/course/course.module.css", import.meta.url), "utf8"),
     readFile(new URL("../src/app/ai-guide/ai-guide.module.css", import.meta.url), "utf8"),
+    readFile(new URL("../src/app/ai-links/ai-links.module.css", import.meta.url), "utf8"),
   ]);
   for (const css of layoutCss) assert(css.includes("calc(100% - var(--page-gutter)*2),var(--container-wide)"), "공개 페이지 공통 좌우 여백 기준이 누락됐습니다.");
 
