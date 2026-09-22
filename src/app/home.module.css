@@ -8,3 +8,4 @@
 @media(max-width:600px){.methodGrid,.toolGrid,.promptList,.audienceGrid{grid-template-columns:1fr}.methodGrid li,.toolGrid li{min-height:220px}.deploymentSection{width:calc(100% - 20px);border-radius:24px}.aboutHero{padding:5.5rem 0}.aboutHero h1{font-size:clamp(3rem,14vw,4.8rem)}}
 .container{width:min(calc(100% - var(--page-gutter)*2),var(--container-wide))}.header{width:min(calc(100% - var(--page-gutter)*2),var(--container-wide))}
 @media(max-width:600px){.header{width:min(calc(100% - var(--page-gutter)*2),var(--container-wide))}.trustBar{width:min(calc(100% - var(--page-gutter)*2),var(--container-wide));padding-inline:1.4rem}.enrollment,.finalCta,.deploymentSection{width:min(calc(100% - var(--page-gutter)*2),var(--container-wide))}}
+.aboutHero{text-align:left}.aboutHero h1{margin-left:0;margin-right:0}.aboutHero>p:not(.eyebrow){margin-left:0;margin-right:0}.aboutHero .actions{justify-content:flex-start}

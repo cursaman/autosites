@@ -200,6 +200,7 @@ try {
   for (const css of layoutCss) assert(css.includes("calc(100% - var(--page-gutter)*2),var(--container-wide)"), "공개 페이지 공통 좌우 여백 기준이 누락됐습니다.");
   const globalCss = await readFile(new URL("../src/app/globals.css", import.meta.url), "utf8");
   for (const marker of ["[data-site-header]", "position:sticky!important", "top:0!important", "height:var(--nav-height)!important", ".siteHeader{", ".siteHeaderBrand", ".siteHeaderAction"]) assert(globalCss.includes(marker), `공통 상단 메뉴 고정 스타일 누락: ${marker}`);
+  assert(layoutCss[0].includes(".aboutHero{text-align:left}"), "AutoSites 소개 첫 화면이 다른 페이지와 같은 왼쪽 정렬이 아닙니다.");
 
   const runtimeOutput = output.join("");
   assert(!/(TypeError|ReferenceError|Unhandled|Internal Server Error)/i.test(runtimeOutput), "서버 실행 중 오류가 발견됐습니다.");
