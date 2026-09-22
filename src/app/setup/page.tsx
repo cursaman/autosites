@@ -75,6 +75,7 @@ export default function SetupPage() {
 
         <section id="steps" className={styles.steps} aria-labelledby="steps-title">
           <div className={styles.sectionHeading}><p className={styles.eyebrow}>STEP BY STEP</p><h2 id="steps-title">위에서부터 하나씩 준비하세요.</h2><p>모든 것을 한 번에 외울 필요는 없습니다. 계정과 연결 상태를 확인하며 순서대로 진행하면 됩니다.</p></div>
+          <aside className={styles.browserRule}><div><strong>{setup.browserRule.title}</strong><p>{setup.browserRule.description}</p></div><ul>{setup.browserRule.checks.map((item) => <li key={item}>✓ {item}</li>)}</ul></aside>
           <div className={styles.stepGrid}>
             {setup.steps.map((step) => (
               <article className={styles.stepCard} key={step.number}>
