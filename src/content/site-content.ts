@@ -460,6 +460,21 @@ export const courseContent = {
     ],
   },
   audience: ["코딩을 처음 접하는 분", "직접 홈페이지를 만들고 싶은 분", "소상공인과 1인 사업자", "제작 이후 수정과 배포까지 배우고 싶은 분"],
+  decisionGuide: {
+    eyebrow: "CHOOSE YOUR START",
+    title: "하루 체험과 4주 과정,\n지금 내게 맞는 시작을 고르세요.",
+    description: "처음부터 4주가 부담스럽다면 하루 2시간 체험으로 제작 방식을 먼저 확인하세요. 내 주제의 홈페이지를 완성하고 이후에도 직접 운영하고 싶다면 4주 과정이 맞습니다.",
+    columns: ["비교 항목", "하루 2시간 체험", "4주 실전 과정"],
+    rows: [
+      { label: "수업 시간", experience: "하루 1회 · 2시간", course: "주 1회 2시간 · 총 4주" },
+      { label: "핵심 목표", experience: "AI와 만드는 방식을 가볍게 경험", course: "내 주제의 홈페이지를 직접 완성·운영" },
+      { label: "결과물", experience: "한 페이지 또는 AI 사진 앨범의 공개 URL", course: "반응형 홈페이지·GitHub 저장소·운영 URL" },
+      { label: "참가비", experience: "확정 회차별 당근 채팅 안내", course: "4주 전체 80,000원" },
+      { label: "추천 대상", experience: "수업 방식이 나와 맞는지 먼저 확인할 분", course: "기획·수정·배포를 차근차근 익힐 분" },
+    ],
+    experienceAction: { label: "하루 체험 자세히 보기", href: "/experience" },
+    courseAction: { label: "4주 커리큘럼 보기", href: "#curriculum" },
+  },
   apiWorkshop: {
     eyebrow: "SEPARATE WORKSHOP PLAN",
     title: "AI API 연결을 위한 별도 2시간 실습 계획표",
@@ -531,5 +546,19 @@ export const courseContent = {
     inquiryItems: ["이름 또는 당근 닉네임", "참여 가능한 수업 날짜", "개인 노트북 보유 여부", "만들고 싶은 홈페이지 주제"],
     privacy: "이 페이지에서는 이름·전화번호·이메일을 수집하거나 공개하지 않습니다. 교육 운영에 필요한 연락은 당근 채팅으로 진행합니다.",
     action: { label: "당근에서 남은 자리 문의하기", href: recruitmentUrl },
+  },
+  applicationFlow: {
+    eyebrow: "HOW TO JOIN",
+    title: "문의부터 수업 참여까지\n이 순서로 진행합니다.",
+    description: "홈페이지에서 개인정보를 입력할 필요가 없습니다. 당근 채팅으로 일정과 자리를 확인한 뒤 준비 안내에 따라 시작합니다.",
+    steps: [
+      { number: "01", title: "당근에서 문의", description: "체험 또는 4주 과정 중 관심 있는 수업과 참여 가능한 날짜를 알려주세요." },
+      { number: "02", title: "일정·자리 확인", description: "확정된 수업 일정, 참가비와 남은 자리를 채팅으로 안내받습니다." },
+      { number: "03", title: "참여 확정", description: "안내 내용을 확인한 뒤 참여 의사를 전하면 자리가 확정됩니다." },
+      { number: "04", title: "필수 준비 확인", description: "수업 전 준비 안내에서 계정과 노트북 환경을 미리 점검합니다." },
+      { number: "05", title: "수업 참여", description: "개인 노트북과 충전기를 가지고 와서 자신의 결과물을 직접 만듭니다." },
+    ],
+    setupAction: { label: "필수 준비 안내 보기", href: "/setup" },
+    inquiryAction: { label: "당근에서 일정과 자리 문의하기", href: recruitmentUrl },
   },
 } as const;

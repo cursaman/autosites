@@ -65,6 +65,7 @@ try {
   for (const copy of ["AI와 함께 2시간 만에", "하루 2시간 체험 진행표", "2시간 뒤,", "인터넷 주소로 공개", "체험 일정 물어보기", "AI 애니메이션 앨범", "지브리풍 이미지로 변환", "정사각형·세로형·가로형", "앨범 주소 공개", "ChatGPT에는 이렇게", "HTML + CSS + JavaScript", "백엔드는 사용하지 않아", "Codex에는 이렇게", "작업공간의 절대 경로", "Sites 스킬은 사용하지 마", "GitHub main 브랜치에 올려줘"]) {
     assert(experienceHtml.includes(copy), `2시간 체험 페이지 누락: ${copy}`);
   }
+  assert(experienceHtml.includes("/course#course-comparison"), "1일 체험의 과정 비교 링크 누락");
   console.log("✓ 하루 2시간 체험 페이지와 별도 메뉴");
 
   const resourcesHtml = await (await fetchRequired("/resources", "text/html")).text();
@@ -82,8 +83,11 @@ try {
   }
   console.log("✓ 4주 교육과정 페이지와 1기 진행 정보");
 
-  for (const id of ["progress", "records", "curriculum", "next-cohort", "information", "recruitment"]) {
+  for (const id of ["progress", "records", "course-comparison", "curriculum", "next-cohort", "information", "application-flow", "recruitment"]) {
     assert(courseHtml.includes(`id="${id}"`), `교육과정 이동 대상 누락: #${id}`);
+  }
+  for (const copy of ["하루 2시간 체험", "4주 전체 80,000원", "문의부터 수업 참여까지", "필수 준비 안내 보기"]) {
+    assert(courseHtml.includes(copy), `과정 선택·신청 안내 누락: ${copy}`);
   }
   for (const href of ["map.kakao.com/link/search", "www.daangn.com/kr/group/"]) {
     assert(courseHtml.includes(href), `교육과정 외부 링크 누락: ${href}`);

@@ -102,8 +102,11 @@ try {
   for (const copy of ["4주 뒤, 직접 만든", "당근에서 남은 자리 문의하기", "지금 할 일", "4주 과정 문의", "4주 뒤 내 손에 남는 것", "실제로 열리는 운영 URL", "채팅 요청부터 실제 배포까지", "AutoSites 운영자", "1기 4주 과정을 수료했습니다.", "100%", "MOVIEBOX", "수강생 작품 보기", "2기는 10월 10일 토요일에 시작합니다.", "2026. 10. 10–10. 31", "2기 남은 자리 문의하기", "2시간 수업표", "80,000원"]) {
     assert(courseHtml.includes(copy), `교육과정 필수 문구 누락: ${copy}`);
   }
-  for (const id of ["progress", "records", "curriculum", "next-cohort", "information", "recruitment"]) {
+  for (const id of ["progress", "records", "course-comparison", "curriculum", "next-cohort", "information", "application-flow", "recruitment"]) {
     assert(courseHtml.includes(`id="${id}"`), `교육과정 섹션 ID 누락: #${id}`);
+  }
+  for (const copy of ["하루 2시간 체험", "4주 전체 80,000원", "문의부터 수업 참여까지", "필수 준비 안내 보기"]) {
+    assert(courseHtml.includes(copy), `과정 선택·신청 안내 누락: ${copy}`);
   }
   assert(courseHtml.includes("바이브코딩 흐름 안내"), "바이브코딩 이미지 대체 텍스트가 없습니다.");
   assert(courseHtml.includes("map.kakao.com/link/search"), "카카오맵 링크가 없습니다.");
@@ -127,6 +130,7 @@ try {
     assert(experienceHtml.includes(copy), `2시간 체험 페이지 필수 문구 누락: ${copy}`);
   }
   for (const id of ["result", "schedule", "album", "prompts", "codex-prompts", "preparation"]) assert(experienceHtml.includes(`id="${id}"`), `2시간 체험 섹션 ID 누락: #${id}`);
+  assert(experienceHtml.includes("/course#course-comparison"), "1일 체험의 과정 비교 링크 누락");
 
   const resourcesHtml = await (await fetchRequired("/resources", "text/html")).text();
   for (const copy of ["막막한 API 연결,", "이 순서대로 시작하면 됩니다.", "무료 실습자료", "추천 대상", "난이도", "API 키는 소스나 GitHub에 올리지 마세요."]) {
