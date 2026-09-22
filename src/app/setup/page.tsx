@@ -94,7 +94,7 @@ export default function SetupPage() {
             <div className={styles.stepHeader}><span>{setup.optional.number}</span><small>{setup.optionalLabel}</small></div>
             <h2 id="supabase-title">{setup.optional.title}</h2><p>{setup.optional.description}</p>
             <p className={styles.warning}>⚠ {setup.optional.warning}</p>
-            <div className={styles.optionalActions}><a href={setup.optional.signupAction.href} target="_blank" rel="noreferrer">{setup.optional.signupAction.label} ↗</a><a href={setup.optional.action.href} target="_blank" rel="noreferrer">{setup.optional.action.label} ↗</a></div>
+            <div className={styles.optionalActions}><a href={setup.optional.action.href} target="_blank" rel="noreferrer">{setup.optional.action.label} ↗</a></div>
           </div>
           <div><ul>{setup.optional.checklist.map((item) => <li key={item}>{item}</li>)}</ul><pre><code>{setup.optional.env.join("\n")}</code></pre></div>
         </section>

@@ -156,7 +156,7 @@ try {
   }
 
   const setupHtml = await (await fetchRequired("/setup", "text/html")).text();
-  for (const copy of ["처음 한 번만,", "Google 계정 만들기 · Chrome 통일", "계정과 브라우저를 섞지 마세요.", "Windows 기본 브라우저를 Chrome으로 설정", "Edge에서 다른 계정으로 인증하지 않기", "ChatGPT 가입", "Git 설치", "GitHub 가입", "Vercel 가입", "Supabase 가입 · 프로젝트 만들기", "Sign in with GitHub", "Database 비밀번호", "Supabase 가입·대시보드 열기"]) {
+  for (const copy of ["처음 한 번만,", "Google 계정 만들기 · Chrome 통일", "계정과 브라우저를 섞지 마세요.", "Windows 기본 브라우저를 Chrome으로 설정", "Edge에서 다른 계정으로 인증하지 않기", "ChatGPT 가입", "Git 설치", "GitHub 가입", "Vercel 가입", "Supabase 가입 · 계정 확인", "프로젝트나 데이터베이스를 만들지 않고", "Sign in with GitHub", "Supabase 가입·대시보드 열기", "Supabase 프로젝트 연결 — 필요할 때만", "Database 비밀번호"]) {
     assert(setupHtml.includes(copy), `작업환경 안내 필수 문구 누락: ${copy}`);
   }
   for (const id of ["roles", "steps", "supabase"]) assert(setupHtml.includes(`id="${id}"`), `작업환경 안내 섹션 ID 누락: #${id}`);
