@@ -170,7 +170,18 @@ export const siteContent = {
         { name: "Playground", purpose: "이미지 생성·편집", description: "프롬프트로 이미지를 만들고 여러 시안을 캔버스에서 편집합니다.", href: "https://playground.com/", tag: "시안 제작" },
         { name: "Clipdrop", purpose: "사진 보정·배경 제거", description: "이미지의 배경 제거, 조명 변경과 확대 같은 빠른 편집에 활용합니다.", href: "https://clipdrop.co/", tag: "빠른 편집" },
       ] },
-      { id: "building", number: "04", title: "코딩 · 웹 제작", description: "기획을 실제 화면과 소스 파일로 만들고 오류를 검사할 때 사용하는 제작 도구입니다.", tools: [
+      { id: "video", number: "04", title: "동영상 · 아바타", description: "문장이나 사진을 영상으로 바꾸고, 말하는 아바타와 짧은 홍보 영상을 만들 때 사용합니다.", tools: [
+        { name: "Runway", purpose: "영상 생성·편집", description: "문장과 이미지로 영상 장면을 만들고 생성형 영상 편집을 진행합니다.", href: "https://runwayml.com/", tag: "영상 제작" },
+        { name: "Pika", purpose: "짧은 영상·효과", description: "사진이나 프롬프트를 짧은 영상으로 바꾸고 재미있는 효과를 적용합니다.", href: "https://pika.art/", tag: "숏폼 영상" },
+        { name: "Kling AI", purpose: "텍스트·이미지 영상", description: "장면 설명이나 시작 이미지를 바탕으로 움직이는 영상을 생성합니다.", href: "https://klingai.com/", tag: "장면 생성" },
+        { name: "Luma Dream Machine", purpose: "시네마틱 영상", description: "텍스트와 이미지에서 자연스러운 움직임의 영상 시안을 만듭니다.", href: "https://dream-machine.lumalabs.ai/", tag: "영상 시안" },
+        { name: "HeyGen", purpose: "말하는 아바타", description: "사진이나 아바타에 대본과 목소리를 넣어 설명 영상을 제작합니다.", href: "https://www.heygen.com/", tag: "아바타 영상" },
+        { name: "Synthesia", purpose: "교육·안내 영상", description: "대본과 AI 아바타로 교육, 안내와 발표 형식의 영상을 만듭니다.", href: "https://www.synthesia.io/", tag: "프레젠터" },
+        { name: "CapCut", purpose: "AI 영상 편집", description: "영상 자르기, 자막, 음성, 효과와 AI 생성 기능을 한곳에서 사용합니다.", href: "https://www.capcut.com/tools/ai-video", tag: "초보자 편집" },
+        { name: "Canva Video", purpose: "템플릿 영상", description: "템플릿에 사진, 문구, 음악을 넣고 AI 기능으로 짧은 영상을 편집합니다.", href: "https://www.canva.com/video-editor/ai/", tag: "디자인 연계" },
+        { name: "Adobe Firefly Video", purpose: "생성형 영상", description: "문장이나 이미지를 영상 클립으로 만들고 Adobe 편집 흐름과 연결합니다.", href: "https://firefly.adobe.com/", tag: "Adobe 연계" },
+      ] },
+      { id: "building", number: "05", title: "코딩 · 웹 제작", description: "기획을 실제 화면과 소스 파일로 만들고 오류를 검사할 때 사용하는 제작 도구입니다.", tools: [
         { name: "Codex", purpose: "프로젝트 직접 수정", description: "작업공간의 소스를 읽고 수정한 뒤 검사와 Git 작업까지 수행합니다.", href: "https://openai.com/codex/", tag: "AutoSites 핵심" },
         { name: "GitHub Copilot", purpose: "코드 작성 보조", description: "에디터와 GitHub 작업 흐름에서 코드 제안과 개발 도움을 받습니다.", href: "https://github.com/features/copilot", tag: "개발 보조" },
         { name: "v0", purpose: "웹 화면 초안", description: "말로 원하는 인터페이스를 설명하고 웹 화면의 초안을 빠르게 만듭니다.", href: "https://v0.dev/", tag: "화면 설계" },
@@ -181,7 +192,7 @@ export const siteContent = {
         { name: "Lovable", purpose: "웹 서비스 초안", description: "자연어 요청으로 웹 화면과 기능이 포함된 서비스 초안을 만듭니다.", href: "https://lovable.dev/", tag: "서비스 제작" },
         { name: "Windsurf", purpose: "AI 코드 에디터", description: "프로젝트 문맥을 읽는 코드 편집기에서 개발 작업을 이어갑니다.", href: "https://windsurf.com/", tag: "에디터 중심" },
       ] },
-      { id: "publishing", number: "05", title: "저장 · 배포 · 데이터", description: "AI 도구는 아니지만 만든 홈페이지를 보관하고 실제 주소로 공개하는 데 필요한 연결 도구입니다.", tools: [
+      { id: "publishing", number: "06", title: "저장 · 배포 · 데이터", description: "AI 도구는 아니지만 만든 홈페이지를 보관하고 실제 주소로 공개하는 데 필요한 연결 도구입니다.", tools: [
         { name: "GitHub", purpose: "소스 저장·기록", description: "홈페이지 파일과 변경 이력을 저장하고 다른 서비스와 연결합니다.", href: "https://github.com/", tag: "필수 준비" },
         { name: "Vercel", purpose: "홈페이지 배포", description: "GitHub 저장소를 연결해 누구나 접속할 수 있는 인터넷 주소로 공개합니다.", href: "https://vercel.com/", tag: "필수 준비" },
         { name: "Supabase", purpose: "로그인·데이터 저장", description: "회원, 게시글, 신청 정보처럼 홈페이지에 저장 기능이 필요할 때 연결합니다.", href: "https://supabase.com/", tag: "필요할 때" },

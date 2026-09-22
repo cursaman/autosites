@@ -21,7 +21,7 @@ export default function AiLinksPage() {
     <main id="links-main" tabIndex={-1}>
       <section className={`${styles.hero} ${styles.container}`} aria-labelledby="links-title">
         <p className={styles.eyebrow}>AI LINK HUB</p><h1 id="links-title">무엇을 할지 고르면,<br /><em>쓸 도구가 보입니다.</em></h1>
-        <p>AI 이름을 모두 외울 필요는 없습니다. 5가지 용도별로 9개씩, 총 45개 도구 중 지금 필요한 것만 새 창으로 열어 사용하세요.</p>
+        <p>AI 이름을 모두 외울 필요는 없습니다. 6가지 용도별로 9개씩, 총 54개 도구 중 지금 필요한 것만 새 창으로 열어 사용하세요.</p>
         <nav className={styles.categoryNav} aria-label="용도별 바로가기">{categories.map((category) => <a key={category.id} href={`#${category.id}`}><span>{category.number}</span>{category.title}</a>)}</nav>
       </section>
 

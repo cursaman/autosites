@@ -170,9 +170,9 @@ try {
   for (const id of ["quick-guide", "comparison", "gpt-roles", "workflow"]) assert(aiGuideHtml.includes(`id="${id}"`), `AI 도구 비교 섹션 ID 누락: #${id}`);
   for (const href of ["learn.chatgpt.com/docs/use-chatgpt", "docs.anthropic.com/en/docs/welcome", "support.google.com/gemini/answer/15229592"]) assert(aiGuideHtml.includes(href), `AI 도구 공식 출처 링크 누락: ${href}`);
   const aiLinksHtml = await (await fetchRequired("/ai-links", "text/html")).text();
-  for (const copy of ["무엇을 할지 고르면", "총 45개", "대화 · 기획", "조사 · 학습", "이미지 · 디자인", "코딩 · 웹 제작", "저장 · 배포 · 데이터", "처음이라면 이 세 개만", "가입하기 전에", "ChatGPT", "Le Chat", "NotebookLM", "WolframAlpha", "Canva AI", "Microsoft Designer", "Codex", "Bolt", "GitHub + Vercel", "Railway"]) assert(aiLinksHtml.includes(copy), `AI 링크 허브 필수 문구 누락: ${copy}`);
-  assert((aiLinksHtml.match(/공식 사이트 새 창으로 열기/g) ?? []).length >= 45, "AI 링크 허브에 공식 링크 45개가 구성되지 않았습니다.");
-  for (const id of ["conversation", "research", "visual", "building", "publishing"]) assert(aiLinksHtml.includes(`id="${id}"`), `AI 링크 허브 분류 ID 누락: #${id}`);
+  for (const copy of ["무엇을 할지 고르면", "총 54개", "대화 · 기획", "조사 · 학습", "이미지 · 디자인", "동영상 · 아바타", "코딩 · 웹 제작", "저장 · 배포 · 데이터", "처음이라면 이 세 개만", "가입하기 전에", "ChatGPT", "NotebookLM", "Canva AI", "Runway", "HeyGen", "Synthesia", "CapCut", "Codex", "GitHub + Vercel"]) assert(aiLinksHtml.includes(copy), `AI 링크 허브 필수 문구 누락: ${copy}`);
+  assert((aiLinksHtml.match(/공식 사이트 새 창으로 열기/g) ?? []).length >= 54, "AI 링크 허브에 공식 링크 54개가 구성되지 않았습니다.");
+  for (const id of ["conversation", "research", "visual", "video", "building", "publishing"]) assert(aiLinksHtml.includes(`id="${id}"`), `AI 링크 허브 분류 ID 누락: #${id}`);
   for (const href of ["https://chatgpt.com/", "https://claude.ai/", "https://gemini.google.com/", "https://notebooklm.google.com/", "https://www.canva.com/canva-ai/", "https://openai.com/codex/", "https://github.com/", "https://vercel.com/", "https://supabase.com/"]) assert(aiLinksHtml.includes(href), `AI 링크 허브 공식 링크 누락: ${href}`);
   for (const [page, pageHtml] of [["메인", html], ["AutoSites 소개", aboutHtml], ["교육과정", courseHtml], ["2시간 체험", experienceHtml], ["작업환경", setupHtml], ["무료 자료실", resourcesHtml], ["AI 도구 비교", aiGuideHtml], ["AI 링크 허브", aiLinksHtml]]) {
     assert(pageHtml.includes("전체 메뉴"), `${page} 상단에 공통 드롭다운 메뉴가 없습니다.`);
