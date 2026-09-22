@@ -5,6 +5,7 @@ export const siteContent = {
   navigation: [
     { label: "1일 체험", href: "/experience" },
     { label: "준비작업", href: "/setup" },
+    { label: "AI 도구 비교", href: "/ai-guide" },
     { label: "AutoSites 소개", href: "/about" },
     { label: "4주 교육과정", href: "/course" },
     { label: "무료 자료", href: "/resources" },
@@ -106,6 +107,32 @@ export const siteContent = {
     },
     preparation: ["개인 노트북", "노트북 충전기", "사용 가능한 이메일 계정", "소개하고 싶은 주제 한 가지"],
     note: "체험 일정과 참가비는 확정된 회차만 당근 채팅으로 안내합니다.",
+  },
+  aiGuide: {
+    tools: [
+      { name: "ChatGPT", label: "기획부터 제작까지 한 흐름", role: "질문은 Chat, 결과물은 Work, 실제 소스 작업은 Codex로 역할을 나눌 수 있습니다.", bestFor: ["아이디어와 질문", "계획표·문서 결과물", "홈페이지 소스 수정"] },
+      { name: "Claude", label: "글·문서·분석 중심 대화", role: "텍스트, 코드, 이미지 내용을 이해하고 긴 글을 정리하거나 문장을 다듬는 작업에 활용할 수 있습니다.", bestFor: ["긴 문서 읽기", "글의 구조와 표현 다듬기", "코드 설명과 검토"] },
+      { name: "Gemini", label: "Google 자료와 함께 쓰기", role: "Gmail, Drive, Docs, Calendar 같은 Google Workspace 자료를 연결해 찾고 정리하는 흐름에 잘 맞습니다.", bestFor: ["Google 자료 찾기", "Docs·파일 만들기", "일정·메일과 함께 정리"] },
+    ],
+    comparisons: [
+      { task: "아이디어 질문", chatgpt: "Chat으로 대화", claude: "대화·분석", gemini: "대화·파일 활용" },
+      { task: "기획서·계획표", chatgpt: "Work로 결과물 제작", claude: "문서 작성·다듬기", gemini: "Docs·파일로 만들기" },
+      { task: "긴 문서 분석", chatgpt: "Chat 또는 Work", claude: "문서 읽기·구조화", gemini: "Drive 자료와 함께 분석" },
+      { task: "Gmail·Drive·Calendar", chatgpt: "연결 기능에 따라 사용", claude: "연결 환경에 따라 사용", gemini: "Google Workspace 연결" },
+      { task: "홈페이지 소스 수정", chatgpt: "Codex가 파일을 직접 수정", claude: "코드 대화·개발 도구", gemini: "코드 설명·개발 도구" },
+      { task: "검사·GitHub·배포", chatgpt: "Codex 작업 흐름", claude: "별도 개발 환경 필요", gemini: "별도 개발 환경 필요" },
+    ],
+    gptRoles: [
+      { name: "Chat", question: "무엇을 만들까요?", role: "질문, 아이디어 확장, 비교, 초안 작성" },
+      { name: "Work", question: "보여줄 결과물로 만들까요?", role: "계획표, 문서, 슬라이드, 스프레드시트처럼 검토 가능한 결과물 제작" },
+      { name: "Codex", question: "프로젝트 파일을 바꿀까요?", role: "작업공간의 코드를 읽고 수정한 뒤 검사, Git 기록과 배포 흐름까지 수행" },
+    ],
+    workflow: [
+      { number: "01", title: "아이디어를 나눕니다", description: "ChatGPT, Claude, Gemini 중 익숙한 도구로 목적과 방문자를 정리합니다." },
+      { number: "02", title: "기획과 문구를 다듬습니다", description: "Work, Claude 또는 Gemini에서 계획표와 화면 문구를 검토 가능한 형태로 만듭니다." },
+      { number: "03", title: "Codex가 소스를 수정합니다", description: "확정한 기획을 Codex에 전달해 실제 프로젝트 파일을 만들고 모바일 화면과 오류를 검사합니다." },
+      { number: "04", title: "GitHub와 Vercel로 공개합니다", description: "검사를 통과한 파일만 GitHub에 기록하고 실제 인터넷 주소로 배포합니다." },
+    ],
   },
   workflow: {
     eyebrow: "HOW IT WORKS",
